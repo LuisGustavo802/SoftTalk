@@ -1,0 +1,30 @@
+CREATE TABLE setor (
+  idsetor INT NOT NULL,
+  nome VARCHAR(50) NOT NULL,
+  flagativo CHAR(1) NOT NULL,
+  PRIMARY KEY (idsetor));
+
+
+CREATE TABLE pessoa (
+  idpessoa SERIAL NOT NULL,
+  idsetor INT NOT NULL,
+  nome VARCHAR(200) NOT NULL,
+  flagativo CHAR(1) NOT NULL,
+  PRIMARY KEY (idpessoa)),
+  CONSTRAINT fk_pessoa_setor
+    FOREIGN KEY (idsetor)
+    REFERENCES setor (idsetor));
+
+
+CREATE TABLE usuario (
+  idusuario SERIAL NOT NULL,
+  idpessoa INT NOT NULL,
+  login VARCHAR(45) NULL,
+  senha VARCHAR(45) NULL,
+  flagativo CHAR(1) NULL,
+  PRIMARY KEY (idusuario),
+  CONSTRAINT fk_usuario_pessoa1
+    FOREIGN KEY (idpessoa)
+    REFERENCES pessoa (idpessoa)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
