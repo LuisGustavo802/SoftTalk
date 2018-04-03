@@ -9,9 +9,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button id="btn_entrar" layoutX="253.0" layoutY="274.0" mnemonicParsing="false" prefWidth="160.0" text="Entrar" />
-      <PasswordField id="senha" layoutX="236.0" layoutY="195.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #E6E6E6;" />
-      <TextField id="idusuario" layoutX="236.0" layoutY="164.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #E6E6E6;" />
+      <Button id="btnEntrar" fx:id="btnEntrar" layoutX="253.0" layoutY="274.0" mnemonicParsing="false" prefWidth="160.0" text="Entrar" />
+      <PasswordField id="senha" fx:id="senha" layoutX="236.0" layoutY="195.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #E6E6E6;" />
+      <TextField id="idusuario" fx:id="idusuario" layoutX="236.0" layoutY="164.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #E6E6E6;" />
       <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="214.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../Imagens/user.png" />
