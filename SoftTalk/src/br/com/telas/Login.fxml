@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button id="btn_entrar" layoutX="253.0" layoutY="274.0" mnemonicParsing="false" prefWidth="160.0" text="Entrar" />
+      <PasswordField id="senha" layoutX="236.0" layoutY="195.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #E6E6E6;" />
+      <TextField id="idusuario" layoutX="236.0" layoutY="164.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #E6E6E6;" />
+      <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="214.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../../Desktop/user.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="214.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../../Desktop/key.png" />
+         </image>
+      </ImageView>
+      <Hyperlink id="link_esqueceuSenha" layoutX="236.0" layoutY="234.0" text="Esqueceu sua senha" />
+      <Hyperlink id="link_cadastrar" layoutX="370.0" layoutY="234.0" text="Cadastrar" />
+   </children>
+</AnchorPane>

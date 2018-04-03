@@ -46,6 +46,8 @@ public class SoftTalk extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+        
+      
     }
     
 }
