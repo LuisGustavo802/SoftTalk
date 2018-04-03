@@ -14,12 +14,12 @@
       <TextField id="idusuario" layoutX="236.0" layoutY="164.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #E6E6E6;" />
       <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="214.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../Desktop/user.png" />
+            <Image url="@../../../../../Imagens/user.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="214.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../Desktop/key.png" />
+            <Image url="@../../../../../Imagens/key.png" />
          </image>
       </ImageView>
       <Hyperlink id="link_esqueceuSenha" layoutX="236.0" layoutY="234.0" text="Esqueceu sua senha" />
