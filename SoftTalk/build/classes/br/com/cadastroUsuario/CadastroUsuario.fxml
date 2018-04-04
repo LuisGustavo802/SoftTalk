@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="br.com.cadastroUsuario.CadastroUsuarioController">
+   <children>
+      <Label layoutX="126.0" layoutY="75.0" text="Nome Completo:" />
+      <Label layoutX="171.0" layoutY="126.0" text="E-mail:" />
+      <Label layoutX="171.0" layoutY="170.0" text="Senha:" />
+      <Button layoutX="338.0" layoutY="241.0" mnemonicParsing="false" text="Gravar" />
+      <PasswordField layoutX="240.0" layoutY="166.0" />
+      <TextField layoutX="240.0" layoutY="71.0" />
+      <TextField layoutX="240.0" layoutY="122.0" />
+      <Button layoutX="225.0" layoutY="241.0" mnemonicParsing="false" text="Voltar" />
+   </children>
+</AnchorPane>
