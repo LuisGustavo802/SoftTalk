@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< HEAD
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="br.com.login.LoginController">
+   <children>
+      <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="210.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../Desktop/key.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="209.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../Desktop/user.png" />
+         </image>
+      </ImageView>
+      <TextField layoutX="206.0" layoutY="137.0" prefWidth="160.0" style="-fx-background-color: #E6E6E6;" />
+      <PasswordField layoutX="206.0" layoutY="169.0" prefHeight="25.0" prefWidth="160.0" style="-fx-background-color: #E6E6E6;" text="sadsadsad" />
+      <Button layoutX="206.0" layoutY="202.0" mnemonicParsing="false" prefWidth="160.0" text="Entrar" />
+=======
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.*?>
@@ -45,5 +70,6 @@
             <Image url="@../Imagens/logologin.png" />
          </image>
       </ImageView>
+>>>>>>> upstream/master
    </children>
 </AnchorPane>

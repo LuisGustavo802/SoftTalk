@@ -19,10 +19,8 @@ public class DAOUsuario {
     }
 
     public int inserirUsuario(Usuario usuario) throws SQLException {
-        String sql = "INSERT INTO usuario (IDUSUARIO, IDPESSOA, LOGIN, SENHA, FLAGATIVO) "
+        String sql = "INSERT INTO usuario (LOGIN, SENHA, FLAGATIVO) "
                 + "VALUES ('"
-                + usuario.getIdpessoa() + "', '"
-                + usuario.getIdusuario() + "',"
                 + usuario.getLogin() + ", "
                 + usuario.getSenha() + ", "
                 + usuario.getFlagativo() + ")";
@@ -43,8 +41,6 @@ public class DAOUsuario {
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next()) {
             usuario = new Usuario();
-            usuario.setIdpessoa(rs.getInt("IdPessoa"));
-            usuario.setIdusuario(rs.getInt("IdUsuario"));
             usuario.setLogin(rs.getString("Login"));
             usuario.setSenha(rs.getString("Senha"));
             usuario.setFlagativo(rs.getString("FlagAtivo"));

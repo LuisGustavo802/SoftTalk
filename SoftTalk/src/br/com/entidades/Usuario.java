@@ -2,24 +2,18 @@
 package br.com.entidades;
 
 public class Usuario {
-    Integer idusuario,idpessoa;
-    String login,senha,flagativo;
+    Integer idusuario, idpessoa;
+    String login, senha, flagativo;
 
     public Integer getIdusuario() {
         return idusuario;
     }
 
-    public void setIdusuario(Integer idusuario) {
-        this.idusuario = idusuario;
-    }
 
     public Integer getIdpessoa() {
         return idpessoa;
     }
 
-    public void setIdpessoa(Integer idpessoa) {
-        this.idpessoa = idpessoa;
-    }
 
     public String getLogin() {
         return login;

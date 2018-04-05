@@ -5,14 +5,19 @@
  */
 package br.com.login;
 
+import br.com.cadastroUsuario.CadastroUsuario;
+import java.awt.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 
 /**
  *
  * @author luis_
  */
 public class LoginController {
+    
+    @FXML
+    private void entrarCadastro(ActionEvent event){
+        new CadastroUsuario().cadastroUsuario();
+    }
 
 }
