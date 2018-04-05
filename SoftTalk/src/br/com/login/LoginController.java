@@ -5,6 +5,7 @@
  */
 package br.com.login;
 
+<<<<<<< HEAD
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
@@ -24,4 +25,16 @@ public class LoginController implements Initializable {
         // TODO
     }    
     
+=======
+import javafx.fxml.FXML;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+
+/**
+ *
+ * @author luis_
+ */
+public class LoginController {
+
+>>>>>>> upstream/master
 }
