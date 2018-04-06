@@ -26,8 +26,8 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <PasswordField id="senha" fx:id="senha" layoutX="237.0" layoutY="195.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #E6E6E6;" />
-      <TextField id="idusuario" fx:id="usuario" layoutX="237.0" layoutY="164.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #E6E6E6;" />
+      <PasswordField id="senha" fx:id="senha" layoutX="237.0" layoutY="195.0" onKeyPressed="#LoginKey" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #E6E6E6;" />
+      <TextField id="idusuario" fx:id="usuario" layoutX="237.0" layoutY="164.0" onAction="#LoginKey" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #E6E6E6;" />
       <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="214.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagens/user.png" />

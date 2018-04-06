@@ -6,19 +6,16 @@
 package br.com.login;
 
 import br.com.conexao.Conexao;
-import com.sun.javafx.scene.control.behavior.PasswordFieldBehavior;
+import javafx.scene.input.KeyEvent;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import org.omg.CORBA.portable.ApplicationException;
 
 /**
  *
@@ -34,7 +31,7 @@ public class LoginController {
     private Connection conexao;
 
     @FXML
-    protected void LoginAction(ActionEvent event) {
+    protected void LoginAction(KeyEvent event) {
 
         try {
             conexao = new Conexao().getConnection();

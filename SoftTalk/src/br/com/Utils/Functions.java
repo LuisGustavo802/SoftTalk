@@ -16,4 +16,7 @@ public class Functions {
         
     }
     
+    public void abrirTela(String arquivoFXML, Class classe ){
+        
+    }    
 }
