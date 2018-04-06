@@ -5,6 +5,7 @@
  */
 package br.com.login;
 
+import br.com.Utils.Functions;
 import br.com.conexao.Conexao;
 import javafx.scene.input.KeyEvent;
 import java.sql.Connection;
@@ -13,6 +14,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -31,8 +33,8 @@ public class LoginController {
     private Connection conexao;
 
     @FXML
-    protected void LoginAction(KeyEvent event) {
-
+    protected void LoginAction(ActionEvent event) {
+        
         try {
             conexao = new Conexao().getConnection();
             validaLogin();
@@ -47,6 +49,7 @@ public class LoginController {
         String where;
         Statement st;
         ResultSet rs;
+        Functions functions = new Functions();
 
         try {
             where = "idusuario = " + Integer.parseInt(usuario.getText());
@@ -60,7 +63,7 @@ public class LoginController {
 
         if (rs.next()) {
             if (rs.getString("flagativo").equals("T")) {
-                if (rs.getString("senha").equals(senha.getText())) {
+                if (rs.getString("senha").equals(functions.encript(senha.getText()))) {
                     System.out.println("tela principal");
                 } else {
                     // usuario ou senha incorretos
