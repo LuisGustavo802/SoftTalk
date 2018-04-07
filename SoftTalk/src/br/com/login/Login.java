@@ -5,14 +5,13 @@
  */
 package br.com.login;
 
+import br.com.softtalk.SoftTalk;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+import javafx.scene.Parent;
 
 /**
  *
@@ -22,19 +21,16 @@ public class Login {
 
     public void login() {
         try {
-            Stage login = new Stage(StageStyle.TRANSPARENT);
-            FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("Login.fxml"));
-            AnchorPane page;
+            
+            Parent fxmlLoader = FXMLLoader.load(Login.class.getResource("Login.fxml"));
 
-            page = (AnchorPane) fxmlLoader.load();
-
-            login.toFront();
-            login.setScene(new Scene(page));
+            SoftTalk.stage.toFront();
+            SoftTalk.stage.setScene(new Scene(fxmlLoader));
             //login.getIcons().add(new Image("/imagens/logo2.png"));            
-            login.setTitle("SoftTalk");
-            login.setFullScreen(false);
-            login.setResizable(false);
-            login.showAndWait();
+            SoftTalk.stage.setTitle("SoftTalk");
+            SoftTalk.stage.setFullScreen(false);
+            SoftTalk.stage.setResizable(false);
+            SoftTalk.stage.showAndWait();
         } catch (IOException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
