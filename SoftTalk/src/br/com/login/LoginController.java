@@ -6,18 +6,19 @@
 package br.com.login;
 
 import br.com.Utils.Functions;
-import br.com.conexao.Conexao;
-import javafx.scene.input.KeyEvent;
-import java.sql.Connection;
+import br.com.softtalk.SoftTalk;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
 /**
  *
@@ -30,22 +31,13 @@ public class LoginController {
     @FXML
     private PasswordField senha;
 
-    private Connection conexao;
 
     @FXML
-    protected void LoginAction(ActionEvent event) {
-        
-        try {
-            conexao = new Conexao().getConnection();
-            validaLogin();
-
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+    protected void LoginAction(ActionEvent event) throws SQLException, IOException {
+        validaLogin();
     }
 
-    private void validaLogin() throws SQLException {
+    private void validaLogin() throws SQLException, IOException {
         String where;
         Statement st;
         ResultSet rs;
@@ -58,13 +50,17 @@ public class LoginController {
             where = "upper(login) =  upper('" + usuario.getText() + "')";
         }
 
-        st = conexao.createStatement();
+        st = SoftTalk.conexao.createStatement();
         rs = st.executeQuery("Select idusuario, login, senha, flagativo from usuario where " + where);
 
         if (rs.next()) {
             if (rs.getString("flagativo").equals("T")) {
                 if (rs.getString("senha").equals(functions.encript(senha.getText()))) {
-                    System.out.println("tela principal");
+                    Parent fxmlLoader =  FXMLLoader.load(SoftTalk.class.getResource("SoftTalk.fxml"));
+
+                    //SoftTalk.stage.toFront();
+                    SoftTalk.stage.setScene(new Scene(fxmlLoader));
+                    SoftTalk.stage.showAndWait();
                 } else {
                     // usuario ou senha incorretos
                 }
