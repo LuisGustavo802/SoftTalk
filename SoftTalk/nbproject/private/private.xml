@@ -3,9 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/free/Documents/NetBeansProjects/SoftTalk-master/SoftTalk/src/br/com/cadastroUsuario/CadastroUsuarioController.java</file>
-            <file>file:/C:/Users/free/Documents/NetBeansProjects/SoftTalk-master/SoftTalk/src/br/com/softtalk/SoftTalkController.java</file>
-            <file>file:/C:/Users/free/Documents/NetBeansProjects/SoftTalk-master/SoftTalk/src/br/com/login/LoginController.java</file>
+            <file>file:/C:/Users/erasm/Documents/GitHub/SoftTalk/SoftTalk/src/br/com/login/Login.java</file>
+            <file>file:/C:/Users/erasm/Documents/GitHub/SoftTalk/SoftTalk/src/br/com/softtalk/Menu.fxml</file>
+            <file>file:/C:/Users/erasm/Documents/GitHub/SoftTalk/SoftTalk/src/br/com/softtalk/softtalk.css</file>
+            <file>file:/C:/Users/erasm/Documents/GitHub/SoftTalk/SoftTalk/src/br/com/softtalk/SoftTalk.fxml</file>
+            <file>file:/C:/Users/erasm/Documents/GitHub/SoftTalk/SoftTalk/src/br/com/login/LoginController.java</file>
+            <file>file:/C:/Users/erasm/Documents/GitHub/SoftTalk/SoftTalk/src/br/com/css/teste.css</file>
         </group>
     </open-files>
 </project-private>
