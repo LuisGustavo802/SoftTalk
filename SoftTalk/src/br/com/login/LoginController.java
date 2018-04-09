@@ -70,15 +70,5 @@ public class LoginController {
         }
 
     }
-    
-    //botao para acessar tela de cadastro
-    @FXML
-    private void botaoCadastro(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Login.class.getResource("CadastroUsuario.fxml"));
-        Scene scene = new Scene(root);
-        
-        SoftTalk.stage.setScene(scene);
-        SoftTalk.stage.show();
-    }  
 
 }
