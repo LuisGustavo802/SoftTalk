@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.login.LoginController">
+   <children>
+      <TextField fx:id="usuario" layoutX="276.0" layoutY="175.0" promptText="Email:" />
+      <PasswordField fx:id="senha" layoutX="276.0" layoutY="210.0" promptText="Senha:" />
+      <ImageView fitHeight="60.0" fitWidth="65.0" layoutX="321.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagens/logo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnEntrar" layoutX="373.0" layoutY="245.0" mnemonicParsing="false" onAction="#LoginAction" style="-fx-background-color: #03b8af;" text="Entrar" textFill="WHITE" />
+      <ImageView fitHeight="51.0" fitWidth="163.0" layoutX="283.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagens/logologin.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnSobreNos" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: white;" text="Sobre nós" textFill="#03b8af" />
+      <Text fill="#03b8af" layoutX="481.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Não é membro ainda?" />
+      <Button layoutX="607.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnAcessarCadastro" style="-fx-background-color: #03b8af;" text="Cadastre-se" textFill="WHITE" />
+      <Button layoutX="287.0" layoutY="296.0" mnemonicParsing="false" onAction="#btnEsqueceuSenha" style="-fx-background-color: white;" text="Esqueceu sua senha?" textFill="#03b8af" />
+      <Text fill="#03b8af" layoutX="320.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" © SoftTalk">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
