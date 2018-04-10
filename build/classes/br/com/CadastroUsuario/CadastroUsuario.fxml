@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="br.com.CadastroUsuario.CadastroUsuarioController">
+    <stylesheets>
+        <URL value="@cadastrousuario.css" />
+    </stylesheets>
+   <children>
+      <Button fx:id="Voltar" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnVoltar" style="-fx-background-color: white;">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagens/left-arrow.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="Cadastrar" layoutX="191.0" layoutY="284.0" mnemonicParsing="false" onAction="#btnCadastrar" style="-fx-background-color: #03b8af;" text="Cadastrar" textFill="WHITE" />
+      <TextField fx:id="Nome" layoutX="108.0" layoutY="111.0" onAction="#textNome" promptText="Nome:" />
+      <ComboBox fx:id="Setor" layoutX="107.0" layoutY="145.0" onAction="#boxSetor" prefWidth="150.0" promptText="Setor" style="-fx-background-color: #03b8af;" />
+      <TextField fx:id="usuario" layoutX="108.0" layoutY="181.0" promptText="Email:" />
+      <PasswordField fx:id="senha" layoutX="108.0" layoutY="214.0" onAction="#textSenha" promptText="Senha:" />
+      <PasswordField fx:id="senha1" layoutX="109.0" layoutY="248.0" onAction="#textSenhaRepete" promptText="Repetir Senha:" />
+      <Text fill="#03b8af" layoutX="119.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastramento SoftTalk" />
+      <ImageView fitHeight="60.0" fitWidth="65.0" layoutX="447.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagens/logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="51.0" fitWidth="163.0" layoutX="409.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagens/logologin.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
