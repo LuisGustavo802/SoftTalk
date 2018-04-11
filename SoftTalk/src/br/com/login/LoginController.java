@@ -11,15 +11,15 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
 /**
  *
@@ -31,6 +31,8 @@ public class LoginController {
     private TextField usuario;
     @FXML
     private PasswordField senha;
+    @FXML
+    private Button btnEntrar;
 
     @FXML
     protected void LoginAction(ActionEvent event) throws SQLException, IOException {
@@ -56,9 +58,9 @@ public class LoginController {
         if (rs.next()) {
             if (rs.getString("flagativo").equals("T")) {
                 if (rs.getString("senha").equals(functions.encript(senha.getText()))) {
-                    Parent fxmlLoader = FXMLLoader.load(SoftTalk.class.getResource("SoftTalk.fxml"));
+                    Parent fxmlLoader =  FXMLLoader.load(SoftTalk.class.getResource("Menu.fxml"));
 
-                    SoftTalk.stage.toFront();
+                    //SoftTalk.stage.toFront();
                     SoftTalk.stage.setScene(new Scene(fxmlLoader));
                     SoftTalk.stage.showAndWait();
                 } else {
@@ -70,24 +72,23 @@ public class LoginController {
         }
 
     }
+    
+    //Botao para acessar tela de cadastro
+       @FXML
+    void btnAcessarCadastro(ActionEvent event) {
 
-    //botao para acessar tela de cadastro
-    @FXML
-    private void cadastroAction(ActionEvent event) {
-        openCadastro();
     }
+    
+    //NAO MEXER AINDA
+    @FXML
+    void btnEsqueceuSenha(ActionEvent event) {
 
-    private void openCadastro() {
-        Parent root;
-        try {
-            root = FXMLLoader.load(Login.class.getResource("CadastroUsuario.fxml"));
-            Scene scene = new Scene(root);
+    }
+    
+    //NAO MEXER AINDA
+    @FXML
+    void btnSobreNos(ActionEvent event) {
 
-            SoftTalk.stage.setScene(scene);
-            SoftTalk.stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
 }

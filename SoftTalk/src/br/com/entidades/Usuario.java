@@ -1,18 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package br.com.Usuario;
 
-/**
- *
- * @author Kaliane Viesseli
- */
+package br.com.entidades;
+
 public class Usuario {
-
-    Integer idusuario, idpessoa;
-    String login, senha, flagativo;
+    Integer idusuario,idpessoa;
+    String login,senha,flagativo;
 
     public Integer getIdusuario() {
         return idusuario;
@@ -54,4 +45,5 @@ public class Usuario {
         this.flagativo = flagativo;
     }
 
+    
 }

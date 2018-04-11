@@ -2,7 +2,7 @@
 package br.com.dao;
 
 import br.com.conexao.Conexao;
-import br.com.Usuario.Usuario;
+import br.com.entidades.Usuario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

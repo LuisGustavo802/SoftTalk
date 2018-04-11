@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -15,42 +9,30 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="650.0" style="-fx-background-color: #2D3442;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.login.LoginController">
-    <stylesheets>
-        <URL value="@tela1.css" />
-    </stylesheets>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.login.LoginController">
    <children>
-      <ImageView fitHeight="46.0" fitWidth="50.0" layoutX="303.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="usuario" layoutX="276.0" layoutY="175.0" promptText="Email:" />
+      <PasswordField fx:id="senha" layoutX="276.0" layoutY="210.0" promptText="Senha:" />
+      <ImageView fitHeight="60.0" fitWidth="65.0" layoutX="321.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagens/logo.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="53.0" fitWidth="123.0" layoutX="264.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="btnEntrar" layoutX="373.0" layoutY="245.0" mnemonicParsing="false" onAction="#LoginAction" style="-fx-background-color: #03b8af;" text="Entrar" textFill="WHITE" />
+      <ImageView fitHeight="51.0" fitWidth="163.0" layoutX="283.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagens/logologin.png" />
          </image>
       </ImageView>
-      <TextField fx:id="usuario" layoutX="239.0" layoutY="176.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.3" prefHeight="25.0" prefWidth="173.0" style="-fx-background-color: #465368;" />
-      <Button layoutX="357.0" layoutY="256.0" mnemonicParsing="false" onAction="#LoginAction" opacity="0.99" prefHeight="0.0" prefWidth="60.0" style="-fx-background-color: #00aeb1;" text="Entrar" textFill="#2d3442" />
-      <ImageView fitHeight="25.0" fitWidth="53.0" layoutX="202.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Imagens/user.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="25.0" fitWidth="150.0" layoutX="202.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Imagens/unlock.png" />
-         </image>
-      </ImageView>
-      <Text fill="WHITE" layoutX="452.0" layoutY="27.0" opacity="0.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Não é membro?" />
-      <Button layoutX="550.0" layoutY="10.0" mnemonicParsing="false" onAction="#cadastroAction" opacity="0.5" prefHeight="25.0" prefWidth="86.0" style="-fx-background-color: #465368;" text="Cadastre-se" textFill="WHITE" />
-      <Button layoutX="6.0" layoutY="10.0" mnemonicParsing="false" opacity="0.5" style="-fx-background-color: #2D3442;" text="Sobre nós!" textFill="WHITE" />
-      <Text fill="WHITE" layoutX="305.0" layoutY="390.0" opacity="0.3" strokeType="OUTSIDE" strokeWidth="0.0" text=" © SoftTalk">
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnSobreNos" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: white;" text="Sobre nós" textFill="#03b8af" />
+      <Text fill="#03b8af" layoutX="481.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Não é membro ainda?" />
+      <Button layoutX="607.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnAcessarCadastro" style="-fx-background-color: #03b8af;" text="Cadastre-se" textFill="WHITE" />
+      <Button layoutX="287.0" layoutY="296.0" mnemonicParsing="false" onAction="#btnEsqueceuSenha" style="-fx-background-color: white;" text="Esqueceu sua senha?" textFill="#03b8af" />
+      <Text fill="#03b8af" layoutX="320.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" © SoftTalk">
          <font>
             <Font size="10.0" />
          </font>
       </Text>
-      <Button layoutX="266.0" layoutY="304.0" mnemonicParsing="false" opacity="0.5" style="-fx-background-color: #2D3442;" text="Esqueceu sua senha?" textFill="WHITE" />
-      <PasswordField fx:id="senha" layoutX="239.0" layoutY="216.0" opacity="0.3" prefHeight="25.0" prefWidth="173.0" style="-fx-background-color: #465368;" />
    </children>
 </AnchorPane>
