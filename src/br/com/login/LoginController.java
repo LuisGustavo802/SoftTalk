@@ -5,12 +5,15 @@
  */
 package br.com.login;
 
+import br.com.usuario.Usuario;
 import br.com.Utils.Functions;
 import br.com.softtalk.SoftTalk;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +22,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 
 /**
  *
@@ -35,8 +37,27 @@ public class LoginController {
     private Button btnEntrar;
 
     @FXML
-    protected void LoginAction(ActionEvent event) throws SQLException, IOException {
-        validaLogin();
+    protected void LoginAction(ActionEvent event) {
+        try {
+            validaLogin();
+        } catch (SQLException | IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    void CadastroAction(ActionEvent event) {
+        abrirCadastro();
+
+    }
+
+    private void abrirCadastro() {
+        try {
+            Parent fxmlLoader = FXMLLoader.load(Usuario.class.getResource("Usuario.fxml"));
+            SoftTalk.stage.setScene(new Scene(fxmlLoader));
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void validaLogin() throws SQLException, IOException {
@@ -58,11 +79,9 @@ public class LoginController {
         if (rs.next()) {
             if (rs.getString("flagativo").equals("T")) {
                 if (rs.getString("senha").equals(functions.encript(senha.getText()))) {
-                    Parent fxmlLoader =  FXMLLoader.load(SoftTalk.class.getResource("Menu.fxml"));
+                    Parent fxmlLoader = FXMLLoader.load(SoftTalk.class.getResource("Menu.fxml"));
 
-                    //SoftTalk.stage.toFront();
                     SoftTalk.stage.setScene(new Scene(fxmlLoader));
-                    SoftTalk.stage.showAndWait();
                 } else {
                     // usuario ou senha incorretos
                 }
@@ -70,25 +89,5 @@ public class LoginController {
                 //mensagem usuario inativo
             }
         }
-
     }
-    
-    //Botao para acessar tela de cadastro
-       @FXML
-    void btnAcessarCadastro(ActionEvent event) {
-
-    }
-    
-    //NAO MEXER AINDA
-    @FXML
-    void btnEsqueceuSenha(ActionEvent event) {
-
-    }
-    
-    //NAO MEXER AINDA
-    @FXML
-    void btnSobreNos(ActionEvent event) {
-
-    }
-
 }
