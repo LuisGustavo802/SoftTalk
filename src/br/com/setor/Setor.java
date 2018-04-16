@@ -1,5 +1,5 @@
 
-package br.com.entidades;
+package br.com.setor;
 
 public class Setor {
     Integer idsetor;
@@ -28,6 +28,13 @@ public class Setor {
     public void setFlagativo(String flagativo) {
         this.flagativo = flagativo;
     }
+
+    @Override
+    public String toString() {
+        return getNome();
+    }
+    
+    
 
     
 }

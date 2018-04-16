@@ -1,16 +1,12 @@
 
-package br.com.entidades;
+package br.com.usuario;
 
 public class Pessoa {
   Integer idpessoa , idsetor;
-  String nome, flagativo;
+  String nome;
 
     public Integer getIdpessoa() {
         return idpessoa;
-    }
-
-    public void setIdpessoa(Integer idpessoa) {
-        this.idpessoa = idpessoa;
     }
 
     public Integer getIdsetor() {
@@ -21,13 +17,6 @@ public class Pessoa {
         this.idsetor = idsetor;
     }
 
-    public String getFlagativo() {
-        return flagativo;
-    }
-
-    public void setFlagativo(String flagativo) {
-        this.flagativo = flagativo;
-    }
 
     public String getNome() {
         return nome;

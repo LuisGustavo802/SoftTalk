@@ -1,8 +1,7 @@
 
-package br.com.dao;
+package br.com.setor;
 
 import br.com.conexao.Conexao;
-import br.com.entidades.Setor;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
