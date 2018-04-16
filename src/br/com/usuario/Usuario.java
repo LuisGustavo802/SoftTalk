@@ -3,7 +3,7 @@ package br.com.usuario;
 
 public class Usuario {
     Integer idusuario, idpessoa;
-    String login, senha, flagativo;
+    String login, senha,flagativo;
 
     public Integer getIdusuario() {
         return idusuario;
@@ -36,7 +36,7 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
+    
     public String getFlagativo() {
         return flagativo;
     }
@@ -44,6 +44,4 @@ public class Usuario {
     public void setFlagativo(String flagativo) {
         this.flagativo = flagativo;
     }
-
-    
 }

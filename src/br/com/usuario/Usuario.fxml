@@ -18,10 +18,10 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.usuario.UsuarioController">
     <stylesheets>
-        <URL value="@cadastrousuario.css" />
+        <URL value="@usuario.css" />
     </stylesheets>
    <children>
-      <Button fx:id="btVoltar" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: white;">
+      <Button fx:id="btVoltar" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#voltarAction" style="-fx-background-color: white;">
          <graphic>
             <ImageView fitHeight="22.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -30,10 +30,10 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btCadastrar" layoutX="191.0" layoutY="284.0" mnemonicParsing="false" style="-fx-background-color: #03b8af;" text="Cadastrar" textFill="WHITE" />
+      <Button fx:id="btCadastrar" layoutX="191.0" layoutY="284.0" mnemonicParsing="false" onAction="#cadastrarAction" style="-fx-background-color: #03b8af;" text="Cadastrar" textFill="WHITE" />
       <TextField fx:id="txNome" layoutX="108.0" layoutY="111.0" promptText="Nome:" />
       <ComboBox fx:id="bxSetor" layoutX="107.0" layoutY="145.0" prefWidth="150.0" promptText="Setor" style="-fx-background-color: #03b8af;" />
-      <TextField fx:id="usuario" layoutX="108.0" layoutY="181.0" promptText="Email:" />
+      <TextField fx:id="usuario" layoutX="108.0" layoutY="181.0" promptText="Usuário:" />
       <PasswordField fx:id="senha" layoutX="108.0" layoutY="214.0" promptText="Senha:" />
       <PasswordField fx:id="senha1" layoutX="109.0" layoutY="248.0" promptText="Repetir Senha:" />
       <ImageView fitHeight="60.0" fitWidth="65.0" layoutX="447.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">

@@ -2,13 +2,14 @@
 package br.com.usuario;
 
 import br.com.conexao.Conexao;
-import br.com.usuario.Usuario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DAOUsuario {
     private Conexao conexao;
@@ -18,21 +19,27 @@ public class DAOUsuario {
         conexao = new Conexao();
     }
 
-    public int inserirUsuario(Usuario usuario) throws SQLException {
-        String sql = "INSERT INTO usuario (IDUSUARIO, IDPESSOA, LOGIN, SENHA, FLAGATIVO) "
-                + "VALUES ('"
-                + usuario.getIdpessoa() + "', '"
-                + usuario.getIdusuario() + "',"
-                + usuario.getLogin() + ", "
-                + usuario.getSenha() + ", "
-                + usuario.getFlagativo() + ")";
-        PreparedStatement pstm
-                = conexao.getConnection().prepareStatement(sql,
-                        Statement.RETURN_GENERATED_KEYS);
-        pstm.execute();
-        ResultSet rs = pstm.getGeneratedKeys();
-        rs.next();
-        return rs.getInt(1);
+    public int inserirUsuario(Usuario usuario) {
+        String sql = "INSERT INTO usuario (IDPESSOA, LOGIN, SENHA, FLAGATIVO) "
+                + "VALUES ("
+                + usuario.getIdpessoa() + ", '"
+                + usuario.getLogin() + "', '"
+                + usuario.getSenha() + "','"
+                + usuario.getFlagativo() + "')";
+        PreparedStatement pstm;
+        try {
+            pstm = conexao.getConnection().prepareStatement(sql,
+                    Statement.RETURN_GENERATED_KEYS);
+            pstm.execute();
+            ResultSet rs = pstm.getGeneratedKeys();
+            rs.next();
+            return rs.getInt(1);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            return -1;
+        }
+        
+        
     }
 
     public List<Usuario> listarUsuario() throws SQLException {
