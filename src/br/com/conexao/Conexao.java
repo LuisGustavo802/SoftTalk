@@ -12,8 +12,8 @@ public class Conexao{
     public Conexao() throws ClassNotFoundException, InstantiationException,
             IllegalAccessException, SQLException {
         String databaseURL = "jdbc:postgresql://localhost/SoftTalk";
-        String usuario = "dba";
-        String senha = "mobile";
+        String usuario = "postgres";
+        String senha = "aluno";
         String driverName = "org.postgresql.Driver";
         //Carrega o driver
         Class.forName(driverName).newInstance();

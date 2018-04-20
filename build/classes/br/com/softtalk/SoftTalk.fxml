@@ -1,14 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="650.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #2b2b2b;" stylesheets="@Anc.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="450.0" prefWidth="195.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="455.0" AnchorPane.topAnchor="0.0" />
+      <Text fill="WHITE" layoutX="370.0" layoutY="380.0" opacity="0.3" strokeType="OUTSIDE" strokeWidth="0.0" text=" © SoftTalk">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Text>
+      <fx:include fx:id="testePesquisa" source="Menu.fxml" />
+      <ImageView fitHeight="69.0" fitWidth="65.0" layoutX="363.0" layoutY="143.0" opacity="0.3" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagens/logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="51.0" fitWidth="163.0" layoutX="327.0" layoutY="208.0" opacity="0.3" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagens/logologin.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="648.0" layoutY="14.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="35.0" textFill="WHITE" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagens/power-button.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="600.0" layoutY="14.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="38.0" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="49.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagens/settings.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
