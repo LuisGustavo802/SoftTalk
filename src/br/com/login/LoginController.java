@@ -82,6 +82,7 @@ public class LoginController {
                     Parent fxmlLoader = FXMLLoader.load(SoftTalk.class.getResource("SoftTalk.fxml"));
 
                     SoftTalk.stage.setScene(new Scene(fxmlLoader));
+                    SoftTalk.setIdUsuarioLogado(rs.getInt("idusuario"));//Alimenta com o usuario logado no sistema
                 } else {
                     // usuario ou senha incorretos
                 }

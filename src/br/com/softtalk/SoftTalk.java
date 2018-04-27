@@ -16,15 +16,21 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-/**
- *
- * @author Aluno
- */
 public class SoftTalk extends Application {
+    private static int idUsuarioLogado;//Mantem o usuario em que esta rodando a aplicação
 
     public static Connection conexao;
     public final static Stage stage = new Stage(StageStyle.TRANSPARENT);
-
+    
+    public static void setIdUsuarioLogado(int idUsuarioLogado) {
+        SoftTalk.idUsuarioLogado = idUsuarioLogado;
+    }
+ 
+    public static int getIdUsuarioLogado() {
+        return idUsuarioLogado;
+    }
+    
+    
     @Override
     public void start(Stage primaryStage) {
         try {

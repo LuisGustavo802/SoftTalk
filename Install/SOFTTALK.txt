@@ -28,3 +28,6 @@ CREATE TABLE usuario (
     REFERENCES pessoa (idpessoa)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+
+ALTER TABLE pessoaDROP COLUMN flagativo;
+ALTER TABLE pessoa ADD COLUMN IMAGEM bytea;
