@@ -47,4 +47,17 @@ public class DAOSetor {
         }
         return lista;
     }
+        public Setor listaSetor(int idSetor) throws SQLException {
+        Setor setor;     
+        String sql = "SELECT * FROM setor WHERE idsetor = "+ Integer.toString(idSetor) +";";
+        Statement stm = conexao.getConnection().createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        setor = new Setor();
+        if (rs.next()){
+            setor.setIdsetor(rs.getInt("IdSetor"));
+            setor.setNome(rs.getString("Nome"));
+            setor.setFlagativo(rs.getString("FlagAtivo"));
+        }
+        return setor;
+    }
 }

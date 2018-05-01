@@ -42,7 +42,7 @@ public class DAOUsuario {
         
     }
 
-    public List<Usuario> listarUsuario() throws SQLException {
+    public List<Usuario> listarUsuarios() throws SQLException {
         Usuario usuario;
         List<Usuario> lista = new ArrayList();        
         String sql = "SELECT * FROM usuario;";
@@ -59,4 +59,20 @@ public class DAOUsuario {
         }
         return lista;
     }
+        public Usuario listarUsuario(int idUsuario) throws SQLException {
+        Usuario usuario = new Usuario();    
+        String sql = "SELECT * FROM usuario WHERE idusuario = " + Integer.toString(idUsuario) + ";";
+        Statement stm = conexao.getConnection().createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        
+        if (rs.next()){
+            usuario.setIdpessoa(rs.getInt("IdPessoa"));
+            usuario.setIdusuario(rs.getInt("IdUsuario"));
+            usuario.setLogin(rs.getString("Login"));
+            usuario.setSenha(rs.getString("Senha"));
+            usuario.setFlagativo(rs.getString("FlagAtivo"));
+        }
+        return usuario;
+    }
+
 }

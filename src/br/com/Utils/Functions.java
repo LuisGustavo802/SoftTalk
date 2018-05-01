@@ -15,7 +15,6 @@ public class Functions {
     public static int FAILURE = -1;
     public static int NOACTION = 0;
     
- 
     public String encript(String key) {
         String secured = null;
         MessageDigest digest;
