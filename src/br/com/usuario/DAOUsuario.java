@@ -1,7 +1,8 @@
 
 package br.com.usuario;
 
-import br.com.conexao.Conexao;
+import br.com.Utils.Functions;
+import br.com.softtalk.SoftTalk;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,12 +13,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DAOUsuario {
-    private Conexao conexao;
-    
-    public DAOUsuario() throws ClassNotFoundException, InstantiationException,
-            IllegalAccessException, SQLException{
-        conexao = new Conexao();
-    }
 
     public int inserirUsuario(Usuario usuario) {
         String sql = "INSERT INTO usuario (IDPESSOA, LOGIN, SENHA, FLAGATIVO) "
@@ -28,7 +23,7 @@ public class DAOUsuario {
                 + usuario.getFlagativo() + "')";
         PreparedStatement pstm;
         try {
-            pstm = conexao.getConnection().prepareStatement(sql,
+            pstm = SoftTalk.conexao.prepareStatement(sql,
                     Statement.RETURN_GENERATED_KEYS);
             pstm.execute();
             ResultSet rs = pstm.getGeneratedKeys();
@@ -36,7 +31,7 @@ public class DAOUsuario {
             return rs.getInt(1);
         } catch (SQLException ex) {
             Logger.getLogger(DAOUsuario.class.getName()).log(Level.SEVERE, null, ex);
-            return -1;
+            return Functions.FAILURE;
         }
         
         
@@ -46,7 +41,7 @@ public class DAOUsuario {
         Usuario usuario;
         List<Usuario> lista = new ArrayList();        
         String sql = "SELECT * FROM usuario;";
-        Statement stm = conexao.getConnection().createStatement();
+        Statement stm = SoftTalk.conexao.createStatement();
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next()) {
             usuario = new Usuario();
@@ -62,7 +57,7 @@ public class DAOUsuario {
         public Usuario listarUsuario(int idUsuario) throws SQLException {
         Usuario usuario = new Usuario();    
         String sql = "SELECT * FROM usuario WHERE idusuario = " + Integer.toString(idUsuario) + ";";
-        Statement stm = conexao.getConnection().createStatement();
+        Statement stm = SoftTalk.conexao.createStatement();
         ResultSet rs = stm.executeQuery(sql);
         
         if (rs.next()){

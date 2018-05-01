@@ -5,6 +5,8 @@
  */
 package br.com.usuario;
 
+import br.com.pessoa.Pessoa;
+import br.com.pessoa.DAOPessoa;
 import br.com.Utils.Functions;
 import br.com.login.Login;
 import br.com.setor.DAOSetor;
