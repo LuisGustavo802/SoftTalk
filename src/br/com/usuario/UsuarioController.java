@@ -96,7 +96,7 @@ public class UsuarioController implements Initializable {
         ResultSet rs;
         Setor setor = bxSetor.getSelectionModel().getSelectedItem(); 
         
-        try {
+         {
             if (txNome.getText().isEmpty() || setor == null || usuario.getText().isEmpty() || senha.getText().isEmpty() ||senha1.getText().isEmpty() ){
                 functions.mensagemPadrao("Favor preencher todos os campos!");
                 return functions.FAILURE;
