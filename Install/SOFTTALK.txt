@@ -10,7 +10,7 @@ CREATE TABLE pessoa (
   idsetor INT NOT NULL,
   nome VARCHAR(200) NOT NULL,
   flagativo CHAR(1) NOT NULL,
-  PRIMARY KEY (idpessoa)),
+  PRIMARY KEY (idpessoa),
   CONSTRAINT fk_pessoa_setor
     FOREIGN KEY (idsetor)
     REFERENCES setor (idsetor));
@@ -28,6 +28,3 @@ CREATE TABLE usuario (
     REFERENCES pessoa (idpessoa)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
-
-ALTER TABLE pessoaDROP COLUMN flagativo;
-ALTER TABLE pessoa ADD COLUMN IMAGEM bytea;
