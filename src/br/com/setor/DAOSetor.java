@@ -1,7 +1,7 @@
 
 package br.com.setor;
 
-import br.com.conexao.Conexao;
+import br.com.softtalk.SoftTalk;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,12 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DAOSetor {
-    private Conexao conexao;
-    
-    public DAOSetor() throws ClassNotFoundException, InstantiationException,
-            IllegalAccessException, SQLException{
-        conexao = new Conexao();
-    }
 
     public int inserirSetor(Setor setor) throws SQLException {
         String sql = "INSERT INTO setor (IDSETOR, NOME, FLAGATIVO) "
@@ -24,7 +18,7 @@ public class DAOSetor {
                 + setor.getNome() + "',"
                 + setor.getFlagativo() + ")";
         PreparedStatement pstm
-                = conexao.getConnection().prepareStatement(sql,
+                = SoftTalk.conexao.prepareStatement(sql,
                         Statement.RETURN_GENERATED_KEYS);
         pstm.execute();
         ResultSet rs = pstm.getGeneratedKeys();
@@ -36,7 +30,7 @@ public class DAOSetor {
         Setor setor;
         List<Setor> lista = new ArrayList();        
         String sql = "SELECT * FROM setor;";
-        Statement stm = conexao.getConnection().createStatement();
+        Statement stm = SoftTalk.conexao.createStatement();
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next()) {
             setor = new Setor();
@@ -50,7 +44,7 @@ public class DAOSetor {
         public Setor listaSetor(int idSetor) throws SQLException {
         Setor setor;     
         String sql = "SELECT * FROM setor WHERE idsetor = "+ Integer.toString(idSetor) +";";
-        Statement stm = conexao.getConnection().createStatement();
+        Statement stm = SoftTalk.conexao.createStatement();
         ResultSet rs = stm.executeQuery(sql);
         setor = new Setor();
         if (rs.next()){
