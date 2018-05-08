@@ -11,7 +11,7 @@ public class Pessoa {
     private final ManipularImagem manipulaImagem;
    
     public Pessoa( ) {
-         manipulaImagem = new ManipularImagem();
+         this.manipulaImagem = new ManipularImagem();
     }
     
 
@@ -30,7 +30,10 @@ public class Pessoa {
     public void setImagem(String Caminho, int x, int y) {
         this.imagem = ManipularImagem.setImagemDimensao(Caminho, x, y);
     }
-
+    
+    public void setImagem(BufferedImage imagem) {
+        this.imagem = imagem;
+    }
     public Integer getIdsetor() {
         return idsetor;
     }

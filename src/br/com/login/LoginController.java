@@ -22,6 +22,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -82,12 +84,13 @@ public class LoginController {
                     Parent fxmlLoader = FXMLLoader.load(SoftTalk.class.getResource("SoftTalk.fxml"));
 
                     SoftTalk.stage.setScene(new Scene(fxmlLoader));
+                     //public final static Stage stage = new Stage(
                     SoftTalk.setIdUsuarioLogado(rs.getInt("idusuario"));//Alimenta com o usuario logado no sistema
                 } else {
-                    // usuario ou senha incorretos
+                    functions.mensagemPadrao("Usuário ou senha inválido");
                 }
             } else {
-                //mensagem usuario inativo
+                functions.mensagemPadrao("Usuário inativo");
             }
         }
     }
