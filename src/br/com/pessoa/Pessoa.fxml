@@ -23,7 +23,7 @@
       <TextField fx:id="txNome" layoutX="108.0" layoutY="211.0" promptText="Nome:" />
       <ComboBox fx:id="bxSetor" layoutX="107.0" layoutY="245.0" prefWidth="150.0" promptText="Setor" style="-fx-background-color: #03b8af;" />
       <Button fx:id="btSalvar" layoutX="207.0" layoutY="281.0" mnemonicParsing="false" onAction="#salvarAction" style="-fx-background-color: #03b8af;" text="Salvar" textFill="WHITE" />
-      <ImageView fitHeight="152.0" fitWidth="182.0" layoutX="108.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ivImagem" fitHeight="152.0" fitWidth="150.0" layoutX="108.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagens/logo.png" />
          </image>

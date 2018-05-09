@@ -104,27 +104,19 @@ public class ManipularImagem {
     }
     //Novo método para exibir imagem na tela
     //Recebe o label que queremos exibir E a imagem como array de bytes do banco
-    public static void transformarImagem(byte[] minhaimagem, javax.swing.JLabel label)
+    public static BufferedImage transformarImagem(byte[] minhaimagem) throws IOException
 {
         //primeiro verifica se tem a imagem
         //se tem convert para inputstream que é o formato reconhecido pelo ImageIO
        
+        BufferedImage imagem = null;
+                
         if(minhaimagem!=null)
         {
             InputStream input = new ByteArrayInputStream(minhaimagem);
-            try {
-                BufferedImage imagem = ImageIO.read(input);
-                label.setIcon(new ImageIcon(imagem));
-            } catch (IOException ex) {
-            }
-            
+            imagem = ImageIO.read(input);  
+        }
         
-        }
-        else
-        {
-            label.setIcon(null);
-            
-        }
-
+        return imagem;
 }
 }
