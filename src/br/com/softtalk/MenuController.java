@@ -6,8 +6,18 @@
 package br.com.softtalk;
 
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
@@ -15,13 +25,37 @@ import javafx.fxml.Initializable;
  * @author erasm
  */
 public class MenuController implements Initializable {
-
-    /**
-     * Initializes the controller class.
-     */
+    
+    @FXML
+     Button btnSetor;
+    @FXML
+     Text txtSetor;
+    @FXML
+     ImageView imgSetor;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            st = SoftTalk.conexao.createStatement();
+            rs = st.executeQuery("Select usuario_admin from usuario where idusuario = " + Integer.toString(SoftTalk.getIdUsuarioLogado()));
+            if (rs.next()) {
+                if (rs.getString("usuario_admin").equals("F")){
+                    btnSetor.setVisible(false);
+                    imgSetor.setVisible(false);
+                    txtSetor.setVisible(false);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }  
+    
+     @FXML
+    void perfilAction(ActionEvent event) {
+        SoftTalkController softTalk = new SoftTalkController();
+        softTalk.abrirPerfil();
+    }
     
 }

@@ -54,7 +54,7 @@ public class DAOUsuario {
         }
         return lista;
     }
-        public Usuario listarUsuario(int idUsuario) throws SQLException {
+    public Usuario listarUsuario(int idUsuario) throws SQLException {
         Usuario usuario = new Usuario();    
         String sql = "SELECT * FROM usuario WHERE idusuario = " + Integer.toString(idUsuario) + ";";
         Statement stm = SoftTalk.conexao.createStatement();

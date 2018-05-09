@@ -81,8 +81,9 @@ public class LoginController {
         if (rs.next()) {
             if (rs.getString("flagativo").equals("T")) {
                 if (rs.getString("senha").equals(functions.encript(senha.getText()))) {
+                    SoftTalk.setIdUsuarioLogado(rs.getInt("idusuario"));//Alimenta com o usuario logado no sistema
                     Parent fxmlLoader = FXMLLoader.load(SoftTalk.class.getResource("SoftTalk.fxml"));
-
+                    
                     SoftTalk.stage.setScene(new Scene(fxmlLoader));
                      //public final static Stage stage = new Stage(
                     SoftTalk.setIdUsuarioLogado(rs.getInt("idusuario"));//Alimenta com o usuario logado no sistema
