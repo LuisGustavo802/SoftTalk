@@ -2,7 +2,7 @@
 package br.com.setor;
 
 public class Setor {
-    Integer idsetor;
+    Integer idsetor, quant;
     String nome, flagativo;
 
     public Integer getIdsetor() {
@@ -29,12 +29,19 @@ public class Setor {
         this.flagativo = flagativo;
     }
 
+    public Integer getQuant() {
+        return quant;
+    }
+
+    public void setQuant(Integer quant) {
+        this.quant = quant;
+    }
+
+    
     @Override
     public String toString() {
         return getNome();
     }
-    
-    
 
     
 }

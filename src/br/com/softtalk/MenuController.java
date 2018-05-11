@@ -5,10 +5,7 @@
  */
 package br.com.softtalk;
 
-import br.com.login.LoginController;
-import br.com.pessoa.Pessoa;
 import br.com.setor.Setor;
-import br.com.usuario.Usuario;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -37,8 +34,6 @@ public class MenuController implements Initializable {
     @FXML
     Button btnSetor;
     @FXML
-    Text txtSetor;
-    @FXML
     ImageView imgSetor;
 
     @Override
@@ -52,7 +47,6 @@ public class MenuController implements Initializable {
                 if (rs.getString("usuario_admin").equals("F")) {
                     btnSetor.setVisible(false);
                     imgSetor.setVisible(false);
-                    txtSetor.setVisible(false);
                 }
             }
         } catch (SQLException ex) {
@@ -68,14 +62,12 @@ public class MenuController implements Initializable {
 
     @FXML
     void setorAction(ActionEvent event) {
-        
-        
-        try {
+       try {
             Parent fxmlLoader = FXMLLoader.load(Setor.class.getResource("Setor.fxml"));
             SoftTalk.stage.setScene(new Scene(fxmlLoader));
         } catch (IOException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }   
     }
 
 }
