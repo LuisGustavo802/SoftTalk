@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -15,9 +17,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="testePesquisa" prefHeight="400.0" prefWidth="91.0" style="-fx-background-color: #2c2c2c;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.softtalk.MenuController">
+<AnchorPane fx:id="testePesquisa" prefHeight="500.0" prefWidth="55.0" style="-fx-background-color: darkgray;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.softtalk.MenuController">
    <children>
-      <Button layoutX="10.0" layoutY="55.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="76.0" style="-fx-background-color: #3f3f3f;" textFill="WHITE">
+      <Button layoutX="9.0" layoutY="14.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="37.0" style="-fx-background-color: #bbbbbb;" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="22.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -25,8 +27,11 @@
                </image>
             </ImageView>
          </graphic>
+         <effect>
+            <DropShadow color="#969696" />
+         </effect>
       </Button>
-      <Button layoutX="9.0" layoutY="105.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="76.0" style="-fx-background-color: #3f3f3f;" textFill="WHITE">
+      <Button layoutX="9.0" layoutY="59.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #bbbbbb;" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="22.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -34,17 +39,14 @@
                </image>
             </ImageView>
          </graphic>
+         <effect>
+            <DropShadow color="#979797" />
+         </effect>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </Button>
-      <Button layoutY="-5.0" mnemonicParsing="false" opacity="0.8" prefHeight="39.0" prefWidth="96.0" style="-fx-background-color: #3f3f3f;" textFill="#2e2e2e">
-         <graphic>
-            <ImageView fitHeight="22.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Imagens/alarm.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button layoutX="9.0" layoutY="200.0" mnemonicParsing="false" onAction="#perfilAction" prefHeight="30.0" prefWidth="76.0" style="-fx-background-color: #3f3f3f;" textFill="WHITE">
+      <Button layoutX="10.0" layoutY="456.0" mnemonicParsing="false" onAction="#perfilAction" prefHeight="30.0" prefWidth="27.0" style="-fx-background-color: #bbbbbb;" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -52,43 +54,11 @@
                </image>
             </ImageView>
          </graphic>
+         <effect>
+            <DropShadow color="#969696" />
+         </effect>
       </Button>
-      <Text layoutX="21.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tela inicial">
-         <fill>
-            <LinearGradient endX="0.8476190476190477" endY="0.6285714285714286" startX="0.8476190476190476" startY="0.47619047619047616">
-               <stops>
-                  <Stop color="#00ffea" />
-                  <Stop color="#7f7f7f" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Text>
-      <Text layoutX="9.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Configurações">
-         <fill>
-            <LinearGradient endX="0.8476190476190477" endY="0.6285714285714286" startX="0.8476190476190476" startY="0.47619047619047616">
-               <stops>
-                  <Stop color="#00ffea" />
-                  <Stop color="#7f7f7f" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Text>
-      <Text layoutX="21.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feedback">
-         <fill>
-            <LinearGradient endX="0.8476190476190477" endY="0.661904761904762" startX="0.8476190476190476" startY="0.47619047619047616">
-               <stops>
-                  <Stop color="#00ffea" />
-                  <Stop color="GREY" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Text>
-      <Text fill="WHITE" layoutX="13.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0">
-         <font>
-            <Font size="10.0" />
-         </font>
-      </Text>
-      <Button fx:id="btnSetor" layoutX="10.0" layoutY="153.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="76.0" style="-fx-background-color: #3f3f3f;">
+      <Button fx:id="btnSetor" layoutX="9.0" layoutY="104.0" mnemonicParsing="false" onAction="#setorAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #bbbbbb;">
          <graphic>
             <ImageView fx:id="imgSetor" fitHeight="22.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -96,16 +66,9 @@
                </image>
             </ImageView>
          </graphic>
+         <effect>
+            <DropShadow color="#979797" />
+         </effect>
       </Button>
-      <Text fx:id="txtSetor" layoutX="33.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setor">
-         <fill>
-            <LinearGradient endX="0.8476190476190477" endY="0.661904761904762" startX="0.8476190476190476" startY="0.47619047619047616">
-               <stops>
-                  <Stop color="#00ffea" />
-                  <Stop color="GREY" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Text>
    </children>
 </AnchorPane>

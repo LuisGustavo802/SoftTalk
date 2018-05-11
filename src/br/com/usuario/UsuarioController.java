@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.usuario;
 
 import br.com.pessoa.Pessoa;
@@ -12,6 +7,9 @@ import br.com.login.Login;
 import br.com.setor.DAOSetor;
 import br.com.setor.Setor;
 import br.com.softtalk.SoftTalk;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -30,31 +28,27 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 
-/**
- * FXML Controller class
- *
- * @author free
- */
+
 public class UsuarioController implements Initializable {
 
-    @FXML
-    private PasswordField senha;
+  
 
     @FXML
-    private ComboBox<Setor> bxSetor;
+    private JFXComboBox<Setor> bxSetor;
 
     @FXML
-    private TextField usuario;
-
+    private JFXTextField txNome;
+    
     @FXML
-    private PasswordField senha1;
+    private JFXTextField usuario;
 
+     @FXML
+    private JFXPasswordField senha;
+    
     @FXML
-    private TextField txNome;
+    private JFXPasswordField senha1;
+
     
     private List<Setor> listSetor = new ArrayList<>();
     private ObservableList<Setor> observableListSetor;
@@ -82,7 +76,7 @@ public class UsuarioController implements Initializable {
             listSetor = daoSetor.listarSetor();
             observableListSetor = FXCollections.observableArrayList(listSetor);
             bxSetor.setItems(observableListSetor);
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -98,7 +92,7 @@ public class UsuarioController implements Initializable {
         
         if (txNome.getText().isEmpty() || setor == null || usuario.getText().isEmpty() || senha.getText().isEmpty() ||senha1.getText().isEmpty() ){
             functions.mensagemPadrao("Favor preencher todos os campos!");
-            return functions.FAILURE;
+            return Functions.FAILURE;
         }
         pessoa.setNome(String.valueOf(txNome.getText()));
         pessoa.setIdsetor(setor.getIdsetor());
@@ -107,7 +101,7 @@ public class UsuarioController implements Initializable {
         int codPessoa = daopessoa.inserirPessoa(pessoa);
         if (codPessoa < 0){
             functions.mensagemPadrao("Problemas na gravação!");
-            return functions.FAILURE;
+            return Functions.FAILURE;
         }
         user.setIdpessoa(codPessoa);
         user.setFlagativo("T");
@@ -116,16 +110,16 @@ public class UsuarioController implements Initializable {
             user.setSenha(functions.encript(senha.getText()));
         }else{
             functions.mensagemPadrao("Senhas diferentes. Favor corrigir!");
-            return functions.FAILURE;
+            return Functions.FAILURE;
         }
         DAOUsuario daousuario = new DAOUsuario();
         if (daousuario.inserirUsuario(user) < 0){
             functions.mensagemPadrao("Problemas na gravação!");
-            return functions.FAILURE;
+            return Functions.FAILURE;
         }
         functions.mensagemPadrao("Gravado com sucesso!");
         voltarTelaLogin();
-        return functions.SUCCESS;
+        return Functions.SUCCESS;
     }
     
     public void voltarTelaLogin(){

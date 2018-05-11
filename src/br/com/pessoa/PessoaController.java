@@ -111,7 +111,7 @@ public class PessoaController implements Initializable {
             listSetor = daoSetor.listarSetor();
             observableListSetor = FXCollections.observableArrayList(listSetor);
             bxSetor.setItems(observableListSetor);
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
         }
 

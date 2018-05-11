@@ -20,8 +20,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXPasswordField;
+import java.awt.event.KeyEvent;
+import javafx.scene.input.KeyCode;
 
 /**
  *
@@ -30,9 +32,9 @@ import javafx.scene.control.TextField;
 public class LoginController {
 
     @FXML
-    private TextField usuario;
+    private JFXTextField usuario;
     @FXML
-    private PasswordField senha;
+    private JFXPasswordField senha;
     @FXML
     private Button btnEntrar;
 
@@ -43,6 +45,25 @@ public class LoginController {
         } catch (SQLException | IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    protected void loginKey(KeyEvent e) {
+        String teste;
+        
+        teste = "===";
+        /*if (e.get) {
+            if (usuario.isFocused()) {
+                senha.focusedProperty();
+            }
+            if (senha.isFocused()) {
+                try {
+                    validaLogin();
+                } catch (SQLException | IOException ex) {
+                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }*/
     }
 
     @FXML
@@ -81,9 +102,9 @@ public class LoginController {
                 if (rs.getString("senha").equals(functions.encript(senha.getText()))) {
                     SoftTalk.setIdUsuarioLogado(rs.getInt("idusuario"));//Alimenta com o usuario logado no sistema
                     Parent fxmlLoader = FXMLLoader.load(SoftTalk.class.getResource("SoftTalk.fxml"));
-                    
+
                     SoftTalk.stage.setScene(new Scene(fxmlLoader));
-                    
+
                 } else {
                     // usuario ou senha incorretos
                 }

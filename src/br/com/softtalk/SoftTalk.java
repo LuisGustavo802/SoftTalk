@@ -20,7 +20,7 @@ public class SoftTalk extends Application {
     private static int idUsuarioLogado;//Mantem o usuario em que esta rodando a aplicação
 
     public static Connection conexao;
-    public final static Stage stage = new Stage(StageStyle.TRANSPARENT);
+    public final static Stage stage = new Stage(StageStyle.DECORATED);
     
     public static void setIdUsuarioLogado(int idUsuarioLogado) {
         SoftTalk.idUsuarioLogado = idUsuarioLogado;

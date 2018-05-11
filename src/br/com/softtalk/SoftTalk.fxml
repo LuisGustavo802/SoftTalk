@@ -10,23 +10,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #d3d3d3;" stylesheets="@Anc.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.softtalk.SoftTalkController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #eeeeee;" stylesheets="@Anc.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.softtalk.SoftTalkController">
    <children>
-      <Text fill="#4d4d4d" layoutX="370.0" layoutY="380.0" opacity="0.3" strokeType="OUTSIDE" strokeWidth="0.0" text=" © SoftTalk">
-         <font>
-            <Font size="10.0" />
-         </font>
-      </Text>
       <fx:include fx:id="testePesquisa" source="Menu.fxml" />
-      <ImageView fitHeight="69.0" fitWidth="65.0" layoutX="363.0" layoutY="143.0" opacity="0.16" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Imagens/logo.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="51.0" fitWidth="163.0" layoutX="327.0" layoutY="208.0" opacity="0.17" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Imagens/logologin.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

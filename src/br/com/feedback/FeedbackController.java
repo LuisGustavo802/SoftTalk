@@ -5,9 +5,15 @@
  */
 package br.com.feedback;
 
+import br.com.pessoa.Pessoa;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextArea;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+
 
 /**
  * FXML Controller class
@@ -15,10 +21,32 @@ import javafx.fxml.Initializable;
  * @author free
  */
 public class FeedbackController implements Initializable {
+    
+    @FXML
+    private JFXTextArea txMensagem;
+    
+    @FXML
+    private JFXComboBox<Pessoa> bxPessoa;
 
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private JFXComboBox bxTipo;
+    
+
+    @FXML
+    protected void SolicitarFeedbackAction(ActionEvent event) {
+        solicitarFeedback();
+    
+    }
+
+    private void solicitarFeedback(){
+        
+        if (bxTipo.getSelectionModel().getSelectedItem().equals("")){
+            
+        }
+        
+    }
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
