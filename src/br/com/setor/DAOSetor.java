@@ -12,11 +12,10 @@ import java.util.List;
 public class DAOSetor {
 
     public int inserirSetor(Setor setor) throws SQLException {
-        String sql = "INSERT INTO setor (IDSETOR, NOME, FLAGATIVO) "
+        String sql = "INSERT INTO setor (NOME, FLAGATIVO) "
                 + "VALUES ('"
-                + setor.getIdsetor() + "', '"
-                + setor.getNome() + "',"
-                + setor.getFlagativo() + ")";
+                + setor.getNome() + "','"
+                + setor.getFlagativo() + "')";
         PreparedStatement pstm
                 = SoftTalk.conexao.prepareStatement(sql,
                         Statement.RETURN_GENERATED_KEYS);
@@ -53,5 +52,17 @@ public class DAOSetor {
             setor.setFlagativo(rs.getString("FlagAtivo"));
         }
         return setor;
+    }
+        
+    public int excluirSetor(Setor setor) throws SQLException {
+        String sql = "DELETE FROM setor WHERE idsetor ="
+                + setor.getIdsetor();
+         PreparedStatement pstm
+                = SoftTalk.conexao.prepareStatement(sql,
+                        Statement.RETURN_GENERATED_KEYS);
+        pstm.execute();
+        ResultSet rs = pstm.getGeneratedKeys();
+        rs.next();
+        return rs.getInt(1);
     }
 }

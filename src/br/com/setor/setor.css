@@ -2,6 +2,24 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
-
+.table-view{
+    -fx-table-color: #eeeeee;
 }
+
+.table-row-cell:selected{
+    -fx-background-color: #38d4ff;
+}
+
+.button{
+    -fx-background-color: gray;
+    -fx-background-radius: 100;
+}
+
+.button:hover{
+    -fx-background-color: dimgray;
+}
+
+.button:pressed{
+    -fx-background-color: dimgray;
+}
+
