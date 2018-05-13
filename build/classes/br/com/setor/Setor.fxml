@@ -13,6 +13,7 @@
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #eeeeee;" styleClass="mainFxmlClass" stylesheets="@../softtalk/menu.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.setor.SetorController">
    <children>
        <fx:include fx:id="testePesquisa" source="../softtalk/Menu.fxml" />
+<<<<<<< HEAD
       <AnchorPane layoutY="88.0" prefHeight="412.0" prefWidth="900.0" style="-fx-background-color: #EEEEEE; -fx-border-color: null;" stylesheets="@setor.css">
          <children>
             <TableView fx:id="tabelaSetor" editable="true" layoutX="82.0" layoutY="113.0" prefHeight="284.0" prefWidth="737.0">
@@ -25,6 +26,11 @@
                </effect>
             </TableView>
             <Button layoutX="412.0" layoutY="59.0" mnemonicParsing="false" onAction="#incluirAction" prefHeight="32.0" prefWidth="137.0" style="-fx-border-radius: 100;" stylesheets="@setor.css" text="   ADICIONAR" textFill="WHITE">
+=======
+      <AnchorPane layoutX="55.0" prefHeight="500.0" prefWidth="682.0" style="-fx-background-color: #d3d3d3;">
+         <children>
+            <Button layoutX="366.0" layoutY="16.0" mnemonicParsing="false" onAction="#incluirAction" prefHeight="25.0" prefWidth="29.0">
+>>>>>>> 5e728a0e74e3298fd9ab3ef7da7122e0d17c7735
                <graphic>
                   <ImageView fitHeight="17.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -36,7 +42,11 @@
                   <DropShadow color="#bcbcbc" />
                </effect>
             </Button>
+<<<<<<< HEAD
             <Button layoutX="682.0" layoutY="58.0" mnemonicParsing="false" onAction="#excluirAction" prefHeight="33.0" prefWidth="137.0" style="-fx-border-radius: 100;" stylesheets="@setor.css" text="    REMOVER" textFill="WHITE">
+=======
+            <Button layoutX="493.0" layoutY="351.0" mnemonicParsing="false" onAction="#excluirAction" prefHeight="33.0" prefWidth="41.0">
+>>>>>>> 5e728a0e74e3298fd9ab3ef7da7122e0d17c7735
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -48,11 +58,22 @@
                   <DropShadow color="#bababa" />
                </effect>
             </Button>
+<<<<<<< HEAD
             <JFXTextField fx:id="txNomeSetor" focusColor="#38d7ff" layoutX="75.0" layoutY="56.0" maxWidth="450.0" minWidth="236.0" prefHeight="37.0" prefWidth="329.0" promptText="Nome do setor:" style="-fx-background-color: #eeeeee;">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
+=======
+            <TableView fx:id="tabelaSetor" layoutX="17.0" layoutY="63.0" prefHeight="321.0" prefWidth="462.0">
+              <columns>
+                <TableColumn fx:id="tblNome" prefWidth="245.0" text="Nome" />
+                <TableColumn fx:id="tblQuant" minWidth="0.0" prefWidth="216.0" text="Quantidade pessoas" />
+              </columns>
+            </TableView>
+            <TextField fx:id="txNomeSetor" layoutX="206.0" layoutY="18.0" />
+            <Label layoutX="64.0" layoutY="22.0" text="Informe o nome do setor:" />
+>>>>>>> 5e728a0e74e3298fd9ab3ef7da7122e0d17c7735
          </children>
       </AnchorPane>
    </children>

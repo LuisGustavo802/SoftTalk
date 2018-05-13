@@ -8,7 +8,10 @@ package br.com.setor;
 import br.com.Utils.Functions;
 import br.com.softtalk.MenuController;
 import br.com.softtalk.SoftTalk;
+<<<<<<< HEAD
 import com.jfoenix.controls.JFXTextField;
+=======
+>>>>>>> 5e728a0e74e3298fd9ab3ef7da7122e0d17c7735
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,6 +28,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+<<<<<<< HEAD
+=======
+import javafx.scene.control.TextField;
+>>>>>>> 5e728a0e74e3298fd9ab3ef7da7122e0d17c7735
 import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
@@ -38,7 +45,11 @@ public class SetorController implements Initializable {
     public MenuController menuController;
     
     @FXML
+<<<<<<< HEAD
     public JFXTextField txNomeSetor;
+=======
+    public TextField txNomeSetor;
+>>>>>>> 5e728a0e74e3298fd9ab3ef7da7122e0d17c7735
     Setor setor = new Setor();
     DAOSetor daoSetor = new DAOSetor();
     @FXML
