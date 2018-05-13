@@ -5,6 +5,7 @@
  */
 package br.com.softtalk;
 
+import br.com.pessoa.Pessoa;
 import br.com.setor.Setor;
 import java.io.IOException;
 import java.net.URL;
@@ -22,7 +23,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
-import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
@@ -56,8 +56,13 @@ public class MenuController implements Initializable {
 
     @FXML
     void perfilAction(ActionEvent event) {
-        SoftTalkController softTalk = new SoftTalkController();
-        softTalk.abrirPerfil();
+        Parent fxmlLoader;
+        try {
+            fxmlLoader = FXMLLoader.load(Pessoa.class.getResource("Pessoa.fxml"));
+            SoftTalk.stage.setScene(new Scene(fxmlLoader));
+        } catch (IOException ex) {
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
