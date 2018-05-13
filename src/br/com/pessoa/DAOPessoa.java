@@ -1,7 +1,10 @@
+
 package br.com.pessoa;
 
 import br.com.Utils.Functions;
+import br.com.Utils.ManipularImagem;
 import br.com.softtalk.SoftTalk;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,14 +39,19 @@ public class DAOPessoa {
 
     public int atualizarPessoa(Pessoa pessoa) {
         try {
-            String sql = "UPDATE INTO pessoa (IDSETOR, NOME) "
-                    + "VALUES ("
-                    + pessoa.getIdsetor() + ",'"
-                    + pessoa.getNome() + "')"
-                    + "WHERE IDPESSOA = " + pessoa.getIdpessoa() + ";";
+            ManipularImagem gravaImg = new ManipularImagem();
+            
+            String sql = "UPDATE  pessoa SET"
+                        + " IDSETOR =  ?,"
+                        + " NOME    =  ?," 
+                        + " IMAGEM  =  ? "
+                        + " WHERE IDPESSOA = " + pessoa.getIdpessoa() + "; ";
             PreparedStatement pstm;
 
-            pstm = SoftTalk.conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            pstm = SoftTalk.conexao.prepareStatement(sql, Statement.KEEP_CURRENT_RESULT );
+            pstm.setInt   (1, pessoa.getIdsetor());
+            pstm.setString(2, pessoa.getNome() );
+            pstm.setBytes (3, gravaImg.trasformarByte(pessoa.getImagem()) );
             pstm.execute();
             ResultSet rs = pstm.getGeneratedKeys();
             rs.next();
@@ -72,18 +80,21 @@ public class DAOPessoa {
         return lista;
     }
 
-    public Pessoa listaPessoa(int idPessoa) throws SQLException {
+    public Pessoa listaPessoa(int idPessoa) throws SQLException, IOException {
         Pessoa pessoa;
         String sql = "SELECT * FROM pessoa WHERE idpessoa = " + Integer.toString(idPessoa) + ";";
         
         Statement stm = SoftTalk.conexao.createStatement();
         ResultSet rs = stm.executeQuery(sql);
         
+        ManipularImagem carregaImg = new ManipularImagem();
         pessoa = new Pessoa();
         
         if (rs.next()) {
             pessoa.setIdsetor(rs.getInt("IdSetor"));
             pessoa.setNome(rs.getString("Nome"));
+            pessoa.setImagem(carregaImg.transformarImagem(rs.getBytes("Imagem")));
+            
         }
         
         return pessoa;

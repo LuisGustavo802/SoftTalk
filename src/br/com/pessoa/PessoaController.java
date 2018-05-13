@@ -1,3 +1,4 @@
+
 package br.com.pessoa;
 
 import br.com.Utils.Functions;
@@ -7,6 +8,7 @@ import br.com.softtalk.SoftTalk;
 import br.com.usuario.DAOUsuario;
 import br.com.usuario.Usuario;
 import br.com.usuario.UsuarioController;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -25,10 +27,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
+import javax.imageio.ImageIO;
+import static javax.swing.Spring.height;
+import static javax.swing.Spring.width;
 
 public class PessoaController implements Initializable {
 
@@ -37,17 +44,18 @@ public class PessoaController implements Initializable {
 
     @FXML
     private TextField txNome;
-
+    
+    
     @FXML
     private ImageView ivImagem;
-
+    
     @FXML
     void salvarAction(ActionEvent event) {
         gravarPerfil();
     }
 
     @FXML
-    void novaImagemAction(ActionEvent event) {
+    void novaImagemAction(ActionEvent event) throws IOException {
         adicionarImagem();
     }
 
@@ -63,45 +71,74 @@ public class PessoaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Incializar();
         try {
-            DAOUsuario daoUsuario;
-            daoUsuario = new DAOUsuario();
-            usuario = daoUsuario.listarUsuario(SoftTalk.getIdUsuarioLogado());
-            carregarPessoa();
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException ex) {
+            Incializar();
+            try {
+                carregarPessoa();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(PessoaController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InstantiationException ex) {
+                Logger.getLogger(PessoaController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(PessoaController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(PessoaController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (SQLException ex) {
             Logger.getLogger(PessoaController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    private void adicionarImagem() {
+    private void adicionarImagem() throws IOException {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Resource File");
+        fileChooser.setTitle("Selecionar ");
         fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
-        String caminho = fileChooser.showOpenDialog(SoftTalk.stage).getPath();
-        pessoa.setImagem(caminho, 447, 140);
-
-        ivImagem.setImage(SwingFXUtils.toFXImage(pessoa.getImagem(), null));
+        File file = fileChooser.showOpenDialog(SoftTalk.stage);
+        
+        if (file != null ){
+            pessoa.setImagem(ImageIO.read(file));
+            Image img = SwingFXUtils.toFXImage(pessoa.getImagem(), null);
+            if (img != null){
+                this.ivImagem.setImage(img);
+                    
+            }
+        }
     }
 
-    private void Incializar() {
+    private void Incializar() throws SQLException {
 
         functions = new Functions();
         usuario = new Usuario();
         pessoa = new Pessoa();
+        DAOUsuario daoUsuario;
+        daoUsuario = new DAOUsuario();
+        usuario = daoUsuario.listarUsuario(SoftTalk.getIdUsuarioLogado());
+        ivImagem.setPreserveRatio(true);
     }
 
-    private void carregarPessoa() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+    private void carregarPessoa() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException, IOException {
         DAOPessoa daopessoa = new DAOPessoa();
-        //DAOSetor daosetor   = new DAOSetor();
-        //Setor setor         = new Setor();
-
         carregarComboBox();
-
+     
+        Setor setor = new Setor();
+        DAOSetor daoSetor = new DAOSetor();
+        
         pessoa = daopessoa.listaPessoa(usuario.getIdpessoa());
+        
+        //se não existir imagem para pessoa seta uma de forma manual
+        if (pessoa.getImagem() == null ){
+            //imagem padrão da tela
+            pessoa.setImagem( SwingFXUtils.fromFXImage(ivImagem.getImage() , null));
+        }
 
-        txNome.setText(pessoa.getNome());
-
+        this.txNome.setText(pessoa.getNome());
+        this.ivImagem.setImage(SwingFXUtils.toFXImage(pessoa.getImagem(), null));
+        
+        if (pessoa.getIdsetor() != null){
+            setor = daoSetor.listaSetor(pessoa.getIdsetor());
+            bxSetor.getSelectionModel().select(setor);
+            
+        }
     }
 
     public void carregarComboBox() {
@@ -118,6 +155,7 @@ public class PessoaController implements Initializable {
     }
 
     public int gravarPerfil() {
+        
         Setor setor = bxSetor.getSelectionModel().getSelectedItem();
 
         pessoa.setIdpessoa(usuario.getIdpessoa());
@@ -132,7 +170,6 @@ public class PessoaController implements Initializable {
         }
 
         functions.mensagemPadrao("Gravado com sucesso!");
-        voltarTela();
         return Functions.SUCCESS;
     }
 
