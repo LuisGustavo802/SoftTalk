@@ -2,6 +2,37 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
-
+.button{
+    -fx-background-color: gray;
+    -fx-background-radius: 100;
 }
+
+.button:hover{
+    -fx-background-color: dimgray;
+}
+
+.button:pressed{
+    -fx-background-color: dimgray;
+}
+
+.combo-box-base{
+    -fx-background-color: #eeeeee;
+    -fx-text-size: 15;
+}
+
+.combo-box .list-cell{
+    -fx-background: #dddddd;
+}
+
+.combo-box .list-cell:hover{
+    -fx-background-color: darkgray;
+    -fx-text-fill: -fx-text-base-color;
+}
+
+.combo-box .list-cell:pressed{
+    -fx-background-color: dark;
+    -fx-text-fill: -fx-text-base-color;
+}
+
+
+

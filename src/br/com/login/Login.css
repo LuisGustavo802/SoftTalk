@@ -8,6 +8,15 @@ and open the template in the editor.
     Author     : free
 */
 
+
+.button{
+    -fx-background-color: gray;
+}
+
 .button:hover{
-    -fx-background-color: dimgray;
+    -fx-background-color: #38d7ff;
+}
+
+.button:pressed{
+    -fx-background-color: #38d7ff;
 }

@@ -1,25 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.effect.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="testePesquisa" prefHeight="500.0" prefWidth="55.0" style="-fx-background-color: darkgray;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.softtalk.MenuController">
+<AnchorPane fx:id="testePesquisa" prefHeight="89.0" prefWidth="900.0" style="-fx-background-color: #EEEEEE;" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.softtalk.MenuController">
    <children>
-      <Button layoutX="9.0" layoutY="14.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="37.0" style="-fx-background-color: #bbbbbb;" textFill="WHITE">
+      <Button layoutX="150.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="158.0" stylesheets="@menu.css" text="    TELA INICIAL" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="22.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -28,25 +19,10 @@
             </ImageView>
          </graphic>
          <effect>
-            <DropShadow color="#969696" />
+            <DropShadow />
          </effect>
       </Button>
-      <Button layoutX="9.0" layoutY="59.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #bbbbbb;" textFill="WHITE">
-         <graphic>
-            <ImageView fitHeight="22.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Imagens/megaphone.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <effect>
-            <DropShadow color="#979797" />
-         </effect>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </Button>
-      <Button layoutX="10.0" layoutY="456.0" mnemonicParsing="false" onAction="#perfilAction" prefHeight="30.0" prefWidth="27.0" style="-fx-background-color: #bbbbbb;" textFill="WHITE">
+      <Button layoutX="624.0" layoutY="-1.0" mnemonicParsing="false" onAction="#perfilAction" prefHeight="47.0" prefWidth="165.0" stylesheets="@menu.css" text="     CONFIGURAÇÕES" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -55,10 +31,10 @@
             </ImageView>
          </graphic>
          <effect>
-            <DropShadow color="#969696" />
+            <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="btnSetor" layoutX="9.0" layoutY="104.0" mnemonicParsing="false" onAction="#setorAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #bbbbbb;">
+      <Button fx:id="btnSetor" layoutX="466.0" layoutY="-1.0" mnemonicParsing="false" onAction="#setorAction" prefHeight="47.0" prefWidth="158.0" stylesheets="@menu.css" text="     SETOR" textFill="WHITE">
          <graphic>
             <ImageView fx:id="imgSetor" fitHeight="22.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -67,7 +43,40 @@
             </ImageView>
          </graphic>
          <effect>
-            <DropShadow color="#979797" />
+            <DropShadow />
+         </effect>
+      </Button>
+      <ImageView fitHeight="47.0" fitWidth="118.0" layoutX="8.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagens/logologin.png" />
+         </image>
+      </ImageView>
+      <MenuButton layoutX="308.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="158.0" stylesheets="@menu.css" text="     FEEDBACK" textFill="WHITE">
+        <items>
+          <MenuItem mnemonicParsing="false" style="-fx-border: null;" text="Solicitar Feedback" />
+          <MenuItem mnemonicParsing="false" style="-fx-border: null;" text="Enviar Feedback" />
+        </items>
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagens/megaphone.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <DropShadow />
+         </effect>
+      </MenuButton>
+      <Button layoutX="810.0" layoutY="9.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="76.0" style="-fx-background-radius: 100; -fx-border-radius: 100;" stylesheets="@menu.css" textFill="#902a2a">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagens/alarm.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <DropShadow color="WHITE" />
          </effect>
       </Button>
    </children>
