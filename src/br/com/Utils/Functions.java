@@ -3,7 +3,7 @@ package br.com.Utils;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
+import javafx.scene.control.Alert;
 //import javafx.scene.control.Alert;
 
 /**
@@ -37,11 +37,11 @@ public class Functions {
     }
     
     public void mensagemPadrao(String textoMensagem, String titulo){
-       /* Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(titulo);
         alert.setHeaderText(null);
         alert.setContentText(textoMensagem);
-        alert.showAndWait();*/
+        alert.showAndWait();
     }
     
     public void abrirTela(String arquivoFXML, Object classe) {

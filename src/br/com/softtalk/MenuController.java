@@ -5,6 +5,8 @@
  */
 package br.com.softtalk;
 
+import br.com.TelaInicial.TelaInicialController;
+import br.com.pessoa.Pessoa;
 import br.com.setor.Setor;
 import java.io.IOException;
 import java.net.URL;
@@ -56,14 +58,29 @@ public class MenuController implements Initializable {
 
     @FXML
     void perfilAction(ActionEvent event) {
-        SoftTalkController softTalk = new SoftTalkController();
-        softTalk.abrirPerfil();
+        Parent fxmlLoader;
+        try {
+            fxmlLoader = FXMLLoader.load(Pessoa.class.getResource("Pessoa.fxml"));
+            SoftTalk.stage.setScene(new Scene(fxmlLoader));
+        } catch (IOException ex) {
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     void setorAction(ActionEvent event) {
        try {
             Parent fxmlLoader = FXMLLoader.load(Setor.class.getResource("Setor.fxml"));
+            SoftTalk.stage.setScene(new Scene(fxmlLoader));
+        } catch (IOException ex) {
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+    }
+    
+    @FXML
+    void inicialAction(ActionEvent event) {
+       try {
+            Parent fxmlLoader = FXMLLoader.load(TelaInicialController.class.getResource("TelaInicial.fxml"));
             SoftTalk.stage.setScene(new Scene(fxmlLoader));
         } catch (IOException ex) {
             Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);

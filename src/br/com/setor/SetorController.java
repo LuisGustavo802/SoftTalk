@@ -98,7 +98,14 @@ public class SetorController implements Initializable {
     }
     
     public int excluirSetor() throws SQLException{
-        Setor setorDelete = tabelaSetor.getSelectionModel().getSelectedItem();
+        Setor setorDelete;
+        if (tabelaSetor.getSelectionModel().getSelectedItem() == null){
+            functions.mensagemPadrao("Favor selecionar setor para exclusão!");
+            return Functions.FAILURE;
+        }else{
+            setorDelete  = tabelaSetor.getSelectionModel().getSelectedItem(); 
+        }
+   
         try {
             if (setorDelete.getQuant()>0 ){
                 functions.mensagemPadrao("Setor possui pessoas cadastradas. Não será possível realizar a exclusão!");

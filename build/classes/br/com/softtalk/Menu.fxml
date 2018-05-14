@@ -15,7 +15,7 @@
 
 <AnchorPane fx:id="testePesquisa" prefHeight="89.0" prefWidth="900.0" style="-fx-background-color: #EEEEEE;" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.softtalk.MenuController">
    <children>
-      <Button layoutX="150.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="158.0" stylesheets="@menu.css" text="    TELA INICIAL" textFill="WHITE">
+      <Button layoutX="150.0" layoutY="-1.0" mnemonicParsing="false" onAction="#inicialAction" prefHeight="47.0" prefWidth="158.0" stylesheets="@menu.css" text="    TELA INICIAL" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="22.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -23,6 +23,9 @@
                </image>
             </ImageView>
          </graphic>
+         <effect>
+            <DropShadow />
+         </effect>
       </Button>
       <Button layoutX="624.0" layoutY="-1.0" mnemonicParsing="false" onAction="#perfilAction" prefHeight="47.0" prefWidth="165.0" stylesheets="@menu.css" text="     CONFIGURAÇÕES" textFill="WHITE">
          <graphic>
@@ -32,6 +35,9 @@
                </image>
             </ImageView>
          </graphic>
+         <effect>
+            <DropShadow />
+         </effect>
       </Button>
       <Button fx:id="btnSetor" layoutX="466.0" layoutY="-1.0" mnemonicParsing="false" onAction="#setorAction" prefHeight="47.0" prefWidth="158.0" stylesheets="@menu.css" text="     SETOR" textFill="WHITE">
          <graphic>
@@ -41,6 +47,9 @@
                </image>
             </ImageView>
          </graphic>
+         <effect>
+            <DropShadow />
+         </effect>
       </Button>
       <ImageView fitHeight="47.0" fitWidth="118.0" layoutX="8.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -59,8 +68,11 @@
                </image>
             </ImageView>
          </graphic>
+         <effect>
+            <DropShadow />
+         </effect>
       </MenuButton>
-      <Button layoutX="810.0" layoutY="9.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="76.0" style="-fx-background-radius: 100; -fx-border-radius: 100;" stylesheets="@menu.css" textFill="WHITE">
+      <Button layoutX="810.0" layoutY="9.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="76.0" style="-fx-background-radius: 100; -fx-border-radius: 100;" stylesheets="@menu.css" textFill="#902a2a">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -68,6 +80,9 @@
                </image>
             </ImageView>
          </graphic>
+         <effect>
+            <DropShadow color="WHITE" />
+         </effect>
       </Button>
    </children>
 </AnchorPane>

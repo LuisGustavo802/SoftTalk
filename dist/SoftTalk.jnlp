@@ -7,13 +7,10 @@
     <offline-allowed/>
   </information>
   <resources>
-    <jfx:javafx-runtime version="8.0+" href="http://javadl.sun.com/webapps/download/GetFile/javafx-latest/windows-i586/javafx2.jnlp"/>
-  </resources>
-  <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="SoftTalk.jar" size="3035746" download="eager" />
-    <jar href="lib/jfoenix-0.0.0-SNAPSHOT-retrolambda.jar" size="2305158" download="eager" />
-    <jar href="lib/postgresql-9.4.1209.jar" size="678049" download="eager" />
+    <jar href="SoftTalk.jar" size="3019962" download="eager" />
+    <jar href="lib\jfoenix-0.0.0-SNAPSHOT-retrolambda.jar" size="2305158" download="eager" />
+    <jar href="lib\postgresql-9.4.1209.jar" size="678049" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="SoftTalk" >
     <param name="requiredFXVersion" value="8.0+"/>
