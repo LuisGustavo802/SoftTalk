@@ -5,9 +5,10 @@
  */
 package br.com.login;
 
-import br.com.usuario.Usuario;
+import br.com.TelaInicial.TelaInicialController;
 import br.com.Utils.Functions;
 import br.com.softtalk.SoftTalk;
+import br.com.usuario.Usuario;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -101,7 +102,7 @@ public class LoginController {
             if (rs.getString("flagativo").equals("T")) {
                 if (rs.getString("senha").equals(functions.encript(senha.getText()))) {
                     SoftTalk.setIdUsuarioLogado(rs.getInt("idusuario"));//Alimenta com o usuario logado no sistema
-                    Parent fxmlLoader = FXMLLoader.load(SoftTalk.class.getResource("SoftTalk.fxml"));
+                    Parent fxmlLoader = FXMLLoader.load(TelaInicialController.class.getResource("TelaInicial.fxml"));
 
                     SoftTalk.stage.setScene(new Scene(fxmlLoader));
 
