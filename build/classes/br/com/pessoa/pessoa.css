@@ -1,37 +1,53 @@
 /*
  * Empty Stylesheet file.
  */
+/*Pessoa.css*/
 
 .button{
-    -fx-background-color: gray;
+    -fx-background-color: darkgray;
+    -fx-text-fill: white;
     -fx-background-radius: 100;
+    -fx-border-color: dimgray;
+    -fx-border-radius: 100;
 }
 
 .button:hover{
-    -fx-background-color: dimgray;
+    -fx-background-color: #38d7ff;
+    -fx-text-fill: dimgray;
 }
 
 .button:pressed{
-    -fx-background-color: dimgray;
+    -fx-background-color: #38d7ff;
+    -fx-text-fill: dimgray;
 }
 
-.combo-box-base{
+.combo-box{
     -fx-background-color: #eeeeee;
+    -fx-prompt-text-fill: dimgray;
     -fx-text-size: 15;
 }
 
-.combo-box .list-cell{
-    -fx-background: #dddddd;
+.combo-box:hover{
+    -fx-background-color: #dddddd;
 }
 
-.combo-box .list-cell:hover{
-    -fx-background-color: darkgray;
-    -fx-text-fill: -fx-text-base-color;
+.combo-box:pressed{
+    -fx-background-color: #dddddd;
 }
 
-.combo-box .list-cell:pressed{
-    -fx-background-color: dark;
-    -fx-text-fill: -fx-text-base-color;
+.list-cell{
+    -fx-background: darkgray;
+    -fx-text-size: 15;
+}
+
+.list-cell:hover{
+    -fx-background-color: gray;
+    -fx-text-fill: white;
+}
+
+.list-cell:pressed{
+    -fx-background-color: gray;
+    -fx-text-fill: white;
 }
 
 

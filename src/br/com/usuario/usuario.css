@@ -1,30 +1,64 @@
 /*
  * Empty Stylesheet file.
  */
+/*Usuario.css*/
+
+.anchorPane{
+    -fx-opacity: 0.9;
+}
 
 .button{
-    -fx-background-color: dimgray;
+    -fx-background-radius: 100;
+    -fx-background-color: gray;
+    -fx-text-fill: white;
+    -fx-border-radius: 100;
+    -fx-border-color: dimgray;
 }
 
 .button:hover{
     -fx-background-color: #38d7ff;
+    -fx-text-fill: dimgray;
+
 }
 
 .button:pressed{
     -fx-background-color: #38d7ff;
+    -fx-text-fill: dimgray;
 }
-
-.combo-box .list-cell{
-    -fx-background: #dddddd;
+.combo-box{
+    -fx-background-color: #eeeeee;
+    -fx-prompt-text-fill: dimgray;
     -fx-text-size: 15;
 }
 
-.combo-box .list-cell:hover{
-    -fx-background-color: darkgray;
-    -fx-text-fill: -fx-text-base-color;
+.combo-box:hover{
+    -fx-background-color: #dddddd;
 }
 
-.combo-box .list-cell:pressed{
-    -fx-background-color: dark;
-    -fx-text-fill: -fx-text-base-color;
+.combo-box:pressed{
+    -fx-background-color: #dddddd;
+}
+
+.list-cell{
+    -fx-background: darkgray;
+}
+
+.list-cell:hover{
+    -fx-background-color: gray;
+}
+
+.list-cell:pressed{
+    -fx-background-color: gray;
+}
+
+.text-field{
+    -fx-background-color: #eeeeee;
+}
+
+.text-field:hover{
+    -fx-background-color: #dddddd;
+}
+
+.text-field:pressed{
+    -fx-background-color: #dddddd;
 }

@@ -3,57 +3,44 @@
  */
 
 
+/*MENU.CSS*/
+
 .button{
-    -fx-background-color: gray;
-    -fx-border-color: white;
+   -fx-background-color: darkgray;
+   -fx-text-fill: white;
+   -fx-border-color: dimgray;
 }
 
 .button:hover{
-    -fx-background-color: dimgray;
+    -fx-background-color: gray;
 }
 
 .button:pressed{
-    -fx-background-color: dimgray;
+    -fx-background-color: gray;
 }
 
 .menu-button{
-    -fx-background-color: gray;
-    -fx-border-color: white;
+    -fx-background-color: darkgray;
+    -fx-border-color: dimgray; 
 }
 
 .menu-button:hover{
-    -fx-background-color: dimgray;
+    -fx-background-color: gray;
 }
 
 .menu-button:pressed{
-    -fx-background-color: dimgray;
+    -fx-background-color: gray;
 }
 
 .menu-item{
-    -fx-background-color: gray;
-    -fx-text-fill: white;
+    -fx-background-color: darkgray;
     -fx-pref-width: 158;
     -fx-pref-height: 47;
-    -fx-border-color: dimgray;
-    
 }
 
 .menu-item:hover{
-    -fx-background-color: dimgray;
+    -fx-background-color: gray;
 }
-
 .menu-item:pressed{
-    -fx-background-color: dimgray;
-}
-
-.menu-item:default:pressed{
-    -fx-background-color: gray;
-}
-
-.menu-item:hover:pressed:default{
-    -fx-background-color: gray;
-}
-
-.menu-item:hover:pressed:disabled{
     -fx-background-color: gray;
 }

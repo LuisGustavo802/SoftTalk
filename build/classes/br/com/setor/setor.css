@@ -2,24 +2,29 @@
  * Empty Stylesheet file.
  */
 
+/*Setor.css*/
+
+.button{
+    -fx-background-color: darkgray;
+    -fx-border-color: dimgray;
+    -fx-text-fill: white;
+    -fx-background-radius: 100;
+    -fx-border-radius: 100;
+}
+
+.button:hover{
+    -fx-background-color: gray;
+}
+
+.button:pressed{
+    -fx-background-color: gray;
+}
+
 .table-view{
     -fx-table-color: #eeeeee;
 }
 
 .table-row-cell:selected{
-    -fx-background-color: #38d4ff;
-}
-
-.button{
     -fx-background-color: gray;
-    -fx-background-radius: 100;
-}
-
-.button:hover{
-    -fx-background-color: dimgray;
-}
-
-.button:pressed{
-    -fx-background-color: dimgray;
 }
 
