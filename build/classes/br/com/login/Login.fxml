@@ -58,7 +58,7 @@
                   <Image url="@../Imagens/logo.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnEntrar" layoutX="228.0" layoutY="327.0" mnemonicParsing="false" onAction="#LoginAction" prefHeight="37.0" prefWidth="155.0" style="-fx-background-radius: ;" stylesheets="@Login.css" text="Entrar" textFill="white">
+            <Button fx:id="btnEntrar" layoutX="228.0" layoutY="327.0" mnemonicParsing="false" onAction="#LoginAction" prefHeight="37.0" prefWidth="155.0" style="-fx-background-radius: 100;" stylesheets="@Login.css" text="Entrar" textFill="white">
                <font>
                   <Font size="15.0" />
                </font>

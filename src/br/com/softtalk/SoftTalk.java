@@ -22,6 +22,7 @@ public class SoftTalk extends Application {
     public static Connection conexao;
     public final static Stage stage = new Stage(StageStyle.DECORATED);
     
+    
     public static void setIdUsuarioLogado(int idUsuarioLogado) {
         SoftTalk.idUsuarioLogado = idUsuarioLogado;
     }

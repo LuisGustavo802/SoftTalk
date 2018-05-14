@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
@@ -42,11 +44,6 @@
             </ImageView>
          </graphic>
       </Button>
-      <ImageView fitHeight="47.0" fitWidth="118.0" layoutX="8.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Imagens/logologin.png" />
-         </image>
-      </ImageView>
       <MenuButton layoutX="308.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="158.0" stylesheets="@menu.css" text="     FEEDBACK" textFill="WHITE">
         <items>
           <MenuItem mnemonicParsing="false" style="-fx-border: null;" text="Solicitar Feedback" />
@@ -69,5 +66,19 @@
             </ImageView>
          </graphic>
       </Button>
+      <Text layoutX="6.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SoftTalk" wrappingWidth="149.099609375">
+         <fill>
+            <LinearGradient endX="0.4666666666666667" endY="0.1523809523809524" startX="0.4666666666666667" startY="1.0">
+               <stops>
+                  <Stop color="#009cff" />
+                  <Stop color="#00ffe5" offset="0.8934707903780068" />
+                  <Stop color="#005361" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <font>
+            <Font size="39.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
