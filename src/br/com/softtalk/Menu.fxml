@@ -17,7 +17,7 @@
 
 <AnchorPane fx:id="testePesquisa" prefHeight="89.0" prefWidth="900.0" style="-fx-background-color: #EEEEEE;" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.softtalk.MenuController">
    <children>
-      <Button layoutX="150.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="158.0" stylesheets="@menu.css" text="    TELA INICIAL" textFill="WHITE">
+      <Button layoutX="150.0" layoutY="-1.0" mnemonicParsing="false" onAction="#inicialAction" prefHeight="47.0" prefWidth="158.0" stylesheets="@menu.css" text="    TELA INICIAL" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="22.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                <image>
