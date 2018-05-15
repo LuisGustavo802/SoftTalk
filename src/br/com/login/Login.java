@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
 import javafx.scene.image.Image;
+import br.com.Imagens.Imagens;
 
 
 /**
@@ -25,9 +26,10 @@ public class Login {
         try {
             Parent fxmlLoader = FXMLLoader.load(Login.class.getResource("Login.fxml"));
 
+            SoftTalk.stage.getIcons().add(new Image( Imagens.class.getResource("icon.png").toExternalForm())); 
+
             SoftTalk.stage.toFront();
             SoftTalk.stage.setScene(new Scene(fxmlLoader));
-            //SoftTalk.stage.getIcons().add(new Image("/imagens/IconFeedback.ico"));  
             SoftTalk.stage.setTitle("SoftTalk");
             SoftTalk.stage.setFullScreen(false);
             SoftTalk.stage.setResizable(false);
