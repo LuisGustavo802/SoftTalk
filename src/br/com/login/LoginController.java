@@ -42,13 +42,15 @@ public class LoginController {
     @FXML
     protected void LoginAction(ActionEvent event) {
         try {
+            Functions fff = new Functions();
+            fff.abrirMensagem("tettee");
             validaLogin();
         } catch (SQLException | IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    @FXML
+    /*@FXML
     protected void loginKey(KeyEvent e) {
         String teste;
         
@@ -64,8 +66,8 @@ public class LoginController {
                     Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        }*/
-    }
+        }
+    }*/
 
     @FXML
     void CadastroAction(ActionEvent event) {

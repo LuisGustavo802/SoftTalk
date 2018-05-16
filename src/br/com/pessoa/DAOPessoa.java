@@ -1,4 +1,3 @@
-
 package br.com.pessoa;
 
 import br.com.Utils.Functions;
@@ -22,14 +21,14 @@ public class DAOPessoa {
                     + "VALUES ("
                     + pessoa.getIdsetor() + ",'"
                     + pessoa.getNome() + "')";
-            
+
             PreparedStatement pstm;
             pstm = SoftTalk.conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             pstm.execute();
-            
+
             ResultSet rs = pstm.getGeneratedKeys();
             rs.next();
-            
+
             return rs.getInt(1);
         } catch (SQLException ex) {
             Logger.getLogger(DAOPessoa.class.getName()).log(Level.SEVERE, null, ex);
@@ -40,18 +39,18 @@ public class DAOPessoa {
     public int atualizarPessoa(Pessoa pessoa) {
         try {
             ManipularImagem gravaImg = new ManipularImagem();
-            
+
             String sql = "UPDATE  pessoa SET"
-                        + " IDSETOR =  ?,"
-                        + " NOME    =  ?," 
-                        + " IMAGEM  =  ? "
-                        + " WHERE IDPESSOA = " + pessoa.getIdpessoa() + "; ";
+                    + " IDSETOR =  ?,"
+                    + " NOME    =  ?,"
+                    + " IMAGEM  =  ? "
+                    + " WHERE IDPESSOA = " + pessoa.getIdpessoa() + "; ";
             PreparedStatement pstm;
 
-            pstm = SoftTalk.conexao.prepareStatement(sql, Statement.KEEP_CURRENT_RESULT );
-            pstm.setInt   (1, pessoa.getIdsetor());
-            pstm.setString(2, pessoa.getNome() );
-            pstm.setBytes (3, gravaImg.trasformarByte(pessoa.getImagem()) );
+            pstm = SoftTalk.conexao.prepareStatement(sql, Statement.KEEP_CURRENT_RESULT);
+            pstm.setInt(1, pessoa.getIdsetor());
+            pstm.setString(2, pessoa.getNome());
+            pstm.setBytes(3, gravaImg.trasformarByte(pessoa.getImagem()));
             pstm.execute();
             ResultSet rs = pstm.getGeneratedKeys();
             rs.next();
@@ -66,10 +65,10 @@ public class DAOPessoa {
     public List<Pessoa> listarPessoas() throws SQLException {
         Pessoa pessoa;
         List<Pessoa> lista = new ArrayList();
-        
+
         String sql = "SELECT * FROM pessoa;";
         Statement stm = SoftTalk.conexao.createStatement();
-        
+
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next()) {
             pessoa = new Pessoa();
@@ -83,30 +82,30 @@ public class DAOPessoa {
     public Pessoa listaPessoa(int idPessoa) throws SQLException, IOException {
         Pessoa pessoa;
         String sql = "SELECT * FROM pessoa WHERE idpessoa = " + Integer.toString(idPessoa) + ";";
-        
+
         Statement stm = SoftTalk.conexao.createStatement();
         ResultSet rs = stm.executeQuery(sql);
-        
+
         ManipularImagem carregaImg = new ManipularImagem();
         pessoa = new Pessoa();
-        
+
         if (rs.next()) {
             pessoa.setIdsetor(rs.getInt("IdSetor"));
             pessoa.setNome(rs.getString("Nome"));
             pessoa.setImagem(carregaImg.transformarImagem(rs.getBytes("Imagem")));
-            
+
         }
-        
+
         return pessoa;
     }
-    
+
     public String listaNomePessoa(int idUsuario) throws SQLException, IOException {
-        String sql = "SELECT pes.nome FROM pessoa pes JOIN usuario usu ON pes.idpessoa = usu.idpessoa"+
-                " WHERE usu.idusuario = " + Integer.toString(idUsuario) + ";";
-        
+        String sql = "SELECT pes.nome FROM pessoa pes JOIN usuario usu ON pes.idpessoa = usu.idpessoa"
+                + " WHERE usu.idusuario = " + Integer.toString(idUsuario) + ";";
+
         Statement stm = SoftTalk.conexao.createStatement();
         ResultSet rs = stm.executeQuery(sql);
-        rs.next(); 
+        rs.next();
         return rs.getString("Nome");
     }
 }

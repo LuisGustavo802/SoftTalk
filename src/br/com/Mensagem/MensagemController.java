@@ -38,7 +38,7 @@ public class MensagemController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
     }
 
     public String getMensagem() {
@@ -46,12 +46,12 @@ public class MensagemController implements Initializable {
     }
 
     public void setMensagem(String mensagem) {
-        this.mensagem = mensagem;
+        this.lblMensagem.setText(mensagem);
     }
 
     public void abrirMensagem() {
-        try {
-            
+        /*try {
+
             Stage stage = new Stage(StageStyle.TRANSPARENT);
 
             Parent fxmlLoader = FXMLLoader.load(MensagemController.class.getResource("Mensagem.fxml"));
@@ -60,7 +60,7 @@ public class MensagemController implements Initializable {
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }
 
 }

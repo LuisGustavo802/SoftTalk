@@ -5,11 +5,6 @@
  */
 package br.com.telainicial;
 
-<<<<<<< HEAD
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
-=======
 import br.com.Utils.Functions;
 import br.com.feedback.DAOFeedback;
 import br.com.feedback.Feedback;
@@ -33,63 +28,51 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
->>>>>>> 6f2eb3ccd3adc5099f13d00d4fcdee29d367d2ec
 
 /**
  * FXML Controller class
  *
  * @author Kaliane Viesseli
  */
-<<<<<<< HEAD
 public class TelaInicialController implements Initializable {
-
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-=======
-public class TelaInicialController implements Initializable{
 
     @FXML
     public TabPane abasVisualizacao;
-    
     @FXML
     public Tab aba0;
     @FXML
     public Tab aba1;
     @FXML
-    public ListView<Feedback> listViewFeedbacks;  
+    public ListView<Feedback> listViewFeedbacks;
     @FXML
-    public TextField txtNomeRemetente, txtData;   
+    public TextField txtNomeRemetente, txtData;
     @FXML
     public TextArea txtFeedback;
-    
+
     private List<Feedback> listFeedback = new ArrayList<>();
     private ObservableList<Feedback> observableListFeedback;
-    
+
     Functions functions = new Functions();
     DAOFeedback daoFeedback = new DAOFeedback();
     DAOPessoa daopes = new DAOPessoa();
     SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         inicializarListView();
-    } 
-    
+    }
+
     @FXML
-    void detalhesAction(ActionEvent event) throws SQLException, IOException{
+    void detalhesAction(ActionEvent event) throws SQLException, IOException {
         exibirDetalhes();
     }
+
     @FXML
-    void voltarAction(ActionEvent event){
+    void voltarAction(ActionEvent event) {
         inicializarListView();
     }
-    
-    public void inicializarListView(){
+
+    public void inicializarListView() {
         //Desabilitar aba detalhes
         abasVisualizacao.getTabs().get(1).getContent().setVisible(false);
         aba1.setDisable(true);
@@ -103,17 +86,17 @@ public class TelaInicialController implements Initializable{
             listViewFeedbacks.setItems(observableListFeedback);
         } catch (SQLException ex) {
             Logger.getLogger(TelaInicialController.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
     }
-    
-    public int exibirDetalhes() throws SQLException, IOException{
+
+    public int exibirDetalhes() throws SQLException, IOException {
         Feedback feedbackSelecionado;
-        if (listViewFeedbacks.getSelectionModel().getSelectedItem() != null){
-            feedbackSelecionado  = listViewFeedbacks.getSelectionModel().getSelectedItem(); 
-        }else{
+        if (listViewFeedbacks.getSelectionModel().getSelectedItem() != null) {
+            feedbackSelecionado = listViewFeedbacks.getSelectionModel().getSelectedItem();
+        } else {
             return Functions.FAILURE;
         }
-       //Desabilitar aba lista
+        //Desabilitar aba lista
         abasVisualizacao.getTabs().get(0).getContent().setVisible(false);
         aba0.setDisable(true);
         //habilitar e selecionar aba detalhes
@@ -125,6 +108,5 @@ public class TelaInicialController implements Initializable{
         txtFeedback.setText(feedbackSelecionado.getMensagem());
         return Functions.SUCCESS;
     }
->>>>>>> 6f2eb3ccd3adc5099f13d00d4fcdee29d367d2ec
-    
+
 }
