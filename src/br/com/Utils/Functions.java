@@ -2,7 +2,7 @@ package br.com.Utils;
 
 import Mensagem.MensagemController;
 import br.com.login.LoginController;
-import br.com.notificacao.NotificacaoController;
+import br.com.notificacoes.NotificacaoController;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;

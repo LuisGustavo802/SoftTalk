@@ -1,0 +1,19 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.button{
+    -fx-background-color: dimgray;
+    -fx-border-color: gray;
+    -fx-text-fill: white;
+    -fx-background-radius: 100;
+    -fx-border-radius: 100;
+}
+
+.button:hover{
+    -fx-background-color: gray;
+}
+
+.button:pressed{
+    -fx-background-color: gray;
+}
