@@ -5,8 +5,8 @@
 /*Setor.css*/
 
 .button{
-    -fx-background-color: darkgray;
-    -fx-border-color: dimgray;
+    -fx-background-color: dimgray;
+    -fx-border-color: gray;
     -fx-text-fill: white;
     -fx-background-radius: 100;
     -fx-border-radius: 100;
@@ -27,4 +27,18 @@
 .table-row-cell:selected{
     -fx-background-color: gray;
 }
+
+.text-field{
+    -fx-background-color: #eeeeee;
+    -fx-prompt-text-fill: dimgray;
+}
+
+.text-field:hover{
+    -fx-background-color: #dddddd;
+}
+
+.text-field:pressed{
+    -fx-background-color: #dddddd;
+}
+
 
