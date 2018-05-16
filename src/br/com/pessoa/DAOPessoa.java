@@ -99,4 +99,14 @@ public class DAOPessoa {
         
         return pessoa;
     }
+    
+    public String listaNomePessoa(int idUsuario) throws SQLException, IOException {
+        String sql = "SELECT pes.nome FROM pessoa pes JOIN usuario usu ON pes.idpessoa = usu.idpessoa"+
+                " WHERE usu.idusuario = " + Integer.toString(idUsuario) + ";";
+        
+        Statement stm = SoftTalk.conexao.createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        rs.next(); 
+        return rs.getString("Nome");
+    }
 }
