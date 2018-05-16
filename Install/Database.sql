@@ -48,6 +48,6 @@ CREATE TABLE IF NOT EXISTS feedback_solicitacao (
   dtlimite timestamp);
 
 
-CREATE TABLE IF NOT EXISTS Feedback_envio (
+CREATE TABLE IF NOT EXISTS feedback_envio (
   idfeedback INT NOT NULL);
 
