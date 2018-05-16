@@ -1,84 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="testePesquisa" prefHeight="89.0" prefWidth="900.0" style="-fx-background-color: #EEEEEE;" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.softtalk.MenuController">
+<AnchorPane fx:id="testePesquisa" prefHeight="498.0" prefWidth="57.0" style="-fx-background-color: #EEEEEE;" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.softtalk.MenuController">
    <children>
-      <Button layoutX="150.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="158.0" stylesheets="@menu.css" text="    TELA INICIAL" textFill="WHITE">
-         <graphic>
-            <ImageView fitHeight="22.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Imagens/home.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button layoutX="624.0" layoutY="-1.0" mnemonicParsing="false" onAction="#perfilAction" prefHeight="47.0" prefWidth="165.0" stylesheets="@menu.css" text="     CONFIGURAÇÕES" textFill="WHITE">
-         <graphic>
-            <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Imagens/settings.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button fx:id="btnSetor" layoutX="466.0" layoutY="-1.0" mnemonicParsing="false" onAction="#setorAction" prefHeight="47.0" prefWidth="158.0" stylesheets="@menu.css" text="     SETOR" textFill="WHITE">
-         <graphic>
-            <ImageView fx:id="imgSetor" fitHeight="22.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Imagens/hierarchical-structure.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <MenuButton layoutX="308.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="158.0" stylesheets="@menu.css" text="     FEEDBACK" textFill="WHITE">
-        <items>
-          <MenuItem mnemonicParsing="false" style="-fx-border: null;" text="Solicitar Feedback" />
-          <MenuItem mnemonicParsing="false" style="-fx-border: null;" text="Enviar Feedback" />
-        </items>
-         <graphic>
-            <ImageView fitHeight="22.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Imagens/megaphone.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </MenuButton>
-      <Button layoutX="810.0" layoutY="9.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="76.0" style="-fx-background-radius: 100; -fx-border-radius: 100;" stylesheets="@menu.css" textFill="WHITE">
-         <graphic>
-            <ImageView fitHeight="26.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Imagens/alarm.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Text layoutX="6.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SoftTalk" wrappingWidth="149.099609375">
-         <fill>
-            <LinearGradient endX="0.4666666666666667" endY="0.1523809523809524" startX="0.4666666666666667" startY="1.0">
-               <stops>
-                  <Stop color="#009cff" />
-                  <Stop color="#00ffe5" offset="0.8934707903780068" />
-                  <Stop color="#005361" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </fill>
-         <font>
-            <Font size="39.0" />
-         </font>
-      </Text>
+      <AnchorPane prefHeight="500.0" prefWidth="57.0" style="-fx-background-color: dimgray;">
+         <children>
+            <Button ellipsisString="" layoutX="2.0" layoutY="14.0" mnemonicParsing="false" onAction="#inicialAction" prefHeight="47.0" prefWidth="53.0" stylesheets="@menu.css" text="     TELA INICIAL" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagens/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnSetor" ellipsisString="" layoutX="2.0" layoutY="208.0" mnemonicParsing="false" onAction="#setorAction" prefHeight="47.0" prefWidth="53.0" stylesheets="@menu.css" text="     CADASTRAR SETOR" textFill="WHITE">
+               <graphic>
+                  <ImageView fx:id="imgSetor" fitHeight="30.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagens/hierarchical-structure.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button ellipsisString="" layoutX="2.0" layoutY="439.0" mnemonicParsing="false" onAction="#perfilAction" prefHeight="47.0" prefWidth="53.0" stylesheets="@menu.css" text="     CONFIGURAÇÕES" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagens/settings.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button ellipsisString="" layoutX="2.0" layoutY="78.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="52.0" text="     ENVIAR FEEDBACK">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagens/email.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button ellipsisString="" layoutX="3.0" layoutY="142.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="52.0" text="     SOLICITAR FEEDBACK">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagens/emailrequest.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

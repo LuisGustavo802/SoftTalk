@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
@@ -19,14 +12,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #eeeeee;" styleClass="mainFxmlClass" stylesheets="@../softtalk/Anc.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.usuario.UsuarioController">
+<AnchorPane prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #eeeeee;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.usuario.UsuarioController">
    <children>
       <ImageView fitHeight="510.0" fitWidth="822.0" layoutX="39.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagens/time-projeto.png" />
          </image>
       </ImageView>
-      <Button fx:id="btVoltar" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#voltarAction" prefHeight="37.0" prefWidth="52.0" style="-fx-background-color: #eeeeee;">
+      <Button fx:id="btVoltar" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#voltarAction" prefHeight="37.0" prefWidth="52.0" style="-fx-background-color: #eeeeee; -fx-border-color: #eeeeee;">
          <graphic>
             <ImageView fitHeight="28.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -63,25 +56,25 @@
             <Font size="39.0" />
          </font>
       </Text>
-      <AnchorPane layoutX="76.0" layoutY="77.0" opacity="0.94" prefHeight="332.0" prefWidth="742.0" style="-fx-background-color: #eeeeee;">
+      <AnchorPane layoutX="76.0" layoutY="77.0" opacity="0.9" prefHeight="332.0" prefWidth="742.0" style="-fx-background-color: #eeeeee;">
          <children>
-            <JFXTextField fx:id="usuario" focusColor="#38d1ff" layoutY="274.0" maxWidth="350.0" minWidth="350.0" prefHeight="31.0" prefWidth="350.0" promptText="Usuário:" style="-fx-background-color: #eeeeee;" unFocusColor="#696969">
+            <JFXTextField fx:id="usuario" focusColor="#38d1ff" layoutY="274.0" maxWidth="350.0" minWidth="350.0" prefHeight="31.0" prefWidth="350.0" promptText="Usuário:" stylesheets="@usuario.css" unFocusColor="#696969">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXPasswordField fx:id="senha" focusColor="#38d4ff" layoutX="392.0" layoutY="71.0" maxWidth="350.0" minWidth="350.0" prefHeight="31.0" prefWidth="350.0" promptText="Senha:" style="-fx-background-color: #eeeeee;" unFocusColor="#696969">
+            <JFXPasswordField fx:id="senha" focusColor="#38d4ff" layoutX="392.0" layoutY="71.0" maxWidth="350.0" minWidth="350.0" prefHeight="31.0" prefWidth="350.0" promptText="Senha:" stylesheets="@usuario.css" unFocusColor="#696969">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXPasswordField>
-            <JFXComboBox fx:id="bxSetor" layoutX="10.0" layoutY="64.0" prefHeight="37.0" prefWidth="330.0" promptText="Selecione o setor:" style="-fx-background-color: eeeeee; -fx-border-radius: 100;" stylesheets="@usuario.css" />
-            <JFXTextField fx:id="txNome" focusColor="#38d1ff" layoutY="173.0" maxWidth="350.0" minWidth="350.0" prefHeight="31.0" prefWidth="350.0" promptText="Nome:" style="-fx-background-color: #eeeeee;" unFocusColor="#696969">
+            <JFXComboBox fx:id="bxSetor" layoutX="10.0" layoutY="64.0" prefHeight="37.0" prefWidth="330.0" promptText="Selecione o setor:" style="-fx-background-color: #eeeeee; -fx-border-radius: 100;" stylesheets="@usuario.css" />
+            <JFXTextField fx:id="txNome" focusColor="#38d1ff" layoutY="173.0" maxWidth="350.0" minWidth="350.0" prefHeight="31.0" prefWidth="350.0" promptText="Nome:" stylesheets="@usuario.css" unFocusColor="#696969">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXPasswordField fx:id="senha1" focusColor="#38d4ff" layoutX="392.0" layoutY="173.0" maxWidth="350.0" minWidth="330.0" prefHeight="31.0" prefWidth="350.0" promptText="Repetir Senha:" style="-fx-background-color: #eeeeee;" unFocusColor="#696969">
+            <JFXPasswordField fx:id="senha1" focusColor="#38d4ff" layoutX="392.0" layoutY="173.0" maxWidth="350.0" minWidth="330.0" prefHeight="31.0" prefWidth="350.0" promptText="Repetir Senha:" stylesheets="@usuario.css" unFocusColor="#696969">
                <font>
                   <Font size="15.0" />
                </font>

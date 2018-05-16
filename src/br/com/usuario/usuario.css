@@ -27,8 +27,8 @@
 }
 .combo-box{
     -fx-background-color: #eeeeee;
-    -fx-prompt-text-fill: dimgray;
-    -fx-text-size: 15;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
 }
 
 .combo-box:hover{
@@ -53,6 +53,7 @@
 
 .text-field{
     -fx-background-color: #eeeeee;
+    -fx-prompt-text-fill: dimgray;
 }
 
 .text-field:hover{
@@ -62,3 +63,4 @@
 .text-field:pressed{
     -fx-background-color: #dddddd;
 }
+

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="menuTop" prefHeight="71.0" prefWidth="900.0" style="-fx-background-color: #eeeeee;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.notificacoes.NotificacaoController">
+    <stylesheets>
+        <URL value="@notificacao.css" />
+    </stylesheets>
+   <children>
+      <Button layoutX="778.0" layoutY="5.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="61.0">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagens/alarm.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Text layoutX="128.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SoftTalk">
+         <font>
+            <Font size="39.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="0.4666666666666667" endY="0.1523809523809524" startX="0.4666666666666667" startY="1.0">
+               <stops>
+                  <Stop color="#009cff" />
+                  <Stop color="#00ffe5" offset="0.8934707903780068" />
+                  <Stop color="#005361" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+   </children>
+</AnchorPane>

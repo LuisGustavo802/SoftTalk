@@ -26,8 +26,7 @@ public class Login {
         try {
             Parent fxmlLoader = FXMLLoader.load(Login.class.getResource("Login.fxml"));
 
-            SoftTalk.stage.getIcons().add(new Image( Imagens.class.getResource("icon.png").toExternalForm())); 
-
+            SoftTalk.stage.getIcons().add(new Image( Imagens.class.getResource("chat.png").toExternalForm())); 
             SoftTalk.stage.toFront();
             SoftTalk.stage.setScene(new Scene(fxmlLoader));
             SoftTalk.stage.setTitle("SoftTalk");

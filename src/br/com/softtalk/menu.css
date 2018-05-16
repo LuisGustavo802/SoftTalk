@@ -6,41 +6,22 @@
 /*MENU.CSS*/
 
 .button{
-   -fx-background-color: darkgray;
+   -fx-background-color: dimgray;
    -fx-text-fill: white;
-   -fx-border-color: dimgray;
+   -fx-border-color: gray;
 }
 
-.button:hover{
+.button:hover, .button:expanded, .anchorPane:expanded{
     -fx-background-color: gray;
+    -fx-border-color: #cccccc;
+    -fx-pref-width: 180;
+    -fx-font-size: 10;
 }
 
-.button:pressed{
+.button:pressed .button:expanded, .anchorPane:expanded{
     -fx-background-color: gray;
+    -fx-border-color: #cccccc;
+    -fx-pref-width: 180;
+    -fx-font-size: 10;
 }
 
-.menu-button{
-    -fx-background-color: darkgray;
-    -fx-border-color: dimgray; 
-}
-
-.menu-button:hover{
-    -fx-background-color: gray;
-}
-
-.menu-button:pressed{
-    -fx-background-color: gray;
-}
-
-.menu-item{
-    -fx-background-color: darkgray;
-    -fx-pref-width: 158;
-    -fx-pref-height: 47;
-}
-
-.menu-item:hover{
-    -fx-background-color: gray;
-}
-.menu-item:pressed{
-    -fx-background-color: gray;
-}

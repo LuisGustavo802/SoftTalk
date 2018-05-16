@@ -24,6 +24,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
@@ -41,11 +42,16 @@ public class PessoaController implements Initializable {
 
     @FXML
     private ComboBox<Setor> bxSetor;
+    
+    @FXML
+    private ComboBox<Setor> bxSetor1;
 
     @FXML
     private TextField txNome;
     
-    
+    @FXML
+    private TextField txNome1;
+     
     @FXML
     private ImageView ivImagem;
     
@@ -134,10 +140,17 @@ public class PessoaController implements Initializable {
         this.txNome.setText(pessoa.getNome());
         this.ivImagem.setImage(SwingFXUtils.toFXImage(pessoa.getImagem(), null));
         
+        //Pegando valores e setando que ele nao pode ser editado.
+        this.txNome1.setText(pessoa.getNome());
+        txNome1.setEditable(false);
+        
         if (pessoa.getIdsetor() != null){
             setor = daoSetor.listaSetor(pessoa.getIdsetor());
             bxSetor.getSelectionModel().select(setor);
-            
+           
+            //Pegando valores e setando que ele nao pode ser editado.
+            bxSetor1.getSelectionModel().select(setor);
+            bxSetor1.setEditable(false);
         }
     }
 
@@ -175,7 +188,7 @@ public class PessoaController implements Initializable {
 
     public void voltarTela() {
         try {
-            Parent fxmlLoader = FXMLLoader.load(SoftTalk.class.getResource("SoftTalk.fxml"));
+            Parent fxmlLoader = FXMLLoader.load(Pessoa.class.getResource("Pessoa.fxml"));
             SoftTalk.stage.setScene(new Scene(fxmlLoader));
         } catch (IOException ex) {
             Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
