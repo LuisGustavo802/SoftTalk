@@ -24,7 +24,7 @@ public class DAOFeedback {
                     + "VALUES ('"
                     + feedback.getTipoFeedBack() + "',"
                     + feedback.getIdPessoa() + ", '"
-                    + feedback.getMensagem()+ "')";
+                    + feedback.getMensagem() + "')";
 
             PreparedStatement pstm;
             pstm = SoftTalk.conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -39,11 +39,11 @@ public class DAOFeedback {
             return Functions.FAILURE;
         }
     }
-    
-        public List<Feedback> listarFeedbacksRecebidos() throws SQLException {
+
+    public List<Feedback> listarFeedbacksRecebidos() throws SQLException {
         Feedback feedback;
-        List<Feedback> lista = new ArrayList();        
-        String sql = "SELECT * FROM feedback WHERE IDUSUARIODESTINATARIO = "+ SoftTalk.getIdUsuarioLogado()+";";
+        List<Feedback> lista = new ArrayList();
+        String sql = "SELECT * FROM feedback WHERE IDUSUARIODESTINATARIO = " + SoftTalk.getIdUsuarioLogado() + ";";
         Statement stm = SoftTalk.conexao.createStatement();
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next()) {
