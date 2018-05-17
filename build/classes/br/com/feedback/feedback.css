@@ -2,6 +2,67 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
+.button{
+    -fx-background-color: dimgray;
+    -fx-text-fill: white;
+    -fx-background-radius: 100;
+    -fx-border-color: dimgray;
+    -fx-border-radius: 100;
+}
 
+.button:hover{
+    -fx-background-color: #38d7ff;
+    -fx-text-fill: dimgray;
+}
+
+.button:pressed{
+    -fx-background-color: #38d7ff;
+    -fx-text-fill: dimgray;
+}
+
+.combo-box{
+    -fx-background-color: #eeeeee;
+    -fx-prompt-text-fill: dimgray;
+    -fx-font-size: 15px;
+}
+
+.combo-box:hover{
+    -fx-background-color: #dddddd;
+}
+
+.combo-box:pressed{
+    -fx-background-color: #dddddd;
+}
+
+.list-cell{
+    -fx-background: darkgray;
+    -fx-text-size: 15;
+}
+
+.list-cell:hover{
+    -fx-background-color: gray;
+    -fx-text-fill: white;
+}
+
+.list-cell:pressed{
+    -fx-background-color: gray;
+    -fx-text-fill: white;
+}
+
+.root{
+    -fx-font-size: 15pt;
+}
+
+.text-field{
+    -fx-background-color: #eeeeee;
+    -fx-prompt-text-fill: dimgray;
+    -fx-alignment: center;
+}
+
+.text-field:hover{
+    -fx-background-color: #dddddd;
+}
+
+.text-field:pressed{
+    -fx-background-color: #dddddd;
 }

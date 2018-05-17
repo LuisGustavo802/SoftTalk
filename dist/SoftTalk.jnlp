@@ -11,7 +11,7 @@
   </resources>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="SoftTalk.jar" size="3090974" download="eager" />
+    <jar href="SoftTalk.jar" size="3088619" download="eager" />
     <jar href="lib/jfoenix-0.0.0-SNAPSHOT-retrolambda.jar" size="2305158" download="eager" />
     <jar href="lib/postgresql-9.4.1209.jar" size="678049" download="eager" />
   </resources>
