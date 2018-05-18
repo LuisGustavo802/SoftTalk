@@ -81,7 +81,7 @@ public class TelaInicialController implements Initializable {
         aba0.setDisable(false);
         abasVisualizacao.getSelectionModel().select(aba0);
         try {
-            listFeedback = daoFeedback.listarFeedbacksRecebidos();
+            listFeedback = daoFeedback.listarFeedbacks();
             observableListFeedback = FXCollections.observableArrayList(listFeedback);
             listViewFeedbacks.setItems(observableListFeedback);
         } catch (SQLException ex) {

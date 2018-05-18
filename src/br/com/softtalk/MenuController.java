@@ -92,7 +92,7 @@ public class MenuController implements Initializable {
     @FXML
     void solicitaAction(ActionEvent event) {
         try {
-            Parent fxmlLoader = FXMLLoader.load(RequestFeedbackController.class.getResource("requestFeedback.fxml"));
+            Parent fxmlLoader = FXMLLoader.load(RequestFeedbackController.class.getResource("RequestFeedback.fxml"));
             SoftTalk.stage.setScene(new Scene(fxmlLoader));
         } catch (IOException ex) {
             Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);

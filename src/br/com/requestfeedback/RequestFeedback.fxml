@@ -43,7 +43,7 @@
                 <InnerShadow color="#00000031" />
             </effect>
         </DatePicker>
-        <JFXComboBox layoutX="127.0" layoutY="102.0" prefHeight="25.0" prefWidth="335.0" promptText="Selecione o setor:" stylesheets="requestFeedback.css" />
+        <JFXComboBox layoutX="127.0" layoutY="102.0" prefHeight="25.0" prefWidth="335.0" promptText="Selecione o setor:" stylesheets="RequestFeedback.css" />
         <fx:include fx:id="menuTop" source="../notificacoes/Notificacao.fxml" />
         <fx:include fx:id="testePesquisa" source="../softtalk/Menu.fxml" />
     </children>

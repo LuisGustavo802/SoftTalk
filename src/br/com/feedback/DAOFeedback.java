@@ -1,7 +1,6 @@
 package br.com.feedback;
 
 import br.com.Utils.Functions;
-import br.com.pessoa.DAOPessoa;
 import br.com.softtalk.SoftTalk;
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -17,19 +16,21 @@ public class DAOFeedback {
 
     public int gravarFeedBack(Feedback feedback) {
         try {
-            String sql = "INSERT INTO pessoa (IDSETOR, NOME) "
-                    + "VALUES ("
-                    + feedback.getIdFeedBack() + ",'"
-                    + feedback.getIdUsuarioRemetente() + ",'"
-                    + feedback.getIdempresa() + ",'"
-                    + feedback.getIdUsuarioDestino() + ",'"
-                    + feedback.getTipoFeedback() + ",'"
-                    + "current_date" + ",'"//Grava com a data atual
-                    + feedback.getStatus() + ",'"
-                    + feedback.getDescricao() + "')";
+            String sql = "INSERT INTO feedback (idusuarioremetente, idempresa, idusuariodestinatario, tipofeedback,"
+                    + "dtmovimento, status, observacao) "
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement pstm;
             pstm = SoftTalk.conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            
+            pstm.setInt(1, feedback.getIdUsuarioRemetente());
+            pstm.setInt(1, feedback.getIdempresa());
+            pstm.setInt(1, feedback.getIdUsuarioDestino());
+            pstm.setByte(1, (byte) feedback.getTipoFeedback());
+            pstm.setDate(1, feedback.getDtMovimento());
+            pstm.setByte(1, (byte) feedback.getStatus());
+            pstm.setString(1, feedback.getDescricao());
+            
             pstm.execute();
 
             ResultSet rs = pstm.getGeneratedKeys();
@@ -65,29 +66,7 @@ public class DAOFeedback {
         return feedback;
     }
 
-    public int inserirSolicitacaoFeedback(Feedback feedback) {
-        try {
-            String sql = "INSERT INTO solicitacao_feedback (TIPOFEEDBACK, IDPESSOA, MENSAGEM) "
-                    + "VALUES ('"
-                    + feedback.getTipoFeedback()+ "',"
-                    + feedback.getIdUsuarioRemetente() + ", '"
-                    + feedback.getDescricao() + "')";
-
-            PreparedStatement pstm;
-            pstm = SoftTalk.conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            pstm.execute();
-
-            ResultSet rs = pstm.getGeneratedKeys();
-            rs.next();
-
-            return rs.getInt(1);
-        } catch (SQLException ex) {
-            Logger.getLogger(DAOPessoa.class.getName()).log(Level.SEVERE, null, ex);
-            return Functions.FAILURE;
-        }
-    }
-
-    public List<Feedback> listarFeedbacksRecebidos() throws SQLException {
+    public List<Feedback> listarFeedbacks() throws SQLException {
         Feedback feedback;
         List<Feedback> lista = new ArrayList();
         String sql = "SELECT * FROM feedback WHERE IDUSUARIODESTINATARIO = " + SoftTalk.getIdUsuarioLogado() + ";";
