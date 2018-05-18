@@ -27,7 +27,7 @@ public class DAORequestFeedback {
 
             pstm.setInt(1, requestFeedback.getIdfeedback());
             pstm.setString(2, requestFeedback.getTipoSolicitacao());
-            pstm.setString(3, requestFeedback.getTipoSolicitacao());
+            pstm.setDate(3, requestFeedback.getDtLimite());
 
             pstm.execute();
 
@@ -35,6 +35,7 @@ public class DAORequestFeedback {
             rs.next();
 
             return rs.getInt(1);
+
         } catch (SQLException ex) {
             Logger.getLogger(DAOPessoa.class.getName()).log(Level.SEVERE, null, ex);
             return Functions.FAILURE;
