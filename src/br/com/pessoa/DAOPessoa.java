@@ -112,6 +112,7 @@ public class DAOPessoa {
         pessoa = new Pessoa();
 
         if (rs.next()) {
+            pessoa.setIdpessoa(rs.getInt("IdPessoa"));
             pessoa.setIdsetor(rs.getInt("IdSetor"));
             pessoa.setNome(rs.getString("Nome"));
             pessoa.setImagem(carregaImg.transformarImagem(rs.getBytes("Imagem")));

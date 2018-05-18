@@ -5,7 +5,12 @@
  */
 package br.com.feedback;
 
+import br.com.pessoa.DAOPessoa;
+import java.io.IOException;
 import java.sql.Date;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Feedback {
 
@@ -82,4 +87,23 @@ public class Feedback {
         this.descricao = descricao;
     }
 
+    @Override
+    public String toString() {
+        DAOPessoa daoPessoa = new DAOPessoa();
+        //Quando lista traz já algumas informações para exibir na recepção de feedback
+        try {
+            if (this.tipoFeedback.equals("S")) {
+
+                return "Feedback requisitado de: " + daoPessoa.listaNomePessoa(idUsuarioRemetente)
+                        + ". Envio:" + dtMovimento + "";
+
+            } else {
+                return "Feedback recebido de: " + daoPessoa.listaNomePessoa(idUsuarioRemetente)
+                        + ".Envio:" + dtMovimento + "";
+            }
+        } catch (SQLException | IOException ex) {
+            Logger.getLogger(Feedback.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

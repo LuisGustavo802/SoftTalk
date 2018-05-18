@@ -69,7 +69,7 @@ public class DAOFeedback {
     public List<Feedback> listarFeedbacks() throws SQLException {
         Feedback feedback;
         List<Feedback> lista = new ArrayList();
-        String sql = "SELECT * FROM feedback WHERE idusuariodestinatario = " + SoftTalk.getIdUsuarioLogado() + ";";
+        String sql = "SELECT * FROM feedback WHERE idusuariodestinatario = " + Integer.toString(SoftTalk.getIdUsuarioLogado()) + ";";
         Statement stm = SoftTalk.conexao.createStatement();
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next()) {

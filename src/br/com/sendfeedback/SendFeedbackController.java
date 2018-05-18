@@ -5,8 +5,9 @@
  */
 package br.com.sendfeedback;
 
+import br.com.Utils.DAOUtils;
 import br.com.feedback.Feedback;
-import br.com.feedback.DAOFeedback;
+import br.com.sendfeedback.DAOSendFeedback;
 import br.com.Utils.Functions;
 import br.com.pessoa.DAOPessoa;
 import br.com.pessoa.Pessoa;
@@ -74,15 +75,24 @@ public class SendFeedbackController implements Initializable {
         }
     }
 
-    private void enviar() {
+    private void enviar() throws SQLException, IOException {
         if (validacoes() == functions.SUCCESS) {
+            DAOUtils daoUtils = new DAOUtils();
+                    
             feedback.setIdUsuarioRemetente(SoftTalk.getIdUsuarioLogado());
-            feedback.setTipoFeedback("S");
+            feedback.setTipoFeedback("E");
             feedback.setStatus("P");
+            feedback.setDtMovimento(daoUtils.carregaDataServidor());
             feedback.setDescricao(txaDescricao.getText());
 
-            DAOFeedback gravaFeedback = new DAOFeedback();
-            gravaFeedback.gravarFeedBack(feedback);
+            DAOSendFeedback gravaFeedback = new DAOSendFeedback();
+            if (gravaFeedback.enviaFeedback(feedback) > 0){
+                inicializaComponentes();
+                functions.abrirMensagem("Gravado com sucesso.");
+            }else{
+                functions.abrirMensagem("Falha ao Gravar.");
+            }
+               
         }
     }
 
@@ -90,10 +100,9 @@ public class SendFeedbackController implements Initializable {
         Pessoa pessoa = cbxPessoas.getSelectionModel().getSelectedItem();
         DAOUsuario daoUsuario = new DAOUsuario();
         List<Usuario> listaUsuarios = daoUsuario.listarUsuariosCondicao(pessoa.getIdpessoa());
-        //Carrega as infomações do usuario e alimente o idUsuario e a empresa para a classe de 
-        //feedback
-        feedback.setIdUsuarioDestino(listaUsuarios.get(1).getIdusuario());
-        feedback.setIdempresa(listaUsuarios.get(1).getIdEmpresa());
+        //Carrega as infomações do usuario e alimente o idUsuario e a empresa para a classe de feedback
+        feedback.setIdUsuarioDestino(listaUsuarios.get(0).getIdusuario());
+        feedback.setIdempresa(listaUsuarios.get(0).getIdEmpresa());
     }
 
     private void selecionarSetor() throws SQLException, IOException {
@@ -103,11 +112,13 @@ public class SendFeedbackController implements Initializable {
     }
 
     private void inicializaComponentes() throws SQLException, IOException {
+        //incializa ou limpa os componetes da tela preparando para um atransação
         feedback = new Feedback();
         functions = new Functions();
         //Carrega todos os setores e pessoas para os combos box
         carregaSetores();
         carregaPessoas();
+        txaDescricao.setText("");
     }
 
     private void carregaSetores() throws SQLException {
@@ -138,10 +149,10 @@ public class SendFeedbackController implements Initializable {
     }
 
     private int validacoes() {
-        if (cbxSetores.getSelectionModel().getSelectedItem() == null) {
+        /*if (cbxSetores.getSelectionModel().getSelectedItem() == null) {
             functions.abrirMensagem("Seção não informada.");
             return functions.FAILURE;
-        }
+        }*/
 
         if (cbxPessoas.getSelectionModel().getSelectedItem() == null) {
             functions.abrirMensagem("Usuario não selecionado.");
@@ -155,4 +166,5 @@ public class SendFeedbackController implements Initializable {
 
         return functions.SUCCESS;
     }
+    
 }

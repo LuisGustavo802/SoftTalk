@@ -50,7 +50,7 @@ public class DAOUsuario {
             usuario.setLogin(rs.getString("Login"));
             usuario.setSenha(rs.getString("Senha"));
             usuario.setFlagativo(rs.getString("FlagAtivo"));
-            usuario.setIdusuario(rs.getInt("idEmpresa"));
+            usuario.setIdEmpresa(rs.getInt("idEmpresa"));
             lista.add(usuario);
         }
         return lista;
@@ -72,7 +72,7 @@ public class DAOUsuario {
             usuario.setLogin(rs.getString("Login"));
             usuario.setSenha(rs.getString("Senha"));
             usuario.setFlagativo(rs.getString("FlagAtivo"));
-            usuario.setIdusuario(rs.getInt("idEmpresa"));
+            usuario.setIdEmpresa(rs.getInt("idEmpresa"));
             lista.add(usuario);
         }
         return lista;
@@ -90,7 +90,7 @@ public class DAOUsuario {
             usuario.setLogin(rs.getString("Login"));
             usuario.setSenha(rs.getString("Senha"));
             usuario.setFlagativo(rs.getString("FlagAtivo"));
-            usuario.setIdusuario(rs.getInt("idEmpresa"));
+            usuario.setIdEmpresa(rs.getInt("idEmpresa"));
         }
         return usuario;
     }
