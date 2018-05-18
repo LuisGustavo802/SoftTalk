@@ -30,7 +30,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 
-public class EnviaFeedbackController implements Initializable {
+public class SendFeedbackController implements Initializable {
 
     //Objetos do FXML
     @FXML
@@ -70,7 +70,7 @@ public class EnviaFeedbackController implements Initializable {
         try {
             inicializaComponentes();
         } catch (SQLException | IOException ex) {
-            Logger.getLogger(EnviaFeedbackController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SendFeedbackController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

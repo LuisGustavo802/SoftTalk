@@ -5,8 +5,9 @@
  */
 package br.com.softtalk;
 
+import Mensagem.MensagemController;
 import br.com.pessoa.Pessoa;
-import br.com.sendfeedback.EnviaFeedbackController;
+import br.com.sendfeedback.SendFeedbackController;
 import br.com.setor.Setor;
 import br.com.telainicial.TelaInicialController;
 import java.io.IOException;
@@ -101,7 +102,7 @@ public class MenuController implements Initializable {
     @FXML
     void enviarFeedback(ActionEvent event) {
         try {
-            Parent fxmlLoader = FXMLLoader.load(EnviaFeedbackController.class.getResource("EnviarFeedback.fxml"));
+            Parent fxmlLoader = FXMLLoader.load(SendFeedbackController.class.getResource("SendFeedback.fxml"));
             SoftTalk.stage.setScene(new Scene(fxmlLoader));
         } catch (IOException ex) {
             Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
