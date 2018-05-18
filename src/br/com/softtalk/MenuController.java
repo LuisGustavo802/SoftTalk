@@ -5,7 +5,6 @@
  */
 package br.com.softtalk;
 
-import Mensagem.MensagemController;
 import br.com.pessoa.Pessoa;
 import br.com.sendfeedback.SendFeedbackController;
 import br.com.setor.Setor;

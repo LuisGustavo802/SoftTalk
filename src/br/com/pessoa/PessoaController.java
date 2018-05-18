@@ -168,11 +168,11 @@ public class PessoaController implements Initializable {
         daopessoa = new DAOPessoa();
 
         if (daopessoa.atualizarPessoa(pessoa) < 0) {
-            functions.mensagemPadrao("Problemas na gravação!");
+            Functions.abrirMensagem("Problemas na gravação!");
             return Functions.FAILURE;
         }
 
-        functions.mensagemPadrao("Gravado com sucesso!");
+        Functions.abrirMensagem("Gravado com sucesso!");
         return Functions.SUCCESS;
     }
 

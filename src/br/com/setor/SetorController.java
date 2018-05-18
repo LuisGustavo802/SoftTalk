@@ -36,7 +36,7 @@ public class SetorController implements Initializable {
 
     @FXML
     public MenuController menuController;
-    
+
     @FXML
     public JFXTextField txNomeSetor;
     Setor setor = new Setor();
@@ -47,12 +47,12 @@ public class SetorController implements Initializable {
     public TableColumn tblQuant;
     @FXML
     private TableView<Setor> tabelaSetor;
-    
+
     private List<Setor> listSetor = new ArrayList<>();
     private ObservableList<Setor> observableListSetor;
-    
+
     Functions functions = new Functions();
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -60,66 +60,66 @@ public class SetorController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(SetorController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }    
-    
+    }
+
     @FXML
-    void incluirAction(ActionEvent event) throws SQLException{
+    void incluirAction(ActionEvent event) throws SQLException {
         incluirSetor();
     }
-    
+
     @FXML
-    void excluirAction(ActionEvent event) throws SQLException{
+    void excluirAction(ActionEvent event) throws SQLException {
         excluirSetor();
     }
-    
-    public void incluirSetor() throws SQLException{
+
+    public void incluirSetor() throws SQLException {
         if (String.valueOf(txNomeSetor.getText()).equals("")) {
-            functions.mensagemPadrao("Favor informar nome do setor!");
-        } else{
+            Functions.abrirMensagem("Atenção! Informar um nome de setor.");
+        } else {
             setor.setNome(String.valueOf(txNomeSetor.getText()));
-            setor.setFlagativo("T"); 
+            setor.setFlagativo("T");
             daoSetor.inserirSetor(setor);
             inicializarTabela();
             txNomeSetor.setText("");
         }
     }
-    
-    public void inicializarTabela() throws SQLException{
+
+    public void inicializarTabela() throws SQLException {
         Statement st = SoftTalk.conexao.createStatement();
         ResultSet rs;
         listSetor = daoSetor.listarSetor();
-        for (int i=0; i<listSetor.size(); i++){
-            rs = st.executeQuery("SELECT count(*) as total FROM pessoa JOIN setor ON pessoa.idsetor = setor.idsetor WHERE setor.idsetor = "+ listSetor.get(i).getIdsetor());
-            if (rs.next()){
+        for (int i = 0; i < listSetor.size(); i++) {
+            rs = st.executeQuery("SELECT count(*) as total FROM pessoa JOIN setor ON pessoa.idsetor = setor.idsetor WHERE setor.idsetor = " + listSetor.get(i).getIdsetor());
+            if (rs.next()) {
                 listSetor.get(i).setQuant(rs.getInt("total"));
             }
         }
-        
+
         observableListSetor = FXCollections.observableArrayList(listSetor);
-        tblNome.setCellValueFactory( new PropertyValueFactory<>("Nome"));
-        tblQuant.setCellValueFactory( new PropertyValueFactory<>("Quant"));
+        tblNome.setCellValueFactory(new PropertyValueFactory<>("Nome"));
+        tblQuant.setCellValueFactory(new PropertyValueFactory<>("Quant"));
         tabelaSetor.setItems(observableListSetor);
     }
-    
-    public int excluirSetor() throws SQLException{
+
+    public int excluirSetor() throws SQLException {
         Setor setorDelete;
-        if (tabelaSetor.getSelectionModel().getSelectedItem() == null){
-            functions.mensagemPadrao("Favor selecionar setor para exclusão!");
+        if (tabelaSetor.getSelectionModel().getSelectedItem() == null) {
+            Functions.abrirMensagem("Atenção! Selecionar um setor para exclusão.");
             return Functions.FAILURE;
-        }else{
-            setorDelete  = tabelaSetor.getSelectionModel().getSelectedItem(); 
+        } else {
+            setorDelete = tabelaSetor.getSelectionModel().getSelectedItem();
         }
         try {
-            if (setorDelete.getQuant()>0 ){
-                functions.mensagemPadrao("Setor possui pessoas cadastradas. Não será possível realizar a exclusão!");
+            if (setorDelete.getQuant() > 0) {
+                Functions.abrirMensagem("Atenção! Setor possui pessoas cadastradas. Não será possível realizar a exclusão!");
                 return Functions.FAILURE;
-            }else{
+            } else {
                 daoSetor.excluirSetor(setorDelete);
             }
         } catch (SQLException ex) {
             Logger.getLogger(SetorController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        functions.mensagemPadrao("Setor excluído com sucesso!");
+        Functions.abrirMensagem("Setor excluido com sucesso.");
         inicializarTabela();
         return Functions.SUCCESS;
     }
