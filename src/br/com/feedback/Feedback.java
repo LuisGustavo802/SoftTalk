@@ -13,9 +13,9 @@ public class Feedback {
     private int idUsuarioRemetente;
     private int idempresa;
     private int idUsuarioDestino;
-    private char tipoFeedback;
+    private String tipoFeedback;
     private Date dtMovimento;
-    private char status;
+    private String status;
     private String descricao;
 
     public int getIdFeedBack() {
@@ -50,11 +50,11 @@ public class Feedback {
         this.idUsuarioDestino = idUsuarioDestino;
     }
 
-    public char getTipoFeedback() {
+    public String getTipoFeedback() {
         return tipoFeedback;
     }
 
-    public void setTipoFeedback(char tipoFeedback) {
+    public void setTipoFeedback(String tipoFeedback) {
         this.tipoFeedback = tipoFeedback;
     }
 
@@ -66,11 +66,11 @@ public class Feedback {
         this.dtMovimento = dtMovimento;
     }
 
-    public char getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(char status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
