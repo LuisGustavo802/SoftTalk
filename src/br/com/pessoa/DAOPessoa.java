@@ -9,7 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -61,10 +60,31 @@ public class DAOPessoa {
             return Functions.FAILURE;
         }
     }
-
-    public List<Pessoa> listarPessoas() throws SQLException {
+    
+    public ArrayList<Pessoa> listarPessoasCondicao(int idSetor) throws SQLException, IOException{
+       return listarPessoasCondicao("idSetor = " + Integer.toString(idSetor));
+    }    
+    
+    public ArrayList<Pessoa> listarPessoasCondicao(String Condicao) throws SQLException, IOException {
         Pessoa pessoa;
-        List<Pessoa> lista = new ArrayList();
+        ArrayList<Pessoa> lista = new ArrayList();
+        String sql = "SELECT * FROM pessoa WHERE  = " + Condicao + ";";
+   
+        Statement stm = SoftTalk.conexao.createStatement();
+
+        ResultSet rs = stm.executeQuery(sql);
+        while (rs.next()) {
+            pessoa = new Pessoa();
+            pessoa.setIdsetor(rs.getInt("IdSetor"));
+            pessoa.setNome(rs.getString("Nome"));
+            lista.add(pessoa);
+        }
+        return lista;
+    }
+
+    public ArrayList<Pessoa> listarPessoas() throws SQLException {
+        Pessoa pessoa;
+        ArrayList<Pessoa> lista = new ArrayList();
 
         String sql = "SELECT * FROM pessoa;";
         Statement stm = SoftTalk.conexao.createStatement();

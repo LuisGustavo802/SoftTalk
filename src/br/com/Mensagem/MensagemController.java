@@ -60,7 +60,7 @@ public class MensagemController implements Initializable {
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-    }
+        }*/ 
+   }
 
 }

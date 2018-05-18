@@ -2,11 +2,19 @@
 package br.com.usuario;
 
 public class Usuario {
-    Integer idusuario, idpessoa;
+    Integer idusuario, idpessoa, idEmpresa = 1;
     String login, senha,flagativo,usuario_admin;
 
     public String getUsuario_admin() {
         return usuario_admin;
+    }
+
+    public Integer getIdEmpresa() {
+        return idEmpresa;
+    }
+
+    public void setIdEmpresa(Integer idEmpresa) {
+        this.idEmpresa = idEmpresa;
     }
 
     public void setUsuario_admin(String usuario_admin) {
