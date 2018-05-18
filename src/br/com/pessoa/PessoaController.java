@@ -38,15 +38,9 @@ public class PessoaController implements Initializable {
 
     @FXML
     private ComboBox<Setor> bxSetor;
-    
-    @FXML
-    private ComboBox<Setor> bxSetor1;
 
     @FXML
     private TextField txNome;
-    
-    @FXML
-    private TextField txNome1;
      
     @FXML
     private ImageView ivImagem;
@@ -130,17 +124,9 @@ public class PessoaController implements Initializable {
         this.txNome.setText(pessoa.getNome());
         this.ivImagem.setImage(SwingFXUtils.toFXImage(pessoa.getImagem(), null));
         
-        //Pegando valores e setando que ele nao pode ser editado.
-        this.txNome1.setText(pessoa.getNome());
-        txNome1.setEditable(false);
-        
         if (pessoa.getIdsetor() != null){
             setor = daoSetor.listaSetor(pessoa.getIdsetor());
             bxSetor.getSelectionModel().select(setor);
-           
-            //Pegando valores e setando que ele nao pode ser editado.
-            bxSetor1.getSelectionModel().select(setor);
-            bxSetor1.setEditable(false);
         }
     }
 

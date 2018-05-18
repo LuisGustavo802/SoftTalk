@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="174.0" prefWidth="369.0" style="-fx-background-color: gray;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.Mensagem.MensagemController">
+<AnchorPane id="AnchorPane" prefHeight="174.0" prefWidth="369.0" style="-fx-background-color: gray; -fx-border-color: dimgray;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.Mensagem.MensagemController">
     <stylesheets>
         <URL value="@mensagem.css" />
     </stylesheets>
    <children>
-      <Button fx:id="btOk" layoutX="141.0" layoutY="139.0" mnemonicParsing="false" onAction="#OkAction" prefHeight="27.0" prefWidth="87.0" style="-fx-border-color: dimgray; -fx-background-color: dimgray;" stylesheets="@mensagem.css" text="OK" textFill="WHITE" />
+      <Button fx:id="btOk" layoutX="148.0" layoutY="139.0" mnemonicParsing="false" onAction="#OkAction" prefHeight="27.0" prefWidth="87.0" style="-fx-border-color: dimgray; -fx-background-color: dimgray;" stylesheets="@mensagem.css" text="OK" textFill="WHITE" />
       <Text layoutX="164.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SoftTalk" wrappingWidth="95.099609375">
          <fill>
             <LinearGradient endX="0.4666666666666667" endY="0.1523809523809524" startX="0.4666666666666667" startY="1.0">
@@ -36,7 +37,7 @@
             <Image url="@../Imagens/information.png" />
          </image>
       </ImageView>
-      <Label fx:id="lblMensagem" layoutX="59.0" layoutY="77.0" prefHeight="17.0" prefWidth="265.0" style="-fx-background-color: gray;" stylesheets="@mensagem.css" textFill="WHITE">
+      <Label fx:id="lblMensagem" alignment="CENTER" layoutX="59.0" layoutY="77.0" prefHeight="17.0" prefWidth="265.0" style="-fx-background-color: gray;" stylesheets="@mensagem.css" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>

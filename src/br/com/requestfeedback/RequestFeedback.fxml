@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import com.jfoenix.controls.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import javafx.collections.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #eeeeee;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.requestfeedback.RequestFeedbackController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #eeeeee;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.requestfeedback.RequestFeedbackController">
     <children>
-        <Text fill="WHITE" layoutX="363.0" layoutY="397.0" opacity="0.3" strokeType="OUTSIDE" strokeWidth="0.0" text=" © SoftTalk">
+        <Text fill="#696969" layoutX="136.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Observação:">
             <font>
-                <Font size="10.0" />
+                <Font size="15.0" />
             </font>
         </Text>
-        <Button layoutX="535.0" layoutY="413.0" mnemonicParsing="false" onAction="#SolicitarFeedbackAction" prefHeight="37.0" prefWidth="285.0" style="-fx-background-color: #3f3f3f;" stylesheets="RequestFeedback" text="Enviar" textFill="#36d0ff" />
-        <JFXComboBox fx:id="bxTipo" layoutX="127.0" layoutY="221.0" prefHeight="30.0" prefWidth="335.0" promptText="Selecione o tipo de feedback" stylesheets="RequestFeedback">
+        <Button layoutX="365.0" layoutY="453.0" mnemonicParsing="false" onAction="#SolicitarFeedbackAction" prefHeight="33.0" prefWidth="224.0" stylesheets="@RequestFeedback.css" text="Enviar" textFill="#36d0ff">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+        <JFXComboBox fx:id="bxTipo" layoutX="127.0" layoutY="220.0" prefHeight="30.0" prefWidth="335.0" promptText="Selecione o tipo de feedback:" stylesheets="@RequestFeedback.css">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="Face-To-Face" />
@@ -30,24 +30,23 @@
                 </FXCollections>
             </items>
         </JFXComboBox>
-        <JFXComboBox fx:id="bxPessoa" layoutX="491.0" layoutY="97.0" prefHeight="30.0" prefWidth="335.0" promptText="Selecione o destinatário" stylesheets="RequestFeedback" />
-        <JFXTextArea fx:id="txMensagem" focusColor="#36d0ff" layoutX="127.0" layoutY="342.0" maxWidth="599.0" minWidth="187.0" prefHeight="110.0" prefWidth="335.0" promptText="Observação..." style="-fx-border-color: dimgray;" unFocusColor="#ededed">
-            <font>
-                <Font size="15.0" />
-            </font>
-        </JFXTextArea>
-        <Text fill="#696969" layoutX="491.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data:">
+        <JFXComboBox fx:id="bxPessoa" layoutX="491.0" layoutY="102.0" prefHeight="30.0" prefWidth="335.0" promptText="Selecione o destinatário:" stylesheets="@RequestFeedback.css" />
+        <Text fill="#393939" layoutX="498.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data limite:">
             <font>
                 <Font size="15.0" />
             </font>
         </Text>
-        <DatePicker fx:id="dtLimite" editable="false" layoutX="541.0" layoutY="221.0" prefHeight="30.0" prefWidth="285.0" promptText="Selecione a data" style="-fx-border-color: #eeeeee; -fx-background-color: #eeeeee;">
-            <effect>
-                <InnerShadow color="#00000031" />
-            </effect>
-        </DatePicker>
-        <JFXComboBox fx:id="bxSetor" layoutX="127.0" layoutY="102.0" onAction="#CarregaPessoasAction" prefHeight="25.0" prefWidth="335.0" promptText="Selecione o setor:" stylesheets="RequestFeedback.css" />
+        <JFXComboBox fx:id="bxSetor" layoutX="127.0" layoutY="102.0" onAction="#CarregaPessoasAction" prefHeight="25.0" prefWidth="335.0" promptText="Selecione o setor:" stylesheets="@RequestFeedback.css" />
         <fx:include fx:id="menuTop" source="../notificacoes/Notificacao.fxml" />
+      <JFXDatePicker fx:id="dtLimite" defaultColor="#38d7ff" layoutX="573.0" layoutY="216.0" prefHeight="39.0" prefWidth="261.0" />
+      <JFXTextArea fx:id="txMensagem" focusColor="#38d7ff" layoutX="127.0" layoutY="343.0" maxWidth="698.0" minWidth="698.0" prefHeight="58.0" prefWidth="698.0" promptText="Digite aqui..." unFocusColor="#4a4a4a">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <effect>
+            <DropShadow color="#a8a8a8" />
+         </effect>
+      </JFXTextArea>
         <fx:include fx:id="testePesquisa" source="../softtalk/Menu.fxml" />
     </children>
 </AnchorPane>
