@@ -50,10 +50,34 @@ public class DAOUsuario {
             usuario.setLogin(rs.getString("Login"));
             usuario.setSenha(rs.getString("Senha"));
             usuario.setFlagativo(rs.getString("FlagAtivo"));
+            usuario.setIdusuario(rs.getInt("idEmpresa"));
             lista.add(usuario);
         }
         return lista;
     }
+    public List<Usuario> listarUsuariosCondicao(int idPessoa) throws SQLException {
+        return listarUsuariosCondicao("idPessoa = " + Integer.toString(idPessoa));
+    }
+    
+    public List<Usuario> listarUsuariosCondicao(String condicao) throws SQLException {
+        Usuario usuario;
+        List<Usuario> lista = new ArrayList();        
+        String sql = "SELECT * FROM usuario WHERE " + condicao + " ; ";
+        Statement stm = SoftTalk.conexao.createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        while (rs.next()) {
+            usuario = new Usuario();
+            usuario.setIdpessoa(rs.getInt("IdPessoa"));
+            usuario.setIdusuario(rs.getInt("IdUsuario"));
+            usuario.setLogin(rs.getString("Login"));
+            usuario.setSenha(rs.getString("Senha"));
+            usuario.setFlagativo(rs.getString("FlagAtivo"));
+            usuario.setIdusuario(rs.getInt("idEmpresa"));
+            lista.add(usuario);
+        }
+        return lista;
+    }
+        
     public Usuario listarUsuario(int idUsuario) throws SQLException {
         Usuario usuario = new Usuario();    
         String sql = "SELECT * FROM usuario WHERE idusuario = " + Integer.toString(idUsuario) + ";";
@@ -66,6 +90,7 @@ public class DAOUsuario {
             usuario.setLogin(rs.getString("Login"));
             usuario.setSenha(rs.getString("Senha"));
             usuario.setFlagativo(rs.getString("FlagAtivo"));
+            usuario.setIdusuario(rs.getInt("idEmpresa"));
         }
         return usuario;
     }

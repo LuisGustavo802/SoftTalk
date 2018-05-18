@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.sendfeedback.enviaFeedbackController">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #eeeeee;">
+         <children>
+            <fx:include fx:id="testePesquisa" source="..\Softtalk\Menu.fxml" />
+            <JFXTextArea fx:id="txaDescricao" layoutX="64.0" layoutY="96.0" maxWidth="825.0" minWidth="535.0" prefHeight="395.0" prefWidth="825.0" promptText="Digite o Feedback aqui">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextArea>
+            <Pane layoutX="64.0" layoutY="6.0" prefHeight="84.0" prefWidth="825.0" style="-fx-background-color: #eeeeee; -fx-border-color: #cccccc;">
+               <children>
+                  <JFXComboBox fx:id="cbxPessoas" layoutX="389.0" layoutY="23.0" onAction="#selecionarUsuarioAction" prefHeight="39.0" prefWidth="136.0" promptText="Usuario" />
+                  <JFXComboBox fx:id="cbxSetores" layoutX="220.0" layoutY="23.0" onAction="#selecionarSetorAction" prefHeight="39.0" prefWidth="130.0" promptText="Setor" />
+                  <Label layoutX="23.0" layoutY="32.0" text="Informações Destinatario:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="616.0" layoutY="23.0" mnemonicParsing="false" onAction="#enviarAction" prefHeight="39.0" prefWidth="169.0" text="Enviar">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="31.0" fitWidth="36.0" layoutX="637.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagens/check.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

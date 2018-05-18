@@ -24,19 +24,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javax.imageio.ImageIO;
-import static javax.swing.Spring.height;
-import static javax.swing.Spring.width;
 
 public class PessoaController implements Initializable {
 
@@ -81,13 +77,7 @@ public class PessoaController implements Initializable {
             Incializar();
             try {
                 carregarPessoa();
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(PessoaController.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (InstantiationException ex) {
-                Logger.getLogger(PessoaController.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IllegalAccessException ex) {
-                Logger.getLogger(PessoaController.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
+            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException ex) {
                 Logger.getLogger(PessoaController.class.getName()).log(Level.SEVERE, null, ex);
             }
         } catch (SQLException ex) {
