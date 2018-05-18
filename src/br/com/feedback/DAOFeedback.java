@@ -24,12 +24,12 @@ public class DAOFeedback {
             pstm = SoftTalk.conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             
             pstm.setInt(1, feedback.getIdUsuarioRemetente());
-            pstm.setInt(1, feedback.getIdempresa());
-            pstm.setInt(1, feedback.getIdUsuarioDestino());
-            pstm.setByte(1, (byte) feedback.getTipoFeedback());
-            pstm.setDate(1, feedback.getDtMovimento());
-            pstm.setByte(1, (byte) feedback.getStatus());
-            pstm.setString(1, feedback.getDescricao());
+            pstm.setInt(2, feedback.getIdempresa());
+            pstm.setInt(3, feedback.getIdUsuarioDestino());
+            pstm.setByte(4, (byte) feedback.getTipoFeedback());
+            pstm.setDate(5, feedback.getDtMovimento());
+            pstm.setByte(6, (byte) feedback.getStatus());
+            pstm.setString(7, feedback.getDescricao());
             
             pstm.execute();
 
@@ -69,7 +69,7 @@ public class DAOFeedback {
     public List<Feedback> listarFeedbacks() throws SQLException {
         Feedback feedback;
         List<Feedback> lista = new ArrayList();
-        String sql = "SELECT * FROM feedback WHERE IDUSUARIODESTINATARIO = " + SoftTalk.getIdUsuarioLogado() + ";";
+        String sql = "SELECT * FROM feedback WHERE idusuariodestinatario = " + SoftTalk.getIdUsuarioLogado() + ";";
         Statement stm = SoftTalk.conexao.createStatement();
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next()) {
