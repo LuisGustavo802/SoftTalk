@@ -11,18 +11,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DAOEnviarFeedback {
+
     public int gravarFeedBack(FeedbackEnviar feedback) {
         try {
             String sql = "INSERT INTO pessoa (IDSETOR, NOME) "
                     + "VALUES ("
                     + feedback.getIdFeedBack() + ",'"
                     + feedback.getIdUsuarioRemetente() + ",'"
-                    + feedback.getIdempresa()+ ",'"
-                    + feedback.getIdUsuarioDestino()+ ",'"
-                    + feedback.getTipoFeedback()+ ",'"
+                    + feedback.getIdempresa() + ",'"
+                    + feedback.getIdUsuarioDestino() + ",'"
+                    + feedback.getTipoFeedback() + ",'"
                     + "current_date" + ",'"//Grava com a data atual
                     + feedback.getStatus() + ",'"
-                    + feedback.getDescricao()+ "')";
+                    + feedback.getDescricao() + "')";
 
             PreparedStatement pstm;
             pstm = SoftTalk.conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -37,7 +38,7 @@ public class DAOEnviarFeedback {
             return Functions.FAILURE;
         }
     }
-    
+
     public FeedbackEnviar listaFeedback(int idFeedbackEnviar) throws SQLException, IOException {
         FeedbackEnviar feedback;
         String sql = "SELECT * FROM feedback WHERE idfeedback = " + Integer.toString(idFeedbackEnviar) + ";";
@@ -59,7 +60,6 @@ public class DAOEnviarFeedback {
 
         }
         return feedback;
-    }    
-    
-    
+    }
+
 }
