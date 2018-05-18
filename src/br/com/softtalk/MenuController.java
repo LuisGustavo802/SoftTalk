@@ -5,9 +5,9 @@
  */
 package br.com.softtalk;
 
-
 import br.com.feedback.Feedback;
 import br.com.pessoa.Pessoa;
+import br.com.sendfeedback.EnviaFeedbackController;
 import br.com.setor.Setor;
 import br.com.telainicial.TelaInicialController;
 import java.io.IOException;
@@ -70,24 +70,24 @@ public class MenuController implements Initializable {
 
     @FXML
     void setorAction(ActionEvent event) {
-       try {
+        try {
             Parent fxmlLoader = FXMLLoader.load(Setor.class.getResource("Setor.fxml"));
             SoftTalk.stage.setScene(new Scene(fxmlLoader));
         } catch (IOException ex) {
             Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
-        }   
+        }
     }
-    
+
     @FXML
     void inicialAction(ActionEvent event) {
-       try {
+        try {
             Parent fxmlLoader = FXMLLoader.load(TelaInicialController.class.getResource("TelaInicial.fxml"));
             SoftTalk.stage.setScene(new Scene(fxmlLoader));
         } catch (IOException ex) {
             Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
-        }   
+        }
     }
-       
+
     @FXML
     void solicitaAction(ActionEvent event) {
         try {
@@ -95,19 +95,17 @@ public class MenuController implements Initializable {
             SoftTalk.stage.setScene(new Scene(fxmlLoader));
         } catch (IOException ex) {
             Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
-        }  
+        }
     }
-    
+
     @FXML
     void enviarFeedback(ActionEvent event) {
-        /*try {
-            Parent fxmlLoader = FXMLLoader.load(EnviaFeedBackController.class.getResource("enviarFeedback.fxml"));
+        try {
+            Parent fxmlLoader = FXMLLoader.load(EnviaFeedbackController.class.getResource("EnviarFeedback.fxml"));
             SoftTalk.stage.setScene(new Scene(fxmlLoader));
         } catch (IOException ex) {
             Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
-        } */ 
+        }
     }
-
-    
 
 }
