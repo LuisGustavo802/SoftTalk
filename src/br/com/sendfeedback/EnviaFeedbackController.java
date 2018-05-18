@@ -28,7 +28,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 
-public class enviaFeedbackController implements Initializable {
+public class EnviaFeedbackController implements Initializable {
     //Objetos do FXML
     @FXML
     private ComboBox<Setor> cbxSetores;
@@ -66,7 +66,7 @@ public class enviaFeedbackController implements Initializable {
         try {
             inicializaComponentes();
         } catch (SQLException | IOException ex) {
-            Logger.getLogger(enviaFeedbackController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EnviaFeedbackController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }    
     

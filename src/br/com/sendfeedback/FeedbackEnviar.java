@@ -7,8 +7,8 @@ package br.com.sendfeedback;
 
 import java.sql.Date;
 
-
 public class FeedbackEnviar {
+
     private int idFeedBack;
     private int idUsuarioRemetente;
     private int idempresa;
@@ -81,9 +81,5 @@ public class FeedbackEnviar {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    
-    
-    
 
-    
 }

@@ -15,7 +15,7 @@
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #eeeeee;">
          <children>
-            <fx:include fx:id="testePesquisa" source="..\Softtalk\Menu.fxml" />
+            <fx:include fx:id="testePesquisa" source="../Softtalk/Menu.fxml" />
             <JFXTextArea fx:id="txaDescricao" layoutX="64.0" layoutY="96.0" maxWidth="825.0" minWidth="535.0" prefHeight="395.0" prefWidth="825.0" promptText="Digite o Feedback aqui">
                <font>
                   <Font size="15.0" />
