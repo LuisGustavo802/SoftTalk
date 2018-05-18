@@ -42,10 +42,9 @@ public class RequestFeedbackController implements Initializable {
 
     @FXML
     private JFXComboBox<Setor> bxSetor;
-    
+
     /*@FXML
     private JFXDatePicker dtLimite;*/
-
     @FXML
     protected void SolicitarFeedbackAction(ActionEvent event) {
         solicitarFeedback();
@@ -85,11 +84,11 @@ public class RequestFeedbackController implements Initializable {
             DAOFeedback daoFeedback = new DAOFeedback();
             DAOUtils daoUtils = new DAOUtils();
             int id;
-            
+
             Pessoa pessoa = bxPessoa.getSelectionModel().getSelectedItem();
-            
+
             List<Usuario> listaUsuarios = daoUsuario.listarUsuariosCondicao(pessoa.getIdpessoa());
-            
+
             feedback.setIdUsuarioRemetente(SoftTalk.getIdUsuarioLogado());
             feedback.setIdempresa(listaUsuarios.get(0).getIdEmpresa());
             feedback.setIdUsuarioDestino(listaUsuarios.get(0).getIdusuario());
@@ -97,19 +96,23 @@ public class RequestFeedbackController implements Initializable {
             feedback.setDtMovimento(daoUtils.carregaDataServidor());
             feedback.setStatus("I");
             feedback.setDescricao(txMensagem.getText());
-            
+
             id = daoFeedback.gravarFeedBack(feedback);
-            
-            if (id < 0){
-              return;  
+
+            if (id < 0) {
+                Functions.abrirMensagem("Problema ao salvar os dados.");
+                return;
             }
-            
+
             requestFeedback.setIdfeedback(id);
             requestFeedback.setTipoSolicitacao(bxTipo.getSelectionModel().getSelectedItem().toString());
             requestFeedback.setDtLimite(daoUtils.carregaDataServidor());
-            
+
             daoRequestFeedback.inserirSolicitacaoFeedback(requestFeedback);
-            
+                        
+            //Functions.abrirMensagem("Solicitação enviada com sucesso.");
+            limparDados();
+
         } catch (SQLException ex) {
             Logger.getLogger(RequestFeedbackController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -148,6 +151,11 @@ public class RequestFeedbackController implements Initializable {
         }
 
         return Functions.SUCCESS;
+    }
+    
+    public void limparDados(){
+       //ss txMensagem.setText("");
+        
     }
 
 }
