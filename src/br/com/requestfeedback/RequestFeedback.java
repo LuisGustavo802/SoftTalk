@@ -7,6 +7,7 @@ import java.sql.Date;
  * @author luis_
  */
 public class RequestFeedback {
+
     private int idfeedback;
     private String tipoSolicitacao;
     private Date dtLimite;
@@ -34,7 +35,5 @@ public class RequestFeedback {
     public void setDtLimite(Date dtLimite) {
         this.dtLimite = dtLimite;
     }
-    
-    
-    
+
 }

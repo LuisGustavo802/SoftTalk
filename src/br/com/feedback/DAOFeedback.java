@@ -22,7 +22,7 @@ public class DAOFeedback {
 
             PreparedStatement pstm;
             pstm = SoftTalk.conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            
+
             pstm.setInt(1, feedback.getIdUsuarioRemetente());
             pstm.setInt(2, feedback.getIdempresa());
             pstm.setInt(3, feedback.getIdUsuarioDestino());
@@ -30,7 +30,7 @@ public class DAOFeedback {
             pstm.setDate(5, feedback.getDtMovimento());
             pstm.setByte(6, (byte) feedback.getStatus());
             pstm.setString(7, feedback.getDescricao());
-            
+
             pstm.execute();
 
             ResultSet rs = pstm.getGeneratedKeys();
