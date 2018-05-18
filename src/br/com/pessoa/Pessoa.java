@@ -4,15 +4,15 @@ import br.com.Utils.ManipularImagem;
 import java.awt.image.BufferedImage;
 
 public class Pessoa {
-    private Integer idpessoa , idsetor;
+
+    private Integer idpessoa, idsetor;
     private BufferedImage imagem;
     private String nome;
     private final ManipularImagem manipulaImagem;
-   
-    public Pessoa( ) {
-         this.manipulaImagem = new ManipularImagem();
+
+    public Pessoa() {
+        this.manipulaImagem = new ManipularImagem();
     }
-    
 
     public void setIdpessoa(Integer idpessoa) {
         this.idpessoa = idpessoa;
@@ -29,10 +29,11 @@ public class Pessoa {
     public void setImagem(String Caminho, int x, int y) {
         this.imagem = ManipularImagem.setImagemDimensao(Caminho, x, y);
     }
-    
+
     public void setImagem(BufferedImage imagem) {
         this.imagem = imagem;
     }
+
     public Integer getIdsetor() {
         return idsetor;
     }
@@ -40,7 +41,6 @@ public class Pessoa {
     public void setIdsetor(Integer idsetor) {
         this.idsetor = idsetor;
     }
-
 
     public String getNome() {
         return nome;
@@ -54,6 +54,3 @@ public class Pessoa {
     public String toString() {
         return nome;
     }
-  
-  
-}
