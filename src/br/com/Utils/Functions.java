@@ -41,7 +41,7 @@ public class Functions {
         return secured;
     }
 
-    public void abrirMensagem(String textoMensagem) {
+    public static void abrirMensagem(String textoMensagem) {
         try {
 
             Stage stage = new Stage(StageStyle.TRANSPARENT);

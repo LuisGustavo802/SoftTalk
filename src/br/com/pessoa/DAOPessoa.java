@@ -75,7 +75,7 @@ public class DAOPessoa {
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next()) {
             pessoa = new Pessoa();
-            pessoa.setIdpessoa(rs.getInt("IdPessoa"));
+            pessoa.setIdpessoa(rs.getInt("Idpessoa"));
             pessoa.setIdsetor(rs.getInt("IdSetor"));
             pessoa.setNome(rs.getString("Nome"));
             lista.add(pessoa);

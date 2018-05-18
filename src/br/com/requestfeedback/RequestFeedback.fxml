@@ -41,12 +41,12 @@
                 <Font size="15.0" />
             </font>
         </Text>
-        <DatePicker editable="false" layoutX="541.0" layoutY="221.0" prefHeight="30.0" prefWidth="285.0" promptText="Selecione a data" style="-fx-border-color: #eeeeee; -fx-background-color: #eeeeee;">
+        <DatePicker fx:id="dtLimite" editable="false" layoutX="541.0" layoutY="221.0" prefHeight="30.0" prefWidth="285.0" promptText="Selecione a data" style="-fx-border-color: #eeeeee; -fx-background-color: #eeeeee;">
             <effect>
                 <InnerShadow color="#00000031" />
             </effect>
         </DatePicker>
-        <JFXComboBox fx:id="bxSetor" layoutX="127.0" layoutY="102.0" prefHeight="25.0" prefWidth="335.0" promptText="Selecione o setor:" stylesheets="RequestFeedback.css" />
+        <JFXComboBox fx:id="bxSetor" layoutX="127.0" layoutY="102.0" onAction="#CarregaPessoasAction" prefHeight="25.0" prefWidth="335.0" promptText="Selecione o setor:" stylesheets="RequestFeedback.css" />
         <fx:include fx:id="menuTop" source="../notificacoes/Notificacao.fxml" />
         <fx:include fx:id="testePesquisa" source="../softtalk/Menu.fxml" />
     </children>

@@ -76,9 +76,9 @@ public class DAOFeedback {
             feedback = new Feedback();
             feedback.setIdFeedBack(rs.getInt("idfeedback"));
             feedback.setIdUsuarioRemetente(rs.getInt("idusuarioremetente"));
-            feedback.setTipoFeedback(rs.getString("tipofeedback"));
+            feedback.setTipoFeedback( rs.getString("tipofeedback"));
             feedback.setDtMovimento(rs.getDate("dtmovimento"));
-            feedback.setStatus(rs.getString("status"));
+            feedback.setStatus( rs.getString("status"));
             feedback.setDescricao(rs.getString("observacao"));
             lista.add(feedback);
         }
