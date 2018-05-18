@@ -107,10 +107,10 @@ public class LoginController {
                     SoftTalk.stage.setScene(new Scene(fxmlLoader));
 
                 } else {
-                    // usuario ou senha incorretos
+                    Functions.abrirMensagem("Atenção! Usuário ou senha incorreto.");
                 }
             } else {
-                //mensagem usuario inativo
+                Functions.abrirMensagem("Atenção! Usuário inativo.");
             }
         }
     }

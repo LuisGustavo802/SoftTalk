@@ -91,7 +91,7 @@ public class UsuarioController implements Initializable {
         Setor setor = bxSetor.getSelectionModel().getSelectedItem(); 
         
         if (txNome.getText().isEmpty() || setor == null || usuario.getText().isEmpty() || senha.getText().isEmpty() ||senha1.getText().isEmpty() ){
-            functions.mensagemPadrao("Favor preencher todos os campos!");
+            Functions.abrirMensagem("Favor preencher todos os campos!");
             return Functions.FAILURE;
         }
         pessoa.setNome(String.valueOf(txNome.getText()));
@@ -100,7 +100,7 @@ public class UsuarioController implements Initializable {
         daopessoa = new DAOPessoa();
         int codPessoa = daopessoa.inserirPessoa(pessoa);
         if (codPessoa < 0){
-            functions.mensagemPadrao("Problemas na gravação!");
+            Functions.abrirMensagem("Problemas na gravação!");
             return Functions.FAILURE;
         }
         user.setIdpessoa(codPessoa);
@@ -109,15 +109,15 @@ public class UsuarioController implements Initializable {
         if(String.valueOf(senha.getText()).equals(String.valueOf(senha1.getText()))){
             user.setSenha(functions.encript(senha.getText()));
         }else{
-            functions.mensagemPadrao("Senhas diferentes. Favor corrigir!");
+            Functions.abrirMensagem("Senhas diferentes. Favor corrigir!");
             return Functions.FAILURE;
         }
         DAOUsuario daousuario = new DAOUsuario();
         if (daousuario.inserirUsuario(user) < 0){
-            functions.mensagemPadrao("Problemas na gravação!");
+            Functions.abrirMensagem("Problemas na gravação!");
             return Functions.FAILURE;
         }
-        functions.mensagemPadrao("Gravado com sucesso!");
+        Functions.abrirMensagem("Gravado com sucesso!");
         voltarTelaLogin();
         return Functions.SUCCESS;
     }

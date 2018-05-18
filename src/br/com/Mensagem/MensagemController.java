@@ -3,23 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Mensagem;
+package br.com.Mensagem;
 
-import br.com.login.LoginController;
-import java.io.IOException;
+import br.com.Utils.Functions;
+import br.com.softtalk.SoftTalk;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -34,33 +28,18 @@ public class MensagemController implements Initializable {
     @FXML
     private Label lblMensagem;
 
-    private String mensagem;
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-    }
-
-    public String getMensagem() {
-        return mensagem;
     }
 
     public void setMensagem(String mensagem) {
         this.lblMensagem.setText(mensagem);
     }
 
-    public void abrirMensagem() {
-        /*try {
-
-            Stage stage = new Stage(StageStyle.TRANSPARENT);
-
-            Parent fxmlLoader = FXMLLoader.load(MensagemController.class.getResource("Mensagem.fxml"));
-            stage.setScene(new Scene(fxmlLoader));
-            lblMensagem.setText(mensagem);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }*/ 
-   }
+    @FXML
+    protected void OkAction(ActionEvent event) {
+        Functions.stage.close();
+    }
 
 }
