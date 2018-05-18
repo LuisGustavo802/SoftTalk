@@ -68,13 +68,14 @@ public class DAOPessoa {
     public ArrayList<Pessoa> listarPessoasCondicao(String Condicao) throws SQLException, IOException {
         Pessoa pessoa;
         ArrayList<Pessoa> lista = new ArrayList();
-        String sql = "SELECT * FROM pessoa WHERE  = " + Condicao + ";";
+        String sql = "SELECT * FROM pessoa WHERE " + Condicao + ";";
    
         Statement stm = SoftTalk.conexao.createStatement();
 
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next()) {
             pessoa = new Pessoa();
+            pessoa.setIdpessoa(rs.getInt("IdPessoa"));
             pessoa.setIdsetor(rs.getInt("IdSetor"));
             pessoa.setNome(rs.getString("Nome"));
             lista.add(pessoa);
@@ -92,6 +93,7 @@ public class DAOPessoa {
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next()) {
             pessoa = new Pessoa();
+            pessoa.setIdpessoa(rs.getInt("IdPessoa"));
             pessoa.setIdsetor(rs.getInt("IdSetor"));
             pessoa.setNome(rs.getString("Nome"));
             lista.add(pessoa);
@@ -110,6 +112,7 @@ public class DAOPessoa {
         pessoa = new Pessoa();
 
         if (rs.next()) {
+            pessoa.setIdpessoa(rs.getInt("IdPessoa"));
             pessoa.setIdsetor(rs.getInt("IdSetor"));
             pessoa.setNome(rs.getString("Nome"));
             pessoa.setImagem(carregaImg.transformarImagem(rs.getBytes("Imagem")));

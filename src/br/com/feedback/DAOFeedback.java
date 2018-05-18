@@ -26,9 +26,9 @@ public class DAOFeedback {
             pstm.setInt(1, feedback.getIdUsuarioRemetente());
             pstm.setInt(2, feedback.getIdempresa());
             pstm.setInt(3, feedback.getIdUsuarioDestino());
-            pstm.setByte(4, (byte) feedback.getTipoFeedback());
+            pstm.setString(4, feedback.getTipoFeedback());
             pstm.setDate(5, feedback.getDtMovimento());
-            pstm.setByte(6, (byte) feedback.getStatus());
+            pstm.setString(6, feedback.getStatus());
             pstm.setString(7, feedback.getDescricao());
 
             pstm.execute();
@@ -57,9 +57,9 @@ public class DAOFeedback {
             feedback.setIdUsuarioRemetente(rs.getInt("idusuarioremetente"));
             feedback.setIdempresa(rs.getInt("idempresa"));
             feedback.setIdUsuarioDestino(rs.getInt("idusuariodestinatario"));
-            feedback.setTipoFeedback((char) rs.getByte("tipofeedback"));
+            feedback.setTipoFeedback(rs.getString("tipofeedback"));
             feedback.setDtMovimento(rs.getDate("dtmovimento"));
-            feedback.setStatus((char) rs.getByte("status"));
+            feedback.setStatus(rs.getString("status"));
             feedback.setDescricao(rs.getString("observacao"));
 
         }
@@ -69,16 +69,16 @@ public class DAOFeedback {
     public List<Feedback> listarFeedbacks() throws SQLException {
         Feedback feedback;
         List<Feedback> lista = new ArrayList();
-        String sql = "SELECT * FROM feedback WHERE idusuariodestinatario = " + SoftTalk.getIdUsuarioLogado() + ";";
+        String sql = "SELECT * FROM feedback WHERE idusuariodestinatario = " + Integer.toString(SoftTalk.getIdUsuarioLogado()) + ";";
         Statement stm = SoftTalk.conexao.createStatement();
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next()) {
             feedback = new Feedback();
             feedback.setIdFeedBack(rs.getInt("idfeedback"));
             feedback.setIdUsuarioRemetente(rs.getInt("idusuarioremetente"));
-            feedback.setTipoFeedback((char) rs.getByte("tipofeedback"));
+            feedback.setTipoFeedback(rs.getString("tipofeedback"));
             feedback.setDtMovimento(rs.getDate("dtmovimento"));
-            feedback.setStatus((char) rs.getByte("status"));
+            feedback.setStatus(rs.getString("status"));
             feedback.setDescricao(rs.getString("observacao"));
             lista.add(feedback);
         }
