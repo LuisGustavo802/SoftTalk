@@ -5,7 +5,6 @@
  */
 package br.com.softtalk;
 
-import br.com.feedback.Feedback;
 import br.com.pessoa.Pessoa;
 import br.com.sendfeedback.EnviaFeedbackController;
 import br.com.setor.Setor;
@@ -26,6 +25,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import br.com.requestfeedback.RequestFeedbackController;
 
 /**
  * FXML Controller class
@@ -91,7 +91,7 @@ public class MenuController implements Initializable {
     @FXML
     void solicitaAction(ActionEvent event) {
         try {
-            Parent fxmlLoader = FXMLLoader.load(Feedback.class.getResource("feedback.fxml"));
+            Parent fxmlLoader = FXMLLoader.load(RequestFeedbackController.class.getResource("requestFeedback.fxml"));
             SoftTalk.stage.setScene(new Scene(fxmlLoader));
         } catch (IOException ex) {
             Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);

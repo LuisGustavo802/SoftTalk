@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package requestfeedback;
+package br.com.requestfeedback;
 
 import br.com.pessoa.Pessoa;
 import com.jfoenix.controls.JFXComboBox;
@@ -20,7 +20,7 @@ import javafx.fxml.Initializable;
  *
  * @author free
  */
-public class FeedbackController implements Initializable {
+public class RequestFeedbackController implements Initializable {
     
     @FXML
     private JFXTextArea txMensagem;
