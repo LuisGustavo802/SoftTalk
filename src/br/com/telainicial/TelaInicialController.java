@@ -103,9 +103,9 @@ public class TelaInicialController implements Initializable {
         abasVisualizacao.getTabs().get(1).getContent().setVisible(true);
         aba1.setDisable(false);
         abasVisualizacao.getSelectionModel().select(aba1);
-        txtNomeRemetente.setText(daopes.listaNomePessoa(feedbackSelecionado.getIdUsuRemetente()));
+        txtNomeRemetente.setText(daopes.listaNomePessoa(feedbackSelecionado.getIdUsuarioRemetente()));
         txtData.setText(formato.format(feedbackSelecionado.getDtMovimento()));
-        txtFeedback.setText(feedbackSelecionado.getMensagem());
+        txtFeedback.setText(feedbackSelecionado.getDescricao());
         return Functions.SUCCESS;
     }
 

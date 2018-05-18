@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.feedback;
+package requestfeedback;
 
 import br.com.pessoa.Pessoa;
 import com.jfoenix.controls.JFXComboBox;

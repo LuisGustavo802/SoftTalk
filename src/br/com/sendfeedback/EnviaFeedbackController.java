@@ -5,6 +5,8 @@
  */
 package br.com.sendfeedback;
 
+import br.com.feedback.Feedback;
+import br.com.feedback.DAOFeedback;
 import br.com.Utils.Functions;
 import br.com.pessoa.DAOPessoa;
 import br.com.pessoa.Pessoa;
@@ -43,7 +45,7 @@ public class EnviaFeedbackController implements Initializable {
     //Objetos do controller
     private ObservableList<Setor> observableListSetor;
     private ObservableList<Pessoa> observableListPessoas;
-    private FeedbackEnviar feedback;
+    private Feedback feedback;
     private Functions functions;
 
     //Função de Ação to XMML
@@ -79,7 +81,7 @@ public class EnviaFeedbackController implements Initializable {
             feedback.setStatus('P');
             feedback.setDescricao(txaDescricao.getText());
 
-            DAOEnviarFeedback gravaFeedback = new DAOEnviarFeedback();
+            DAOFeedback gravaFeedback = new DAOFeedback();
             gravaFeedback.gravarFeedBack(feedback);
         }
     }
@@ -101,7 +103,7 @@ public class EnviaFeedbackController implements Initializable {
     }
 
     private void inicializaComponentes() throws SQLException, IOException {
-        feedback = new FeedbackEnviar();
+        feedback = new Feedback();
         functions = new Functions();
         //Carrega todos os setores e pessoas para os combos box
         carregaSetores();

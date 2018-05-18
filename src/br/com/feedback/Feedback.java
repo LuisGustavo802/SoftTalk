@@ -1,73 +1,61 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package br.com.feedback;
 
-import br.com.pessoa.DAOPessoa;
-import java.io.IOException;
 import java.sql.Date;
-import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-/**
- *
- * @author luis_
- */
 public class Feedback {
-    private int IdPessoa;
-    private String tipoFeedBack;
-    private String mensagem;
-    
-    private int idFeedback, idUsuRemetente;
-    private String status;
+
+    private int idFeedBack;
+    private int idUsuarioRemetente;
+    private int idempresa;
+    private int idUsuarioDestino;
+    private char tipoFeedback;
     private Date dtMovimento;
-    private String descLista;
-    
-    public int getIdPessoa() {
-        return IdPessoa;
+    private char status;
+    private String descricao;
+
+    public int getIdFeedBack() {
+        return idFeedBack;
     }
 
-    public void setIdPessoa(int IdPessoa) {
-        this.IdPessoa = IdPessoa;
+    public void setIdFeedBack(int idFeedBack) {
+        this.idFeedBack = idFeedBack;
     }
 
-    public String getTipoFeedBack() {
-        return tipoFeedBack;
+    public int getIdUsuarioRemetente() {
+        return idUsuarioRemetente;
     }
 
-    public void setTipoFeedBack(String tipoFeedBack) {
-        this.tipoFeedBack = tipoFeedBack;
+    public void setIdUsuarioRemetente(int idUsuarioRemetente) {
+        this.idUsuarioRemetente = idUsuarioRemetente;
     }
 
-    public String getMensagem() {
-        return mensagem;
+    public int getIdempresa() {
+        return idempresa;
     }
 
-    public void setMensagem(String mensagem) {
-        this.mensagem = mensagem;
+    public void setIdempresa(int idempresa) {
+        this.idempresa = idempresa;
     }
 
-    public int getIdFeedback() {
-        return idFeedback;
+    public int getIdUsuarioDestino() {
+        return idUsuarioDestino;
     }
 
-    public void setIdFeedback(int idFeedback) {
-        this.idFeedback = idFeedback;
+    public void setIdUsuarioDestino(int idUsuarioDestino) {
+        this.idUsuarioDestino = idUsuarioDestino;
     }
 
-    public int getIdUsuRemetente() {
-        return idUsuRemetente;
+    public char getTipoFeedback() {
+        return tipoFeedback;
     }
 
-    public void setIdUsuRemetente(int idUsuRemetente) {
-        this.idUsuRemetente = idUsuRemetente;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setTipoFeedback(char tipoFeedback) {
+        this.tipoFeedback = tipoFeedback;
     }
 
     public Date getDtMovimento() {
@@ -78,17 +66,20 @@ public class Feedback {
         this.dtMovimento = dtMovimento;
     }
 
-    @Override
-    public String toString() {
-        DAOPessoa daopes = new DAOPessoa();
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        try {
-            descLista= "De: " + daopes.listaNomePessoa(idUsuRemetente) + ", Data: " + formato.format(dtMovimento);
-        } catch (SQLException | IOException ex) {
-            Logger.getLogger(Feedback.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return descLista;
+    public char getStatus() {
+        return status;
     }
-  
-    
+
+    public void setStatus(char status) {
+        this.status = status;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
 }
