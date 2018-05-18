@@ -77,8 +77,8 @@ public class SendFeedbackController implements Initializable {
     private void enviar() {
         if (validacoes() == functions.SUCCESS) {
             feedback.setIdUsuarioRemetente(SoftTalk.getIdUsuarioLogado());
-            feedback.setTipoFeedback('S');
-            feedback.setStatus('P');
+            feedback.setTipoFeedback("S");
+            feedback.setStatus("P");
             feedback.setDescricao(txaDescricao.getText());
 
             DAOFeedback gravaFeedback = new DAOFeedback();
