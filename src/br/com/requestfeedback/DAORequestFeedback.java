@@ -22,8 +22,7 @@ public class DAORequestFeedback {
                     + "VALUES (?, ?, ?)";
 
             PreparedStatement pstm;
-            
-            
+
             pstm = SoftTalk.conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             pstm.setInt(1, requestFeedback.getIdfeedback());

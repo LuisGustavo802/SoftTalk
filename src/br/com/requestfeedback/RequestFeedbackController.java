@@ -14,42 +14,39 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
-
 /**
  * FXML Controller class
  *
  * @author free
  */
 public class RequestFeedbackController implements Initializable {
-    
+
     @FXML
     private JFXTextArea txMensagem;
-    
+
     @FXML
     private JFXComboBox<Pessoa> bxPessoa;
 
     @FXML
     private JFXComboBox bxTipo;
-    
 
     @FXML
     protected void SolicitarFeedbackAction(ActionEvent event) {
         solicitarFeedback();
-    
+
     }
 
-    private void solicitarFeedback(){
-        
-        if (bxTipo.getSelectionModel().getSelectedItem().equals("")){
-            
-        }
-        
-    }
-    
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
+    private void solicitarFeedback() {
+
+        if (bxTipo.getSelectionModel().getSelectedItem().equals("")) {
+
+        }
+
+    }
+
 }

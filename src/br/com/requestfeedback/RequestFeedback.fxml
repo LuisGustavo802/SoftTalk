@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.collections.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #eeeeee;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.requestfeedback.RequestFeedbackController">
     <children>
@@ -20,15 +21,17 @@
                 <Font size="10.0" />
             </font>
         </Text>
-        <Text fill="#696969" layoutX="127.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Observação:">
-            <font>
-                <Font size="15.0" />
-            </font>
-        </Text>
-        <Button layoutX="547.0" layoutY="420.0" mnemonicParsing="false" onAction="#SolicitarFeedbackAction" prefHeight="37.0" prefWidth="273.0" style="-fx-background-color: #3f3f3f;" stylesheets="requestFeedback" text="Enviar" textFill="#36d0ff" />
-        <JFXComboBox fx:id="bxTipo" layoutX="127.0" layoutY="221.0" prefHeight="30.0" prefWidth="335.0" promptText="Selecione o tipo de feedback" stylesheets="requestFeedback" />
-        <JFXComboBox fx:id="bxPessoa" layoutX="491.0" layoutY="97.0" prefHeight="30.0" prefWidth="335.0" promptText="Selecione o destinatário" stylesheets="requestFeedback" />
-        <JFXTextArea fx:id="txMensagem" focusColor="#36d0ff" layoutX="127.0" layoutY="347.0" maxWidth="599.0" minWidth="187.0" prefHeight="110.0" prefWidth="335.0" promptText="Digite aqui..." style="-fx-border-color: dimgray;" unFocusColor="#ededed">
+        <Button layoutX="535.0" layoutY="413.0" mnemonicParsing="false" onAction="#SolicitarFeedbackAction" prefHeight="37.0" prefWidth="285.0" style="-fx-background-color: #3f3f3f;" stylesheets="RequestFeedback" text="Enviar" textFill="#36d0ff" />
+        <JFXComboBox fx:id="bxTipo" layoutX="127.0" layoutY="221.0" prefHeight="30.0" prefWidth="335.0" promptText="Selecione o tipo de feedback" stylesheets="RequestFeedback">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Face-To-Face" />
+                    <String fx:value="SoftTalk" />
+                </FXCollections>
+            </items>
+        </JFXComboBox>
+        <JFXComboBox fx:id="bxPessoa" layoutX="491.0" layoutY="97.0" prefHeight="30.0" prefWidth="335.0" promptText="Selecione o destinatário" stylesheets="RequestFeedback" />
+        <JFXTextArea fx:id="txMensagem" focusColor="#36d0ff" layoutX="127.0" layoutY="342.0" maxWidth="599.0" minWidth="187.0" prefHeight="110.0" prefWidth="335.0" promptText="Observação..." style="-fx-border-color: dimgray;" unFocusColor="#ededed">
             <font>
                 <Font size="15.0" />
             </font>
@@ -38,12 +41,12 @@
                 <Font size="15.0" />
             </font>
         </Text>
-        <DatePicker layoutX="541.0" layoutY="221.0" prefHeight="30.0" prefWidth="285.0" promptText="Selecione a data" style="-fx-border-color: #eeeeee; -fx-background-color: #eeeeee;">
+        <DatePicker editable="false" layoutX="541.0" layoutY="221.0" prefHeight="30.0" prefWidth="285.0" promptText="Selecione a data" style="-fx-border-color: #eeeeee; -fx-background-color: #eeeeee;">
             <effect>
                 <InnerShadow color="#00000031" />
             </effect>
         </DatePicker>
-        <JFXComboBox layoutX="127.0" layoutY="102.0" prefHeight="25.0" prefWidth="335.0" promptText="Selecione o setor:" stylesheets="RequestFeedback.css" />
+        <JFXComboBox fx:id="bxSetor" layoutX="127.0" layoutY="102.0" prefHeight="25.0" prefWidth="335.0" promptText="Selecione o setor:" stylesheets="RequestFeedback.css" />
         <fx:include fx:id="menuTop" source="../notificacoes/Notificacao.fxml" />
         <fx:include fx:id="testePesquisa" source="../softtalk/Menu.fxml" />
     </children>
