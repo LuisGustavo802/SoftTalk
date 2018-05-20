@@ -28,7 +28,6 @@ CREATE TABLE IF NOT EXISTS usuario (
   senha VARCHAR(45),
   flagativo CHAR(1),
   tipo CHAR(1) NULL,
-  idempresa INT NOT NULL,
   PRIMARY KEY (idusuario));
 
 CREATE TABLE IF NOT EXISTS feedback (
