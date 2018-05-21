@@ -12,8 +12,9 @@ import java.util.List;
 public class DAOSetor {
 
     public int inserirSetor(Setor setor) throws SQLException {
-        String sql = "INSERT INTO setor (NOME, FLAGATIVO) "
-                + "VALUES ('"
+        String sql = "INSERT INTO setor (IDEMPRESA, NOME, FLAGATIVO) "
+                + "VALUES ("
+                + setor.getIdempresa() +",'"
                 + setor.getNome() + "','"
                 + setor.getFlagativo() + "')";
         PreparedStatement pstm
@@ -32,8 +33,9 @@ public class DAOSetor {
         Statement stm = SoftTalk.conexao.createStatement();
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next()) {
-            setor = new Setor();
+            setor = new Setor();          
             setor.setIdsetor(rs.getInt("IdSetor"));
+            setor.setIdempresa(rs.getInt("IdEmpresa"));
             setor.setNome(rs.getString("Nome"));
             setor.setFlagativo(rs.getString("FlagAtivo"));
             lista.add(setor);
@@ -48,6 +50,7 @@ public class DAOSetor {
         setor = new Setor();
         if (rs.next()){
             setor.setIdsetor(rs.getInt("IdSetor"));
+            setor.setIdempresa(rs.getInt("IdEmpresa"));
             setor.setNome(rs.getString("Nome"));
             setor.setFlagativo(rs.getString("FlagAtivo"));
         }

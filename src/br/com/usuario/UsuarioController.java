@@ -20,6 +20,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -31,9 +33,6 @@ import javafx.scene.Scene;
 
 
 public class UsuarioController implements Initializable {
-
-  
-
     @FXML
     private JFXComboBox<Setor> bxSetor;
 
@@ -41,14 +40,16 @@ public class UsuarioController implements Initializable {
     private JFXTextField txNome;
     
     @FXML
-    private JFXTextField usuario;
+    private JFXTextField txUsuario;
 
      @FXML
-    private JFXPasswordField senha;
+    private JFXPasswordField pfSenha;
     
     @FXML
-    private JFXPasswordField senha1;
+    private JFXPasswordField pfSenha1;
 
+    @FXML
+    private JFXTextField txEmail;
     
     private List<Setor> listSetor = new ArrayList<>();
     private ObservableList<Setor> observableListSetor;
@@ -90,10 +91,25 @@ public class UsuarioController implements Initializable {
         ResultSet rs;
         Setor setor = bxSetor.getSelectionModel().getSelectedItem(); 
         
-        if (txNome.getText().isEmpty() || setor == null || usuario.getText().isEmpty() || senha.getText().isEmpty() ||senha1.getText().isEmpty() ){
+        //Validações
+        if (txNome.getText().isEmpty() || setor == null || txEmail.getText().isEmpty() || txUsuario.getText().isEmpty() || pfSenha.getText().isEmpty() || pfSenha1.getText().isEmpty() ){
             Functions.abrirMensagem("Favor preencher todos os campos!");
             return Functions.FAILURE;
         }
+        
+        if (validarEmail(String.valueOf(txEmail.getText()))){
+            user.setEmail(String.valueOf(txEmail.getText()));
+        }else{
+           return Functions.FAILURE; 
+        }
+         
+        if(String.valueOf(pfSenha.getText()).equals(String.valueOf(pfSenha1.getText()))){
+            user.setSenha(functions.encript(pfSenha.getText()));
+        }else{
+            Functions.abrirMensagem("Senhas diferentes. Favor corrigir!");
+            return Functions.FAILURE;
+        }
+        
         pessoa.setNome(String.valueOf(txNome.getText()));
         pessoa.setIdsetor(setor.getIdsetor());
         DAOPessoa daopessoa;
@@ -105,13 +121,9 @@ public class UsuarioController implements Initializable {
         }
         user.setIdpessoa(codPessoa);
         user.setFlagativo("T");
-        user.setLogin(String.valueOf(usuario.getText()));
-        if(String.valueOf(senha.getText()).equals(String.valueOf(senha1.getText()))){
-            user.setSenha(functions.encript(senha.getText()));
-        }else{
-            Functions.abrirMensagem("Senhas diferentes. Favor corrigir!");
-            return Functions.FAILURE;
-        }
+        user.setTipo("F");
+        user.setLogin(String.valueOf(txUsuario.getText()));
+       
         DAOUsuario daousuario = new DAOUsuario();
         if (daousuario.inserirUsuario(user) < 0){
             Functions.abrirMensagem("Problemas na gravação!");
@@ -129,7 +141,16 @@ public class UsuarioController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+    }
+    
+    public boolean validarEmail(String email){
+        Pattern p = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,7}$"); 
+        Matcher m = p.matcher(email); 
+        if (!m.find()){
+           Functions.abrirMensagem("E-mail inválido!");
+           return false;
+        }
+        return true;
     }
     
 }

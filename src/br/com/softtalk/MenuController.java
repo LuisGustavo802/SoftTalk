@@ -45,9 +45,9 @@ public class MenuController implements Initializable {
         ResultSet rs = null;
         try {
             st = SoftTalk.conexao.createStatement();
-            rs = st.executeQuery("Select usuario_admin from usuario where idusuario = " + Integer.toString(SoftTalk.getIdUsuarioLogado()));
+            rs = st.executeQuery("Select tipo from usuario where idusuario = " + Integer.toString(SoftTalk.getIdUsuarioLogado()));
             if (rs.next()) {
-                if (rs.getString("usuario_admin").equals("F")) {
+                if (!rs.getString("tipo").equals("A")) {
                     btnSetor.setVisible(false);
                     imgSetor.setVisible(false);
                 }
