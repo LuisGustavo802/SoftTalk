@@ -60,13 +60,18 @@ public class DAOUsuario {
         return lista;
     }
     public List<Usuario> listarUsuariosCondicao(int idPessoa) throws SQLException {
-        return listarUsuariosCondicao("idPessoa = " + Integer.toString(idPessoa));
+        return listarUsuariosCondicao("usu.idPessoa = " + Integer.toString(idPessoa));
     }
     
     public List<Usuario> listarUsuariosCondicao(String condicao) throws SQLException {
         Usuario usuario;
         List<Usuario> lista = new ArrayList();        
-        String sql = "SELECT * FROM usuario WHERE " + condicao + " ; ";
+        String sql = "SELECT * FROM usuario usu \n" + 
+                     "	JOIN pessoa pes ON \n" +
+                     "      usu.idpessoa = pes.idpessoa\n" +
+                     "	JOIN setor s ON \n" +
+                     "      pes.idsetor = s.idsetor \n" +
+                     " WHERE " + condicao + " ; ";
         Statement stm = SoftTalk.conexao.createStatement();
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next()) {
@@ -78,6 +83,7 @@ public class DAOUsuario {
             usuario.setSenha(rs.getString("Senha"));
             usuario.setFlagativo(rs.getString("FlagAtivo"));
             usuario.setTipo(rs.getString("Tipo"));
+            usuario.setIdEmpresa(rs.getInt("IdEmpresa"));
             lista.add(usuario);
         }
         return lista;
@@ -85,11 +91,7 @@ public class DAOUsuario {
         
     public Usuario listarUsuario(int idUsuario) throws SQLException {
         Usuario usuario = new Usuario(); 
-        String sql = "SELECT * FROM usuario usu \n" +                      
-                     "	JOIN pessoa pes ON \n" +
-                     "		usu.idpessoa = pes.idpessoa\n" +
-                     "	JOIN setor s ON \n" +
-                     "		pes.idsetor = s.idsetor \n" +
+        String sql = "SELECT * FROM usuario " +
                      "WHERE idusuario = " + Integer.toString(idUsuario) + ";";
         Statement stm = SoftTalk.conexao.createStatement();
         ResultSet rs = stm.executeQuery(sql);
@@ -101,7 +103,6 @@ public class DAOUsuario {
             usuario.setLogin(rs.getString("Login"));
             usuario.setSenha(rs.getString("Senha"));
             usuario.setFlagativo(rs.getString("FlagAtivo"));
-            usuario.setIdEmpresa(rs.getInt("IdEmpresa"));
             usuario.setTipo(rs.getString("Tipo"));
         }
         return usuario;
