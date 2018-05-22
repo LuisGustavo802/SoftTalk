@@ -9,6 +9,7 @@ import br.com.pessoa.DAOPessoa;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -90,16 +91,17 @@ public class Feedback {
     @Override
     public String toString() {
         DAOPessoa daoPessoa = new DAOPessoa();
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         //Quando lista traz já algumas informações para exibir na recepção de feedback
         try {
             if (this.tipoFeedback.equals("S")) {
 
                 return "Feedback requisitado de: " + daoPessoa.listaNomePessoa(idUsuarioRemetente)
-                        + ". Envio:" + dtMovimento + "";
+                        + ". Envio:" + formato.format(dtMovimento) + "";
 
             } else {
                 return "Feedback recebido de: " + daoPessoa.listaNomePessoa(idUsuarioRemetente)
-                        + ".Envio:" + dtMovimento + "";
+                        + ".Envio:" + formato.format(dtMovimento) + "";
             }
         } catch (SQLException | IOException ex) {
             Logger.getLogger(Feedback.class.getName()).log(Level.SEVERE, null, ex);

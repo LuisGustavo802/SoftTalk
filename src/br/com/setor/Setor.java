@@ -2,8 +2,16 @@
 package br.com.setor;
 
 public class Setor {
-    Integer idsetor, quant;
+    Integer idsetor, quant, idempresa=1;
     String nome, flagativo;
+
+    public Integer getIdempresa() {
+        return idempresa;
+    }
+
+    public void setIdempresa(Integer idempresa) {
+        this.idempresa = idempresa;
+    }
 
     public Integer getIdsetor() {
         return idsetor;

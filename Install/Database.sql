@@ -23,12 +23,11 @@ CREATE TABLE IF NOT EXISTS pessoa (
 CREATE TABLE IF NOT EXISTS usuario (
   idusuario SERIAL,
   idpessoa INT NOT NULL,
-  idempresa INT NOT NULL,
   login VARCHAR(45),
   senha VARCHAR(45),
+  email VARCHAR(50),
   flagativo CHAR(1),
   tipo CHAR(1) NULL,
-  idempresa INT NOT NULL,
   PRIMARY KEY (idusuario));
 
 CREATE TABLE IF NOT EXISTS feedback (
