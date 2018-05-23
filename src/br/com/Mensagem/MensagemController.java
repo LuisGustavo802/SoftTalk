@@ -6,14 +6,13 @@
 package br.com.Mensagem;
 
 import br.com.Utils.Functions;
-import br.com.softtalk.SoftTalk;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 
 /**
  * FXML Controller class
@@ -26,15 +25,14 @@ public class MensagemController implements Initializable {
     private Button btOk;
 
     @FXML
-    private Label lblMensagem;
-
+    private TextArea txMensagem;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
     }
 
     public void setMensagem(String mensagem) {
-        this.lblMensagem.setText(mensagem);
+        this.txMensagem.setText(mensagem);
     }
 
     @FXML
