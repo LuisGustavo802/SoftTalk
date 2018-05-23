@@ -1,45 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
-<?import javafx.scene.image.*?>
 <?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.sendfeedback.SendFeedbackController">
     <children>
         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #eeeeee;">
             <children>
-                <Pane layoutX="64.0" layoutY="6.0" prefHeight="84.0" prefWidth="825.0" style="-fx-background-color: #eeeeee; -fx-border-color: #cccccc;">
-                    <children>
-                        <Label layoutX="23.0" layoutY="32.0" text="Informações Destinatario:">
-                            <font>
-                                <Font size="15.0" />
-                            </font>
-                        </Label>
-                        <JFXComboBox fx:id="cbxSetores" layoutX="220.0" layoutY="23.0" onAction="#selecionarSetorAction" prefHeight="39.0" prefWidth="130.0" promptText="Setor" />
-                        <JFXComboBox fx:id="cbxPessoas" layoutX="389.0" layoutY="23.0" onAction="#selecionarUsuarioAction" prefHeight="39.0" prefWidth="136.0" promptText="Usuario" />
-                  <JFXButton layoutX="555.0" layoutY="23.0" onAction="#enviarAction" prefHeight="39.0" prefWidth="130.0" text="Enviar">
-                     <graphic>
-                        <ImageView fitHeight="27.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Imagens/check.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </JFXButton>
-                    </children>
-                </Pane>
-                <JFXTextArea fx:id="txaDescricao" layoutX="64.0" layoutY="98.0" maxWidth="825.0" minWidth="535.0" prefHeight="395.0" prefWidth="825.0" promptText="Digite o Feedback aqui">
+
+                <JFXTextArea fx:id="txaDescricao" focusColor="#38d7ff" layoutX="128.0" layoutY="332.0" maxWidth="825.0" minWidth="526.0" prefHeight="70.0" prefWidth="701.0" promptText="Digite aqui..." unFocusColor="#5e5e5e">
                     <font>
                         <Font size="15.0" />
                     </font>
+               <effect>
+                  <DropShadow color="#a8a8a8" />
+               </effect>
                 </JFXTextArea>
+                <fx:include fx:id="menuTop" source="../notificacoes/Notificacao.fxml" />
+                  <JFXComboBox fx:id="cbxEquipes" layoutX="129.0" layoutY="89.0" onAction="#selecionarEquipeAction" prefHeight="39.0" prefWidth="306.0" promptText="Selecione a equipe:" stylesheets="@Sendfeedback.css" />
+                  <JFXComboBox fx:id="cbxPessoas" layoutX="129.0" layoutY="194.0" onAction="#selecionarUsuarioAction" prefHeight="39.0" prefWidth="306.0" promptText="Selecionar o destinatário:" stylesheets="@Sendfeedback.css" />
+                  <Button layoutX="365.0" layoutY="453.0" mnemonicParsing="false" onAction="#enviarAction" prefHeight="33.0" prefWidth="224.0" stylesheets="@../requestfeedback/RequestFeedback.css" text="Enviar">
+                      <font>
+                          <Font size="15.0" />
+                      </font>
+                  </Button>
+            <Text fill="#696969" layoutX="138.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feedback: ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Button layoutX="525.0" layoutY="130.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #eeeeee;">
+               <graphic>
+                  <ImageView fitHeight="54.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagens/happy.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="728.0" layoutY="130.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #eeeeee;">
+               <graphic>
+                  <ImageView fitHeight="54.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagens/sad.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="589.0" layoutY="130.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #eeeeee;">
+               <graphic>
+                  <ImageView fitHeight="54.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagens/smile.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="658.0" layoutY="130.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #eeeeee;">
+               <graphic>
+                  <ImageView fitHeight="54.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagens/straight.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="490.0" layoutY="213.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="170.0" style="-fx-background-color: #EEEEEE; -fx-border-color: dimgray;" stylesheets="@Sendfeedback.css" text="EXCELENTE TRABALHO EM EQUIPE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button layoutX="526.0" layoutY="256.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="99.0" style="-fx-background-color: #EEEEEE; -fx-border-color: dimgray;" stylesheets="@Sendfeedback.css" text="AMIGÁVEL">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button layoutX="681.0" layoutY="213.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="124.0" style="-fx-background-color: #EEEEEE; -fx-border-color: dimgray;" stylesheets="@Sendfeedback.css" text="MELHORAR O DIÁLOGO">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button layoutX="658.0" layoutY="256.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="170.0" style="-fx-background-color: #EEEEEE; -fx-border-color: dimgray;" stylesheets="@Sendfeedback.css" text="MELHORAR A ORGANIZAÇÃO">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Text fill="#a1a1a1" layoutX="527.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Como está se sentindo?">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+                <fx:include fx:id="testePesquisa" source="../softtalk/Menu.fxml" />
             </children>
         </AnchorPane>
           <fx:include fx:id="testePesquisa" source="../softtalk/Menu.fxml" />

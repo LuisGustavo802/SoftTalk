@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
@@ -12,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #eeeeee;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.usuario.UsuarioController">
+<AnchorPane prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #eeeeee;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.usuario.UsuarioController">
    <children>
       <ImageView fitHeight="510.0" fitWidth="822.0" layoutX="39.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -58,29 +65,34 @@
       </Text>
       <AnchorPane layoutX="76.0" layoutY="77.0" opacity="0.9" prefHeight="332.0" prefWidth="742.0" style="-fx-background-color: #eeeeee;">
          <children>
-            <JFXTextField fx:id="usuario" focusColor="#38d1ff" layoutY="274.0" maxWidth="350.0" minWidth="350.0" prefHeight="31.0" prefWidth="350.0" promptText="Usuário:" stylesheets="@usuario.css" unFocusColor="#696969">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </JFXTextField>
-            <JFXPasswordField fx:id="senha" focusColor="#38d4ff" layoutX="392.0" layoutY="71.0" maxWidth="350.0" minWidth="350.0" prefHeight="31.0" prefWidth="350.0" promptText="Senha:" stylesheets="@usuario.css" unFocusColor="#696969">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </JFXPasswordField>
-            <JFXComboBox fx:id="bxSetor" layoutX="10.0" layoutY="64.0" prefHeight="37.0" prefWidth="330.0" promptText="Selecione o setor:" style="-fx-background-color: #eeeeee; -fx-border-radius: 100;" stylesheets="@usuario.css" />
+            <JFXComboBox fx:id="bxEquipe" layoutX="10.0" layoutY="64.0" prefHeight="37.0" prefWidth="330.0" promptText="Selecione a Equipe:" style="-fx-background-color: #eeeeee; -fx-border-radius: 100;" stylesheets="@usuario.css" />
             <JFXTextField fx:id="txNome" focusColor="#38d1ff" layoutY="173.0" maxWidth="350.0" minWidth="350.0" prefHeight="31.0" prefWidth="350.0" promptText="Nome:" stylesheets="@usuario.css" unFocusColor="#696969">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXPasswordField fx:id="senha1" focusColor="#38d4ff" layoutX="392.0" layoutY="173.0" maxWidth="350.0" minWidth="330.0" prefHeight="31.0" prefWidth="350.0" promptText="Repetir Senha:" stylesheets="@usuario.css" unFocusColor="#696969">
+            <JFXTextField fx:id="txUsuario" focusColor="#38d1ff" layoutY="274.0" maxWidth="350.0" minWidth="350.0" prefHeight="31.0" prefWidth="350.0" promptText="Usuário:" stylesheets="@usuario.css" unFocusColor="#696969">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txEmail" focusColor="#38d1ff" layoutX="392.0" layoutY="71.0" maxWidth="350.0" minWidth="350.0" prefHeight="31.0" prefWidth="350.0" promptText="E-mail:" stylesheets="@usuario.css" unFocusColor="#696969">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXPasswordField fx:id="pfSenha" focusColor="#38d4ff" layoutX="392.0" layoutY="173.0" maxWidth="350.0" minWidth="350.0" prefHeight="31.0" prefWidth="350.0" promptText="Senha:" stylesheets="@usuario.css" unFocusColor="#696969">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXPasswordField>
-            <Button fx:id="btCadastrar" layoutX="402.0" layoutY="281.0" mnemonicParsing="false" onAction="#cadastrarAction" prefHeight="37.0" prefWidth="330.0" style="-fx-background-radius: 100;" stylesheets="@usuario.css" text="Cadastrar" textFill="#eeeeff" />
+            <JFXPasswordField fx:id="pfSenha1" focusColor="#38d4ff" layoutX="392.0" layoutY="274.0" maxWidth="350.0" minWidth="330.0" prefHeight="31.0" prefWidth="350.0" promptText="Repetir Senha:" stylesheets="@usuario.css" unFocusColor="#696969">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXPasswordField>
          </children>
       </AnchorPane>
+      <Button fx:id="btCadastrar" layoutX="488.0" layoutY="421.0" mnemonicParsing="false" onAction="#cadastrarAction" prefHeight="37.0" prefWidth="330.0" style="-fx-background-radius: 100;" stylesheets="@usuario.css" text="Cadastrar" textFill="#eeeeff" />
    </children>
 </AnchorPane>

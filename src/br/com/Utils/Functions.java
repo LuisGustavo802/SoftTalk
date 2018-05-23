@@ -51,7 +51,7 @@ public class Functions {
 
             stage.setScene(new Scene(root));
 
-            stage.show();
+            stage.showAndWait();
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }

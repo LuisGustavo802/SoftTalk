@@ -7,7 +7,7 @@ package br.com.softtalk;
 
 import br.com.pessoa.Pessoa;
 import br.com.sendfeedback.SendFeedbackController;
-import br.com.setor.Setor;
+import br.com.equipe.Equipe;
 import br.com.telainicial.TelaInicialController;
 import java.io.IOException;
 import java.net.URL;
@@ -35,9 +35,9 @@ import br.com.requestfeedback.RequestFeedbackController;
 public class MenuController implements Initializable {
 
     @FXML
-    Button btnSetor;
+    Button btnEquipe;
     @FXML
-    ImageView imgSetor;
+    ImageView imgEquipe;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -45,11 +45,11 @@ public class MenuController implements Initializable {
         ResultSet rs = null;
         try {
             st = SoftTalk.conexao.createStatement();
-            rs = st.executeQuery("Select usuario_admin from usuario where idusuario = " + Integer.toString(SoftTalk.getIdUsuarioLogado()));
+            rs = st.executeQuery("Select tipo from usuario where idusuario = " + Integer.toString(SoftTalk.getIdUsuarioLogado()));
             if (rs.next()) {
-                if (rs.getString("usuario_admin").equals("F")) {
-                    btnSetor.setVisible(false);
-                    imgSetor.setVisible(false);
+                if (!rs.getString("tipo").equals("A")) {
+                    btnEquipe.setVisible(false);
+                    imgEquipe.setVisible(false);
                 }
             }
         } catch (SQLException ex) {
@@ -69,9 +69,9 @@ public class MenuController implements Initializable {
     }
 
     @FXML
-    void setorAction(ActionEvent event) {
+    void equipeAction(ActionEvent event) {
         try {
-            Parent fxmlLoader = FXMLLoader.load(Setor.class.getResource("Setor.fxml"));
+            Parent fxmlLoader = FXMLLoader.load(Equipe.class.getResource("Equipe.fxml"));
             SoftTalk.stage.setScene(new Scene(fxmlLoader));
         } catch (IOException ex) {
             Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
