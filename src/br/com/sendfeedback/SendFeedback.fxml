@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.scene.control.Button?>
@@ -10,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.sendfeedback.SendFeedbackController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.sendfeedback.SendFeedbackController">
     <children>
         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #eeeeee;">
             <children>
@@ -23,7 +30,7 @@
                </effect>
                 </JFXTextArea>
                 <fx:include fx:id="menuTop" source="../notificacoes/Notificacao.fxml" />
-                  <JFXComboBox fx:id="cbxSetores" layoutX="129.0" layoutY="89.0" onAction="#selecionarSetorAction" prefHeight="39.0" prefWidth="306.0" promptText="Selecione o setor:" stylesheets="@Sendfeedback.css" />
+                  <JFXComboBox fx:id="cbxEquipes" layoutX="129.0" layoutY="89.0" onAction="#selecionarEquipeAction" prefHeight="39.0" prefWidth="306.0" promptText="Selecione a equipe:" stylesheets="@Sendfeedback.css" />
                   <JFXComboBox fx:id="cbxPessoas" layoutX="129.0" layoutY="194.0" onAction="#selecionarUsuarioAction" prefHeight="39.0" prefWidth="306.0" promptText="Selecionar o destinatário:" stylesheets="@Sendfeedback.css" />
                   <Button layoutX="365.0" layoutY="453.0" mnemonicParsing="false" onAction="#enviarAction" prefHeight="33.0" prefWidth="224.0" stylesheets="@../requestfeedback/RequestFeedback.css" text="Enviar">
                       <font>

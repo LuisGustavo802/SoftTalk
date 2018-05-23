@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.setor;
+package br.com.equipe;
 
 import br.com.Utils.Functions;
 import br.com.softtalk.MenuController;
@@ -32,24 +32,24 @@ import javafx.scene.control.cell.PropertyValueFactory;
  *
  * @author free
  */
-public class SetorController implements Initializable {
+public class EquipeController implements Initializable {
 
     @FXML
     public MenuController menuController;
 
     @FXML
-    public JFXTextField txNomeSetor;
-    Setor setor = new Setor();
-    DAOSetor daoSetor = new DAOSetor();
+    public JFXTextField txNomeEquipe;
+    Equipe equipe = new Equipe();
+    DAOEquipe daoEquipe = new DAOEquipe();
     @FXML
     public TableColumn tblNome;
     @FXML
     public TableColumn tblQuant;
     @FXML
-    private TableView<Setor> tabelaSetor;
+    private TableView<Equipe> tabelaEquipe;
 
-    private List<Setor> listSetor = new ArrayList<>();
-    private ObservableList<Setor> observableListSetor;
+    private List<Equipe> listEquipe = new ArrayList<>();
+    private ObservableList<Equipe> observableListEquipe;
 
     Functions functions = new Functions();
 
@@ -58,68 +58,68 @@ public class SetorController implements Initializable {
         try {
             inicializarTabela();
         } catch (SQLException ex) {
-            Logger.getLogger(SetorController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EquipeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     @FXML
     void incluirAction(ActionEvent event) throws SQLException {
-        incluirSetor();
+        incluirEquipe();
     }
 
     @FXML
     void excluirAction(ActionEvent event) throws SQLException {
-        excluirSetor();
+        excluirEquipe();
     }
 
-    public void incluirSetor() throws SQLException {
-        if (String.valueOf(txNomeSetor.getText()).equals("")) {
-            Functions.abrirMensagem("Atenção! Informar um nome de setor.");
+    public void incluirEquipe() throws SQLException {
+        if (String.valueOf(txNomeEquipe.getText()).equals("")) {
+            Functions.abrirMensagem("Atenção! Informar um nome da equipe.");
         } else {
-            setor.setNome(String.valueOf(txNomeSetor.getText()));
-            setor.setFlagativo("T");
-            daoSetor.inserirSetor(setor);
+            equipe.setNome(String.valueOf(txNomeEquipe.getText()));
+            equipe.setFlagativo("T");
+            daoEquipe.inserirEquipe(equipe);
             inicializarTabela();
-            txNomeSetor.setText("");
+            txNomeEquipe.setText("");
         }
     }
 
     public void inicializarTabela() throws SQLException {
         Statement st = SoftTalk.conexao.createStatement();
         ResultSet rs;
-        listSetor = daoSetor.listarSetor();
-        for (int i = 0; i < listSetor.size(); i++) {
-            rs = st.executeQuery("SELECT count(*) as total FROM pessoa JOIN setor ON pessoa.idsetor = setor.idsetor WHERE setor.idsetor = " + listSetor.get(i).getIdsetor());
+        listEquipe = daoEquipe.listarEquipe();
+        for (int i = 0; i < listEquipe.size(); i++) {
+            rs = st.executeQuery("SELECT count(*) as total FROM pessoa JOIN equipe ON pessoa.idequipe = equipe.idequipe WHERE equipe.idequipe = " + listEquipe.get(i).getIdequipe());
             if (rs.next()) {
-                listSetor.get(i).setQuant(rs.getInt("total"));
+                listEquipe.get(i).setQuant(rs.getInt("total"));
             }
         }
 
-        observableListSetor = FXCollections.observableArrayList(listSetor);
+        observableListEquipe = FXCollections.observableArrayList(listEquipe);
         tblNome.setCellValueFactory(new PropertyValueFactory<>("Nome"));
         tblQuant.setCellValueFactory(new PropertyValueFactory<>("Quant"));
-        tabelaSetor.setItems(observableListSetor);
+        tabelaEquipe.setItems(observableListEquipe);
     }
 
-    public int excluirSetor() throws SQLException {
-        Setor setorDelete;
-        if (tabelaSetor.getSelectionModel().getSelectedItem() == null) {
-            Functions.abrirMensagem("Atenção! Selecionar um setor para exclusão.");
+    public int excluirEquipe() throws SQLException {
+        Equipe equipeDelete;
+        if (tabelaEquipe.getSelectionModel().getSelectedItem() == null) {
+            Functions.abrirMensagem("Atenção! Selecionar uma equipe para exclusão.");
             return Functions.FAILURE;
         } else {
-            setorDelete = tabelaSetor.getSelectionModel().getSelectedItem();
+            equipeDelete = tabelaEquipe.getSelectionModel().getSelectedItem();
         }
         try {
-            if (setorDelete.getQuant() > 0) {
-                Functions.abrirMensagem("Atenção! Setor possui pessoas cadastradas. Não será possível realizar a exclusão!");
+            if (equipeDelete.getQuant() > 0) {
+                Functions.abrirMensagem("Atenção! Equipe possui pessoas cadastradas. Não será possível realizar a exclusão!");
                 return Functions.FAILURE;
             } else {
-                daoSetor.excluirSetor(setorDelete);
+                daoEquipe.excluirEquipe(equipeDelete);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SetorController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EquipeController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Functions.abrirMensagem("Setor excluido com sucesso.");
+        Functions.abrirMensagem("Equipe excluida com sucesso.");
         inicializarTabela();
         return Functions.SUCCESS;
     }

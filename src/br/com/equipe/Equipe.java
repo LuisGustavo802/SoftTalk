@@ -1,8 +1,8 @@
 
-package br.com.setor;
+package br.com.equipe;
 
-public class Setor {
-    Integer idsetor, quant, idempresa=1;
+public class Equipe {
+    Integer idequipe, quant, idempresa=1;
     String nome, flagativo;
 
     public Integer getIdempresa() {
@@ -13,12 +13,12 @@ public class Setor {
         this.idempresa = idempresa;
     }
 
-    public Integer getIdsetor() {
-        return idsetor;
+    public Integer getIdequipe() {
+        return idequipe;
     }
 
-    public void setIdsetor(Integer idsetor) {
-        this.idsetor = idsetor;
+    public void setIdequipe(Integer idequipe) {
+        this.idequipe = idequipe;
     }
 
     public String getNome() {

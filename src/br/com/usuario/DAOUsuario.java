@@ -2,7 +2,7 @@
 package br.com.usuario;
 
 import br.com.Utils.Functions;
-import br.com.setor.Setor;
+import br.com.equipe.Equipe;
 import br.com.softtalk.SoftTalk;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -69,8 +69,8 @@ public class DAOUsuario {
         String sql = "SELECT * FROM usuario usu \n" + 
                      "	JOIN pessoa pes ON \n" +
                      "      usu.idpessoa = pes.idpessoa\n" +
-                     "	JOIN setor s ON \n" +
-                     "      pes.idsetor = s.idsetor \n" +
+                     "	JOIN Equipe e ON \n" +
+                     "      pes.idequipe = e.idequipe \n" +
                      " WHERE " + condicao + " ; ";
         Statement stm = SoftTalk.conexao.createStatement();
         ResultSet rs = stm.executeQuery(sql);
