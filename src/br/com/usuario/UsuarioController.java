@@ -4,8 +4,8 @@ import br.com.pessoa.Pessoa;
 import br.com.pessoa.DAOPessoa;
 import br.com.Utils.Functions;
 import br.com.login.Login;
-import br.com.setor.DAOSetor;
-import br.com.setor.Setor;
+import br.com.equipe.DAOEquipe;
+import br.com.equipe.Equipe;
 import br.com.softtalk.SoftTalk;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
@@ -34,7 +34,7 @@ import javafx.scene.Scene;
 
 public class UsuarioController implements Initializable {
     @FXML
-    private JFXComboBox<Setor> bxSetor;
+    private JFXComboBox<Equipe> bxEquipe;
 
     @FXML
     private JFXTextField txNome;
@@ -51,8 +51,8 @@ public class UsuarioController implements Initializable {
     @FXML
     private JFXTextField txEmail;
     
-    private List<Setor> listSetor = new ArrayList<>();
-    private ObservableList<Setor> observableListSetor;
+    private List<Equipe> listEquipe = new ArrayList<>();
+    private ObservableList<Equipe> observableListEquipe;
     
     @FXML
     void cadastrarAction(ActionEvent event){
@@ -71,12 +71,12 @@ public class UsuarioController implements Initializable {
     }
        
     public void carregarComboBox(){
-        DAOSetor daoSetor;
+        DAOEquipe daoEquipe;
         try {
-            daoSetor = new DAOSetor();
-            listSetor = daoSetor.listarSetor();
-            observableListSetor = FXCollections.observableArrayList(listSetor);
-            bxSetor.setItems(observableListSetor);
+            daoEquipe = new DAOEquipe();
+            listEquipe = daoEquipe.listarEquipe();
+            observableListEquipe = FXCollections.observableArrayList(listEquipe);
+            bxEquipe.setItems(observableListEquipe);
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -89,10 +89,10 @@ public class UsuarioController implements Initializable {
         Usuario user = new Usuario();
         Statement st;
         ResultSet rs;
-        Setor setor = bxSetor.getSelectionModel().getSelectedItem(); 
+        Equipe equipe = bxEquipe.getSelectionModel().getSelectedItem(); 
         
         //Validações
-        if (txNome.getText().isEmpty() || setor == null || txEmail.getText().isEmpty() || txUsuario.getText().isEmpty() || pfSenha.getText().isEmpty() || pfSenha1.getText().isEmpty() ){
+        if (txNome.getText().isEmpty() || equipe == null || txEmail.getText().isEmpty() || txUsuario.getText().isEmpty() || pfSenha.getText().isEmpty() || pfSenha1.getText().isEmpty() ){
             Functions.abrirMensagem("Favor preencher todos os campos!");
             return Functions.FAILURE;
         }
@@ -111,7 +111,7 @@ public class UsuarioController implements Initializable {
         }
         
         pessoa.setNome(String.valueOf(txNome.getText()));
-        pessoa.setIdsetor(setor.getIdsetor());
+        pessoa.setIdequipe(equipe.getIdequipe());
         DAOPessoa daopessoa;
         daopessoa = new DAOPessoa();
         int codPessoa = daopessoa.inserirPessoa(pessoa);

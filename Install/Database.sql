@@ -5,17 +5,17 @@ CREATE TABLE IF NOT EXISTS empresa (
   flagativo CHAR(1) NULL,
   PRIMARY KEY (idempresa));
 
-CREATE TABLE IF NOT EXISTS setor (
-  idsetor SERIAL,
+CREATE TABLE IF NOT EXISTS equipe (
+  idequipe SERIAL,
   idempresa INT NOT NULL,
   nome VARCHAR(50),
   flagativo CHAR(1),
-  PRIMARY KEY (idsetor, idempresa));
+  PRIMARY KEY (idequipe, idempresa));
 
 
 CREATE TABLE IF NOT EXISTS pessoa (
   idpessoa SERIAL,
-  idsetor INT NOT NULL,
+  idequipe INT NOT NULL,
   nome VARCHAR(200),
   imagem BYTEA,
   PRIMARY KEY (idpessoa));

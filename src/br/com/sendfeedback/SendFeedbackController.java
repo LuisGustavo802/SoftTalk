@@ -11,8 +11,8 @@ import br.com.sendfeedback.DAOSendFeedback;
 import br.com.Utils.Functions;
 import br.com.pessoa.DAOPessoa;
 import br.com.pessoa.Pessoa;
-import br.com.setor.DAOSetor;
-import br.com.setor.Setor;
+import br.com.equipe.DAOEquipe;
+import br.com.equipe.Equipe;
 import br.com.softtalk.SoftTalk;
 import br.com.usuario.DAOUsuario;
 import br.com.usuario.Usuario;
@@ -35,7 +35,7 @@ public class SendFeedbackController implements Initializable {
 
     //Objetos do FXML
     @FXML
-    private ComboBox<Setor> cbxSetores;
+    private ComboBox<Equipe> cbxEquipes;
 
     @FXML
     private ComboBox<Pessoa> cbxPessoas;
@@ -44,7 +44,7 @@ public class SendFeedbackController implements Initializable {
     private TextArea txaDescricao;
 
     //Objetos do controller
-    private ObservableList<Setor> observableListSetor;
+    private ObservableList<Equipe> observableListEquipe;
     private ObservableList<Pessoa> observableListPessoas;
     private Feedback feedback;
     private Functions functions;
@@ -56,8 +56,8 @@ public class SendFeedbackController implements Initializable {
     }
 
     @FXML
-    void selecionarSetorAction(ActionEvent event) throws SQLException, IOException {
-        selecionarSetor();
+    void selecionarEquipeAction(ActionEvent event) throws SQLException, IOException {
+        selecionarEquipe();
     }
 
     @FXML
@@ -105,43 +105,43 @@ public class SendFeedbackController implements Initializable {
         feedback.setIdempresa(listaUsuarios.get(0).getIdEmpresa());
     }
 
-    private void selecionarSetor() throws SQLException, IOException {
+    private void selecionarEquipe() throws SQLException, IOException {
         //Captura e envia para a classe de gravação o id de usuario da pessoa
-        Setor setor = cbxSetores.getSelectionModel().getSelectedItem();
-        carregaPessoas(setor.getIdsetor());
+        Equipe equipe = cbxEquipes.getSelectionModel().getSelectedItem();
+        carregaPessoas(equipe.getIdequipe());
     }
 
     private void inicializaComponentes() throws SQLException, IOException {
         //incializa ou limpa os componetes da tela preparando para um atransação
         feedback = new Feedback();
         functions = new Functions();
-        //Carrega todos os setores e pessoas para os combos box
-        carregaSetores();
+        //Carrega todos as equipes e pessoas para os combos box
+        carregaEquipes();
         carregaPessoas();
         txaDescricao.setText("");
     }
 
-    private void carregaSetores() throws SQLException {
-        List<Setor> listaSetor;
-        DAOSetor daoSetor;
-        daoSetor = new DAOSetor();
-        listaSetor = daoSetor.listarSetor();
-        observableListSetor = FXCollections.observableArrayList(listaSetor);
-        cbxSetores.setItems(observableListSetor);
+    private void carregaEquipes() throws SQLException {
+        List<Equipe> listaEquipe;
+        DAOEquipe daoEquipe;
+        daoEquipe = new DAOEquipe();
+        listaEquipe = daoEquipe.listarEquipe();
+        observableListEquipe = FXCollections.observableArrayList(listaEquipe);
+        cbxEquipes.setItems(observableListEquipe);
     }
 
     private void carregaPessoas() throws SQLException, IOException {
         carregaPessoas(0);
     }
 
-    private void carregaPessoas(int idSetor) throws SQLException, IOException {
+    private void carregaPessoas(int idEquipe) throws SQLException, IOException {
         List<Pessoa> listaPessoas;
         DAOPessoa daoPessoa;
         daoPessoa = new DAOPessoa();
-        if (idSetor == 0) {
+        if (idEquipe == 0) {
             listaPessoas = daoPessoa.listarPessoas();
         } else {
-            listaPessoas = daoPessoa.listarPessoasCondicao(idSetor);
+            listaPessoas = daoPessoa.listarPessoasCondicao(idEquipe);
         }
 
         observableListPessoas = FXCollections.observableArrayList(listaPessoas);
@@ -149,7 +149,7 @@ public class SendFeedbackController implements Initializable {
     }
 
     private int validacoes() {
-        /*if (cbxSetores.getSelectionModel().getSelectedItem() == null) {
+        /*if (cbxEquipes.getSelectionModel().getSelectedItem() == null) {
             functions.abrirMensagem("Seção não informada.");
             return functions.FAILURE;
         }*/

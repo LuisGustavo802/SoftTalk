@@ -6,8 +6,8 @@ import br.com.feedback.DAOFeedback;
 import br.com.feedback.Feedback;
 import br.com.pessoa.DAOPessoa;
 import br.com.pessoa.Pessoa;
-import br.com.setor.DAOSetor;
-import br.com.setor.Setor;
+import br.com.equipe.DAOEquipe;
+import br.com.equipe.Equipe;
 import br.com.softtalk.SoftTalk;
 import br.com.usuario.DAOUsuario;
 import br.com.usuario.Usuario;
@@ -41,7 +41,7 @@ public class RequestFeedbackController implements Initializable {
     private JFXComboBox bxTipo;
 
     @FXML
-    private JFXComboBox<Setor> bxSetor;
+    private JFXComboBox<Equipe> bxEquipe;
 
     /*@FXML
     private JFXDatePicker dtLimite;*/
@@ -56,9 +56,9 @@ public class RequestFeedbackController implements Initializable {
             DAOPessoa pessoa = new DAOPessoa();
             List<Pessoa> listaPessoas;
 
-            Setor setor = bxSetor.getSelectionModel().getSelectedItem();
+            Equipe equipe = bxEquipe.getSelectionModel().getSelectedItem();
 
-            listaPessoas = pessoa.listarPessoasCondicao(setor.getIdsetor());
+            listaPessoas = pessoa.listarPessoasCondicao(equipe.getIdequipe());
 
             ObservableList<Pessoa> observableListPessoas = FXCollections.observableArrayList(listaPessoas);
             bxPessoa.setItems(observableListPessoas);
@@ -69,7 +69,7 @@ public class RequestFeedbackController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        carregaSetores();
+        carregaEquipes();
     }
 
     private void solicitarFeedback() {
@@ -119,24 +119,24 @@ public class RequestFeedbackController implements Initializable {
 
     }
 
-    private void carregaSetores() {
+    private void carregaEquipes() {
         try {
-            List<Setor> listaSetor;
-            DAOSetor daoSetor;
-            daoSetor = new DAOSetor();
+            List<Equipe> listaEquipe;
+            DAOEquipe daoEquipe;
+            daoEquipe = new DAOEquipe();
 
-            listaSetor = daoSetor.listarSetor();
+            listaEquipe = daoEquipe.listarEquipe();
 
-            ObservableList<Setor> observableListSetor = FXCollections.observableArrayList(listaSetor);
-            bxSetor.setItems(observableListSetor);
+            ObservableList<Equipe> observableListEquipe = FXCollections.observableArrayList(listaEquipe);
+            bxEquipe.setItems(observableListEquipe);
         } catch (SQLException ex) {
             Logger.getLogger(RequestFeedbackController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     private int validacao() {
-        if (bxSetor.getSelectionModel().getSelectedItem() == null) {
-            Functions.abrirMensagem("Setor não informado.");
+        if (bxEquipe.getSelectionModel().getSelectedItem() == null) {
+            Functions.abrirMensagem("Equipe não informada.");
             return Functions.FAILURE;
         }
 

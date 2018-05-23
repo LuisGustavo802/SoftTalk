@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 
 public class Pessoa {
 
-    private Integer idpessoa, idsetor;
+    private Integer idpessoa, idequipe;
     private BufferedImage imagem;
     private String nome;
     private final ManipularImagem manipulaImagem;
@@ -34,12 +34,12 @@ public class Pessoa {
         this.imagem = imagem;
     }
 
-    public Integer getIdsetor() {
-        return idsetor;
+    public Integer getIdequipe() {
+        return idequipe;
     }
 
-    public void setIdsetor(Integer idsetor) {
-        this.idsetor = idsetor;
+    public void setIdequipe(Integer idequipe) {
+        this.idequipe = idequipe;
     }
 
     public String getNome() {

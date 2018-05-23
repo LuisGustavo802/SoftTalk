@@ -16,9 +16,9 @@ public class DAOPessoa {
 
     public int inserirPessoa(Pessoa pessoa) {
         try {
-            String sql = "INSERT INTO pessoa (IDSETOR, NOME) "
+            String sql = "INSERT INTO pessoa (IDEQUIPE, NOME) "
                     + "VALUES ("
-                    + pessoa.getIdsetor() + ",'"
+                    + pessoa.getIdequipe() + ",'"
                     + pessoa.getNome() + "')";
 
             PreparedStatement pstm;
@@ -40,14 +40,14 @@ public class DAOPessoa {
             ManipularImagem gravaImg = new ManipularImagem();
 
             String sql = "UPDATE  pessoa SET"
-                    + " IDSETOR =  ?,"
+                    + " IDEQUIPE =  ?,"
                     + " NOME    =  ?,"
                     + " IMAGEM  =  ? "
                     + " WHERE IDPESSOA = " + pessoa.getIdpessoa() + "; ";
             PreparedStatement pstm;
 
             pstm = SoftTalk.conexao.prepareStatement(sql, Statement.KEEP_CURRENT_RESULT);
-            pstm.setInt(1, pessoa.getIdsetor());
+            pstm.setInt(1, pessoa.getIdequipe());
             pstm.setString(2, pessoa.getNome());
             pstm.setBytes(3, gravaImg.trasformarByte(pessoa.getImagem()));
             pstm.execute();
@@ -61,8 +61,8 @@ public class DAOPessoa {
         }
     }
     
-    public ArrayList<Pessoa> listarPessoasCondicao(int idSetor) throws SQLException, IOException{
-       return listarPessoasCondicao("idSetor = " + Integer.toString(idSetor));
+    public ArrayList<Pessoa> listarPessoasCondicao(int idEquipe) throws SQLException, IOException{
+       return listarPessoasCondicao("idEquipe = " + Integer.toString(idEquipe));
     }    
     
     public ArrayList<Pessoa> listarPessoasCondicao(String Condicao) throws SQLException, IOException {
@@ -76,7 +76,7 @@ public class DAOPessoa {
         while (rs.next()) {
             pessoa = new Pessoa();
             pessoa.setIdpessoa(rs.getInt("Idpessoa"));
-            pessoa.setIdsetor(rs.getInt("IdSetor"));
+            pessoa.setIdequipe(rs.getInt("IdEquipe"));
             pessoa.setNome(rs.getString("Nome"));
             lista.add(pessoa);
         }
@@ -94,7 +94,7 @@ public class DAOPessoa {
         while (rs.next()) {
             pessoa = new Pessoa();
             pessoa.setIdpessoa(rs.getInt("IdPessoa"));
-            pessoa.setIdsetor(rs.getInt("IdSetor"));
+            pessoa.setIdequipe(rs.getInt("IdEquipe"));
             pessoa.setNome(rs.getString("Nome"));
             lista.add(pessoa);
         }
@@ -113,7 +113,7 @@ public class DAOPessoa {
 
         if (rs.next()) {
             pessoa.setIdpessoa(rs.getInt("IdPessoa"));
-            pessoa.setIdsetor(rs.getInt("IdSetor"));
+            pessoa.setIdequipe(rs.getInt("IdEquipe"));
             pessoa.setNome(rs.getString("Nome"));
             pessoa.setImagem(carregaImg.transformarImagem(rs.getBytes("Imagem")));
 

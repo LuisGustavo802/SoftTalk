@@ -2,8 +2,8 @@
 package br.com.pessoa;
 
 import br.com.Utils.Functions;
-import br.com.setor.DAOSetor;
-import br.com.setor.Setor;
+import br.com.equipe.DAOEquipe;
+import br.com.equipe.Equipe;
 import br.com.softtalk.SoftTalk;
 import br.com.usuario.DAOUsuario;
 import br.com.usuario.Usuario;
@@ -37,7 +37,7 @@ import javax.imageio.ImageIO;
 public class PessoaController implements Initializable {
 
     @FXML
-    private ComboBox<Setor> bxSetor;
+    private ComboBox<Equipe> bxEquipe;
 
     @FXML
     private TextField txNome;
@@ -59,8 +59,8 @@ public class PessoaController implements Initializable {
     void voltarAction(ActionEvent event) {
         voltarTela();
     }
-    private List<Setor> listSetor = new ArrayList<>();
-    private ObservableList<Setor> observableListSetor;
+    private List<Equipe> listEquipe = new ArrayList<>();
+    private ObservableList<Equipe> observableListEquipe;
     private Functions functions;
     private Usuario usuario;
     private Pessoa pessoa;
@@ -110,8 +110,8 @@ public class PessoaController implements Initializable {
         DAOPessoa daopessoa = new DAOPessoa();
         carregarComboBox();
      
-        Setor setor = new Setor();
-        DAOSetor daoSetor = new DAOSetor();
+        Equipe equipe = new Equipe();
+        DAOEquipe daoEquipe = new DAOEquipe();
         
         pessoa = daopessoa.listaPessoa(usuario.getIdpessoa());
         
@@ -124,19 +124,19 @@ public class PessoaController implements Initializable {
         this.txNome.setText(pessoa.getNome());
         this.ivImagem.setImage(SwingFXUtils.toFXImage(pessoa.getImagem(), null));
         
-        if (pessoa.getIdsetor() != null){
-            setor = daoSetor.listaSetor(pessoa.getIdsetor());
-            bxSetor.getSelectionModel().select(setor);
+        if (pessoa.getIdequipe() != null){
+            equipe = daoEquipe.listaEquipe(pessoa.getIdequipe());
+            bxEquipe.getSelectionModel().select(equipe);
         }
     }
 
     public void carregarComboBox() {
-        DAOSetor daoSetor;
+        DAOEquipe daoEquipe;
         try {
-            daoSetor = new DAOSetor();
-            listSetor = daoSetor.listarSetor();
-            observableListSetor = FXCollections.observableArrayList(listSetor);
-            bxSetor.setItems(observableListSetor);
+            daoEquipe = new DAOEquipe();
+            listEquipe = daoEquipe.listarEquipe();
+            observableListEquipe = FXCollections.observableArrayList(listEquipe);
+            bxEquipe.setItems(observableListEquipe);
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -145,11 +145,11 @@ public class PessoaController implements Initializable {
 
     public int gravarPerfil() {
         
-        Setor setor = bxSetor.getSelectionModel().getSelectedItem();
+        Equipe equipe = bxEquipe.getSelectionModel().getSelectedItem();
 
         pessoa.setIdpessoa(usuario.getIdpessoa());
         pessoa.setNome(String.valueOf(txNome.getText()));
-        pessoa.setIdsetor(setor.getIdsetor());
+        pessoa.setIdequipe(equipe.getIdequipe());
         DAOPessoa daopessoa;
         daopessoa = new DAOPessoa();
 
