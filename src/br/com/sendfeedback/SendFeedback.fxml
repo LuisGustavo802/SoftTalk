@@ -12,7 +12,7 @@
     <children>
         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #eeeeee;">
             <children>
-                <JFXTextArea fx:id="txaDescricao" focusColor="#38d7ff" layoutX="100.0" layoutY="331.0" maxWidth="825.0" minWidth="526.0" prefHeight="70.0" prefWidth="701.0" promptText="Digite aqui..." unFocusColor="#5e5e5e">
+                <JFXTextArea fx:id="txaDescricao" focusColor="#38d7ff" layoutX="128.0" layoutY="332.0" maxWidth="825.0" minWidth="526.0" prefHeight="70.0" prefWidth="701.0" promptText="Digite aqui..." unFocusColor="#5e5e5e">
                     <font>
                         <Font size="15.0" />
                     </font>
@@ -36,5 +36,6 @@
                 <fx:include fx:id="testePesquisa" source="../softtalk/Menu.fxml" />
             </children>
         </AnchorPane>
+          <fx:include fx:id="testePesquisa" source="../softtalk/Menu.fxml" />
     </children>
 </AnchorPane>
