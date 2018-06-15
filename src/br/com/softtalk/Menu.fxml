@@ -26,9 +26,13 @@
                   <DropShadow color="DARKGRAY" height="5.25" radius="1.9375" width="4.5" />
                </effect>
                 </Button>
+
+                <Button ellipsisString="" layoutX="3.0" layoutY="425.0" mnemonicParsing="false" onAction="#equipeAction" prefHeight="68.0" prefWidth="53.0" stylesheets="@menu.css" text="     CADASTRAR EQUIPE" textFill="WHITE">
+
                 <Button fx:id="btnEquipe" ellipsisString="" layoutX="3.0" layoutY="425.0" mnemonicParsing="false" onAction="#equipeAction" prefHeight="52.0" prefWidth="53.0" stylesheets="@menu.css" text="  CADASTRAR EQUIPE" textFill="WHITE">
+
                     <graphic>
-                        <ImageView fx:id="imgEquipe" fitHeight="30.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="30.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../Imagens/hierarchical-structure.png" />
                             </image>

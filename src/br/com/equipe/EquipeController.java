@@ -23,6 +23,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -36,7 +37,8 @@ public class EquipeController implements Initializable {
 
     @FXML
     public MenuController menuController;
-
+    @FXML
+    public Button btnAdicionar, btnRemover;
     @FXML
     public JFXTextField txNomeEquipe;
     Equipe equipe = new Equipe();
@@ -55,6 +57,21 @@ public class EquipeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            st = SoftTalk.conexao.createStatement();
+            rs = st.executeQuery("Select tipo from usuario where idusuario = " + Integer.toString(SoftTalk.getIdUsuarioLogado()));
+            if (rs.next()) {
+                if (!rs.getString("tipo").equals("A")) {
+                    btnAdicionar.setDisable(true);
+                    btnRemover.setDisable(true);
+                    txNomeEquipe.setDisable(true);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         try {
             inicializarTabela();
         } catch (SQLException ex) {

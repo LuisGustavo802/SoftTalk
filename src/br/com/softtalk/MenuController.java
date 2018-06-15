@@ -35,6 +35,7 @@ import javafx.scene.layout.AnchorPane;
  */
 public class MenuController implements Initializable {
 
+
     @FXML
     Button btnEquipe;
     @FXML
@@ -47,20 +48,6 @@ public class MenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Statement st = null;
-        ResultSet rs = null;
-        try {
-            st = SoftTalk.conexao.createStatement();
-            rs = st.executeQuery("Select tipo from usuario where idusuario = " + Integer.toString(SoftTalk.getIdUsuarioLogado()));
-            if (rs.next()) {
-                if (!rs.getString("tipo").equals("A")) {
-                    btnEquipe.setVisible(false);
-                    imgEquipe.setVisible(false);
-                }
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     @FXML

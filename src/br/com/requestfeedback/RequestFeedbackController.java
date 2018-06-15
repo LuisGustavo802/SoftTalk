@@ -14,11 +14,13 @@ import br.com.usuario.Usuario;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextArea;
+import java.awt.Component;
+import java.awt.Frame;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.time.LocalDate;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -28,6 +30,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javax.swing.JTextField;
 
 public class RequestFeedbackController implements Initializable {
 
@@ -43,8 +46,9 @@ public class RequestFeedbackController implements Initializable {
     @FXML
     private JFXComboBox<Equipe> bxEquipe;
 
-    /*@FXML
-    private JFXDatePicker dtLimite;*/
+    @FXML
+    private JFXDatePicker dtLimite;
+    
     @FXML
     protected void SolicitarFeedbackAction(ActionEvent event) {
         solicitarFeedback();
@@ -106,11 +110,11 @@ public class RequestFeedbackController implements Initializable {
 
             requestFeedback.setIdfeedback(id);
             requestFeedback.setTipoSolicitacao(bxTipo.getSelectionModel().getSelectedItem().toString());
-            requestFeedback.setDtLimite(daoUtils.carregaDataServidor());
+            requestFeedback.setDtLimite(Date.valueOf(dtLimite.getValue()));
 
             daoRequestFeedback.inserirSolicitacaoFeedback(requestFeedback);
                         
-            //Functions.abrirMensagem("Solicitação enviada com sucesso.");
+            Functions.abrirMensagem("Solicitação enviada com sucesso.");
             limparDados();
 
         } catch (SQLException ex) {
@@ -154,8 +158,11 @@ public class RequestFeedbackController implements Initializable {
     }
     
     public void limparDados(){
-       //ss txMensagem.setText("");
-        
+       txMensagem.setText("");
+       bxEquipe.getSelectionModel().clearSelection();
+       bxPessoa.getSelectionModel().clearSelection();
+       bxTipo.getSelectionModel().clearSelection();
+       dtLimite.setValue(null);  
     }
 
 }
