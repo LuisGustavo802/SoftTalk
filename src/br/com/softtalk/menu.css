@@ -10,14 +10,14 @@
    -fx-text-fill: white;
 }
 
-.button:hover,  .button:expanded{
+.button:hover,  .button:expanded .anchorPane:expanded{
     -fx-background-color: #606060;
     -fx-border-color: gray;
     -fx-pref-width: 160;
     -fx-font-size: 10;
 }
 
-.button:pressed .button:expanded{
+.button:pressed .button:expanded .anchorPane:expanded{
     -fx-background-color: #606060;
     -fx-border-color: gray;
     -fx-pref-width: 160;

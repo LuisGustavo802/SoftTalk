@@ -37,7 +37,6 @@
             </font>
         </Text>
         <JFXComboBox fx:id="bxEquipe" layoutX="100.0" layoutY="64.0" onAction="#CarregaPessoasAction" prefHeight="25.0" prefWidth="335.0" promptText="Selecione a equipe:" stylesheets="@RequestFeedback.css" />
-        <fx:include fx:id="menuTop" source="../notificacoes/Notificacao.fxml" />
       <JFXDatePicker fx:id="dtLimite" defaultColor="#38d7ff" layoutX="552.0" layoutY="197.0" prefHeight="39.0" prefWidth="261.0" stylesheets="@RequestFeedback.css" />
       <JFXTextArea fx:id="txMensagem" focusColor="#38d7ff" layoutX="100.0" layoutY="343.0" maxWidth="698.0" minWidth="698.0" prefHeight="58.0" prefWidth="698.0" promptText="Digite aqui..." unFocusColor="#4a4a4a">
          <font>

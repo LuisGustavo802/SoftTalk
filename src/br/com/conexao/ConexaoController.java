@@ -23,14 +23,14 @@ public class ConexaoController implements Initializable {
     @FXML
     private Button btConfirma;
 
-    @FXML
+    /*@FXML
     protected void ConexaoAction(ActionEvent event) {
         confirmaConexao();
     }
 
-    private void confirmaConexao() {
+    /*private void confirmaConexao() {
         SoftTalk.conexao = new Conexao(txIp.getText(), txPorta.getText(), txUser.getText(), txSenha.getText()).getConnection();
-    }
+    }*/
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

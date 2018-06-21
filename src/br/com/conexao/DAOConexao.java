@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  *
  * @author luis_
  */
-public class DAOConexao {
+/*public class DAOConexao {
 
     public int inserirConexao(Conexao conexao) {
         try {
@@ -99,3 +99,4 @@ public class DAOConexao {
     }
 
 }
+*/
