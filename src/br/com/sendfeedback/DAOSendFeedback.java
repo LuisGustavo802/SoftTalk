@@ -35,6 +35,8 @@ public class DAOSendFeedback extends DAOFeedback {
             return Functions.FAILURE;
         }
     }
+
+    
     public int gravaEnvioFeedback(Feedback feedback) {
         try {
             String sql = "INSERT INTO feedback_envio (idFeedback, statusSend) "
@@ -59,7 +61,7 @@ public class DAOSendFeedback extends DAOFeedback {
     public List<String> carregaStatus(String list) throws SQLException{ 
         List<String> lista = new ArrayList();
         String sql = "SELECT count(*) as count FROM feedback_envio WHERE idfeedback in( " + list + ") and statusSend = 'Que Bom';";
-        Statement stm = SoftTalk.conexao.createStatement();                                                             
+        Statement stm = SoftTalk.conexao.createStatement();
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next()) {
             lista.add(rs.getString("count"));
