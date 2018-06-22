@@ -112,6 +112,8 @@ public class LoginController {
             } else {
                 Functions.abrirMensagem("Atenção! Usuário inativo.");
             }
+        } else {
+            Functions.abrirMensagem("Atenção! Usuário ou senha incorreto.");
         }
     }
 }

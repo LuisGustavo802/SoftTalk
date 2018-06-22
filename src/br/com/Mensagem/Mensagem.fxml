@@ -45,9 +45,9 @@
             <Image url="@../Imagens/information.png" />
          </image>
       </ImageView>
-      <TextArea layoutX="44.0" layoutY="46.0" prefHeight="82.0" prefWidth="294.0" style="-fx-background-color: white;" stylesheets="@mensagem.css" />
+      <TextArea fx:id="txMensagem" editable="false" layoutX="44.0" layoutY="46.0" prefHeight="82.0" prefWidth="294.0" style="-fx-background-color: white;" stylesheets="@mensagem.css" />
    </children>
    <effect>
-      <InnerShadow color="#09ace351" />
+      <InnerShadow color="#10111152" />
    </effect>
 </AnchorPane>
