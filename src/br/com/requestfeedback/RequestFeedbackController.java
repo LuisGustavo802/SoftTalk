@@ -1,6 +1,7 @@
 package br.com.requestfeedback;
 
 import br.com.Utils.DAOUtils;
+import br.com.Utils.EnviarEmail;
 import br.com.Utils.Functions;
 import br.com.feedback.DAOFeedback;
 import br.com.feedback.Feedback;
@@ -31,6 +32,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javax.swing.JTextField;
+import org.apache.commons.mail.EmailException;
 
 public class RequestFeedbackController implements Initializable {
 
@@ -50,7 +52,7 @@ public class RequestFeedbackController implements Initializable {
     private JFXDatePicker dtLimite;
     
     @FXML
-    protected void SolicitarFeedbackAction(ActionEvent event) {
+    protected void SolicitarFeedbackAction(ActionEvent event) throws EmailException {
         solicitarFeedback();
     }
 
@@ -76,7 +78,7 @@ public class RequestFeedbackController implements Initializable {
         carregaEquipes();
     }
 
-    private void solicitarFeedback() {
+    private void solicitarFeedback() throws EmailException {
         try {
             if (validacao() != Functions.SUCCESS) {
                 return;
@@ -113,6 +115,9 @@ public class RequestFeedbackController implements Initializable {
             requestFeedback.setDtLimite(Date.valueOf(dtLimite.getValue()));
 
             daoRequestFeedback.inserirSolicitacaoFeedback(requestFeedback);
+            
+            EnviarEmail email = new EnviarEmail();
+            email.enviandoEmail(listaUsuarios.get(0).getEmail(),1);
                         
             Functions.abrirMensagem("Solicitação enviada com sucesso.");
             limparDados();

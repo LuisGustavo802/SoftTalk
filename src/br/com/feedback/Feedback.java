@@ -24,6 +24,7 @@ public class Feedback {
     private String status;
     private String descricao;
     private String statusSend;
+    private String emailDestinatario;
 
     public String getStatusSend() {
         return statusSend;
@@ -32,7 +33,14 @@ public class Feedback {
     public void setStatusSend(String statusSend) {
         this.statusSend = statusSend;
     }
+  
+     public String getEmailDestinatario() {
+        return emailDestinatario;
+    }
 
+    public void setEmailDestinatario(String emailDestinatario) {
+        this.emailDestinatario = emailDestinatario;  
+  
     public int getIdFeedBack() {
         return idFeedBack;
     }
