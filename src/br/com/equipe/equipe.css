@@ -1,0 +1,44 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+/*Equipe.css*/
+
+.button{
+    -fx-background-color: dimgray;
+    -fx-border-color: gray;
+    -fx-text-fill: white;
+    -fx-background-radius: 100;
+    -fx-border-radius: 100;
+}
+
+.button:hover{
+    -fx-background-color: gray;
+}
+
+.button:pressed{
+    -fx-background-color: gray;
+}
+
+.table-view{
+    -fx-table-color: #eeeeee;
+}
+
+.table-row-cell:selected{
+    -fx-background-color: gray;
+}
+
+.text-field{
+    -fx-background-color: #eeeeee;
+    -fx-prompt-text-fill: dimgray;
+}
+
+.text-field:hover{
+    -fx-background-color: #dddddd;
+}
+
+.text-field:pressed{
+    -fx-background-color: #dddddd;
+}
+
+

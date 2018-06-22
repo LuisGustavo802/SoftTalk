@@ -1,19 +1,19 @@
-CREATE TABLE setor (
-  idsetor SERIAL NOT NULL,
+CREATE TABLE equipe (
+  idequipe SERIAL NOT NULL,
   nome VARCHAR(50) NOT NULL,
   flagativo CHAR(1) NOT NULL,
-  PRIMARY KEY (idsetor));
+  PRIMARY KEY (idequipe));
 
 
 CREATE TABLE pessoa (
   idpessoa SERIAL NOT NULL,
-  idsetor INT NOT NULL,
+  idequipe INT NOT NULL,
   nome VARCHAR(200) NOT NULL,
   flagativo CHAR(1) NOT NULL,
-  PRIMARY KEY (idpessoa)),
-  CONSTRAINT fk_pessoa_setor
-    FOREIGN KEY (idsetor)
-    REFERENCES setor (idsetor));
+  PRIMARY KEY (idpessoa),
+  CONSTRAINT fk_pessoa_equipe
+    FOREIGN KEY (idequipe)
+    REFERENCES equipe (idequipe));
 
 
 CREATE TABLE usuario (
@@ -28,6 +28,3 @@ CREATE TABLE usuario (
     REFERENCES pessoa (idpessoa)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
-
-ALTER TABLE pessoaDROP COLUMN flagativo;
-ALTER TABLE pessoa ADD COLUMN IMAGEM bytea;

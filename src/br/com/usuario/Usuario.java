@@ -2,8 +2,32 @@
 package br.com.usuario;
 
 public class Usuario {
-    Integer idusuario, idpessoa;
-    String login, senha,flagativo;
+    Integer idusuario, idpessoa, idEmpresa;
+    String login, senha, flagativo, tipo, email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    public Integer getIdEmpresa() {
+        return idEmpresa;
+    }
+
+    public void setIdEmpresa(Integer idEmpresa) {
+        this.idEmpresa = idEmpresa;
+    }
+    
+    public String getTipo() {
+        return tipo;
+    }
+    
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 
     public Integer getIdusuario() {
         return idusuario;
@@ -43,5 +67,9 @@ public class Usuario {
 
     public void setFlagativo(String flagativo) {
         this.flagativo = flagativo;
+    }
+
+    void setTipo(char c) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

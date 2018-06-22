@@ -1,9 +1,18 @@
 package br.com.Utils;
 
+import br.com.Mensagem.MensagemController;
+import br.com.login.LoginController;
+import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-//import javafx.scene.control.Alert;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -14,11 +23,12 @@ public class Functions {
     public static int SUCCESS = 1;
     public static int FAILURE = -1;
     public static int NOACTION = 0;
-    
+    public static Stage stage = new Stage(StageStyle.TRANSPARENT);
+
     public String encript(String key) {
         String secured = null;
         MessageDigest digest;
-        
+
         try {
             digest = MessageDigest.getInstance("MD5");
             digest.update(key.getBytes(), 0, key.length());
@@ -30,20 +40,24 @@ public class Functions {
         return secured;
     }
 
-   
-    public void mensagemPadrao(String textoMensagem){
-        this.mensagemPadrao(textoMensagem, "SoftTalk");
+    public static void abrirMensagem(String textoMensagem) {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(MensagemController.class.getResource("Mensagem.fxml"));
+            Parent root = (Parent) loader.load();
+
+            MensagemController ctrl = loader.getController();
+            ctrl.setMensagem(textoMensagem);
+
+            stage.setScene(new Scene(root));
+
+            stage.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    
-    public void mensagemPadrao(String textoMensagem, String titulo){
-        /*Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(titulo);
-        alert.setHeaderText(null);
-        alert.setContentText(textoMensagem);
-        alert.showAndWait();*/
-    }
-    
+
     public void abrirTela(String arquivoFXML, Object classe) {
- 
+
     }
 }

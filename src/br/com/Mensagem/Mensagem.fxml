@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="174.0" prefWidth="369.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.Mensagem.MensagemController">
+    <stylesheets>
+        <URL value="@mensagem.css" />
+    </stylesheets>
+   <children>
+      <Button fx:id="btOk" layoutX="148.0" layoutY="139.0" mnemonicParsing="false" onAction="#OkAction" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: ;" stylesheets="@mensagem.css" text="OK" textFill="#00a5ff" />
+      <Text layoutX="164.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SoftTalk" wrappingWidth="95.099609375">
+         <fill>
+            <LinearGradient endX="0.4666666666666667" endY="0.1523809523809524" startX="0.4666666666666667" startY="1.0">
+               <stops>
+                  <Stop color="#009cff" />
+                  <Stop color="#00ffe5" offset="0.8934707903780068" />
+                  <Stop color="#005361" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="137.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagens/information.png" />
+         </image>
+      </ImageView>
+      <TextArea layoutX="44.0" layoutY="46.0" prefHeight="82.0" prefWidth="294.0" style="-fx-background-color: white;" stylesheets="@mensagem.css" />
+   </children>
+   <effect>
+      <InnerShadow color="#09ace351" />
+   </effect>
+</AnchorPane>

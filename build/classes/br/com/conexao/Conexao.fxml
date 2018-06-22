@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.conexao.ConexaoController">
+   <children>
+      <JFXTextField fx:id="txIp" layoutX="60.0" layoutY="60.0" maxWidth="421.0" minWidth="233.0" prefHeight="31.0" prefWidth="233.0" promptText="Informe o IP do banco" />
+      <JFXTextField fx:id="txPorta" layoutX="60.0" layoutY="102.0" maxWidth="421.0" minWidth="233.0" prefHeight="31.0" prefWidth="233.0" promptText="Informe a porta do banco" />
+      <JFXTextField fx:id="TxUser" layoutX="60.0" layoutY="155.0" maxWidth="421.0" minWidth="233.0" prefHeight="31.0" prefWidth="233.0" promptText="Informe o usuario do banco" />
+      <JFXTextField fx:id="TxSenha" layoutX="60.0" layoutY="200.0" maxWidth="421.0" minWidth="233.0" prefHeight="31.0" prefWidth="233.0" promptText="Informe a senha do banco" />
+      <Button fx:id="BtConfirma" layoutX="151.0" layoutY="320.0" mnemonicParsing="false" onAction="#ConexaoAction" text="Button" />
+   </children>
+</AnchorPane>

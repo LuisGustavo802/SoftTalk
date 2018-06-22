@@ -8,6 +8,7 @@ package br.com.login;
 import br.com.usuario.Usuario;
 import br.com.Utils.Functions;
 import br.com.softtalk.SoftTalk;
+import br.com.telainicial.TelaInicialController;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,8 +21,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXPasswordField;
+import java.awt.event.KeyEvent;
+import javafx.scene.input.KeyCode;
 
 /**
  *
@@ -30,9 +33,9 @@ import javafx.scene.control.TextField;
 public class LoginController {
 
     @FXML
-    private TextField usuario;
+    private JFXTextField usuario;
     @FXML
-    private PasswordField senha;
+    private JFXPasswordField senha;
     @FXML
     private Button btnEntrar;
 
@@ -44,6 +47,25 @@ public class LoginController {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    /*@FXML
+    protected void loginKey(KeyEvent e) {
+        String teste;
+        
+        teste = "===";
+        /*if (e.get) {
+            if (usuario.isFocused()) {
+                senha.focusedProperty();
+            }
+            if (senha.isFocused()) {
+                try {
+                    validaLogin();
+                } catch (SQLException | IOException ex) {
+                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }*/
 
     @FXML
     void CadastroAction(ActionEvent event) {
@@ -79,15 +101,16 @@ public class LoginController {
         if (rs.next()) {
             if (rs.getString("flagativo").equals("T")) {
                 if (rs.getString("senha").equals(functions.encript(senha.getText()))) {
-                    Parent fxmlLoader = FXMLLoader.load(SoftTalk.class.getResource("SoftTalk.fxml"));
+                    SoftTalk.setIdUsuarioLogado(rs.getInt("idusuario"));//Alimenta com o usuario logado no sistema
+                    Parent fxmlLoader = FXMLLoader.load(TelaInicialController.class.getResource("TelaInicial.fxml"));
 
                     SoftTalk.stage.setScene(new Scene(fxmlLoader));
-                    SoftTalk.setIdUsuarioLogado(rs.getInt("idusuario"));//Alimenta com o usuario logado no sistema
+
                 } else {
-                    // usuario ou senha incorretos
+                    Functions.abrirMensagem("Atenção! Usuário ou senha incorreto.");
                 }
             } else {
-                //mensagem usuario inativo
+                Functions.abrirMensagem("Atenção! Usuário inativo.");
             }
         }
     }
