@@ -40,12 +40,9 @@ public class Feedback {
 
     public void setEmailDestinatario(String emailDestinatario) {
         this.emailDestinatario = emailDestinatario;  
-<<<<<<< HEAD
     }
     
-=======
-  
->>>>>>> upstream/master
+
     public int getIdFeedBack() {
         return idFeedBack;
     }
@@ -118,21 +115,12 @@ public class Feedback {
         try {
             if (this.tipoFeedback.equals("S")) {
 
-<<<<<<< HEAD
                 return "Feedback requisitado de:  " + daoPessoa.listaNomePessoa(idUsuarioRemetente) + "."
                         + "\n Data de Envio:  " + formato.format(dtMovimento) + ".";
 
             } else {
                 return "Feedback recebido de:  " + daoPessoa.listaNomePessoa(idUsuarioRemetente) + "."
                         + "\n Data de Envio:  " + formato.format(dtMovimento) + ".";
-=======
-                return "Feedback requisitado de: " + daoPessoa.listaNomePessoa(idUsuarioRemetente)
-                        + ". Envio:" + formato.format(dtMovimento) + "";
-
-            } else {
-                return "Feedback recebido de: " + daoPessoa.listaNomePessoa(idUsuarioRemetente)
-                        + " [Envio:" + formato.format(dtMovimento) + "]";
->>>>>>> upstream/master
             }
         } catch (SQLException | IOException ex) {
             Logger.getLogger(Feedback.class.getName()).log(Level.SEVERE, null, ex);

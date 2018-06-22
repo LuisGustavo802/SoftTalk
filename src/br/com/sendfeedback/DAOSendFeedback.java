@@ -35,8 +35,6 @@ public class DAOSendFeedback extends DAOFeedback {
             return Functions.FAILURE;
         }
     }
-
-    dddddd
     public int gravaEnvioFeedback(Feedback feedback) {
         try {
             String sql = "INSERT INTO feedback_envio (idFeedback, statusSend) "
