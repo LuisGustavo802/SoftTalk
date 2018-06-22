@@ -1,0 +1,33 @@
+.text-field{
+    -fx-text-fill: black;
+    -fx-prompt-text-fill:  #2b2b2b;
+    -fx-background-color: #cccccc;
+}
+
+.text-field:focused{
+
+    -fx-background-color: #eeeeee;
+}
+
+.menu-button .context-menu { 
+    -fx-background-color: #323a49; 
+}
+
+.menu-item:focused {
+    -fx-background-color: #465368;
+}
+
+.menu-item .label {
+    -fx-text-fill: #bfc5d0;
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: white;
+    
+}
+
+.button:selected {
+    -fx-background-color: White;
+}
+
+
