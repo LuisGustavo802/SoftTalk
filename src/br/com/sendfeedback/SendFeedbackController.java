@@ -6,6 +6,7 @@
 package br.com.sendfeedback;
 
 import br.com.Utils.DAOUtils;
+import br.com.Utils.EnviarEmail;
 import br.com.feedback.Feedback;
 import br.com.sendfeedback.DAOSendFeedback;
 import br.com.Utils.Functions;
@@ -30,6 +31,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
+import org.apache.commons.mail.EmailException;
 
 public class SendFeedbackController implements Initializable {
 
@@ -61,7 +63,7 @@ public class SendFeedbackController implements Initializable {
     }
 
     @FXML
-    void enviarAction(ActionEvent event) throws SQLException, IOException {
+    void enviarAction(ActionEvent event) throws SQLException, IOException, EmailException {
         enviar();
     }
 
@@ -75,7 +77,7 @@ public class SendFeedbackController implements Initializable {
         }
     }
 
-    private void enviar() throws SQLException, IOException {
+    private void enviar() throws SQLException, IOException, EmailException {
         if (validacoes() == functions.SUCCESS) {
             DAOUtils daoUtils = new DAOUtils();
                     
@@ -84,6 +86,9 @@ public class SendFeedbackController implements Initializable {
             feedback.setStatus("P");
             feedback.setDtMovimento(daoUtils.carregaDataServidor());
             feedback.setDescricao(txaDescricao.getText());
+            
+            EnviarEmail email = new EnviarEmail();
+            email.enviandoEmail(feedback.getEmailDestinatario() ,2);
 
             DAOSendFeedback gravaFeedback = new DAOSendFeedback();
             if (gravaFeedback.enviaFeedback(feedback) > 0){
@@ -102,6 +107,7 @@ public class SendFeedbackController implements Initializable {
         List<Usuario> listaUsuarios = daoUsuario.listarUsuariosCondicao(pessoa.getIdpessoa());
         //Carrega as infomações do usuario e alimente o idUsuario e a empresa para a classe de feedback
         feedback.setIdUsuarioDestino(listaUsuarios.get(0).getIdusuario());
+        feedback.setEmailDestinatario(listaUsuarios.get(0).getEmail());
         feedback.setIdempresa(listaUsuarios.get(0).getIdEmpresa());
     }
 

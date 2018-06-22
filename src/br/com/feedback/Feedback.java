@@ -23,6 +23,15 @@ public class Feedback {
     private Date dtMovimento;
     private String status;
     private String descricao;
+    private String emailDestinatario;
+
+    public String getEmailDestinatario() {
+        return emailDestinatario;
+    }
+
+    public void setEmailDestinatario(String emailDestinatario) {
+        this.emailDestinatario = emailDestinatario;
+    }
 
     public int getIdFeedBack() {
         return idFeedBack;
