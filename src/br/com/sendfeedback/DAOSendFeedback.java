@@ -36,10 +36,6 @@ public class DAOSendFeedback extends DAOFeedback {
         }
     }
 
-<<<<<<< HEAD
-=======
-    
->>>>>>> 8c40cdfb7a7ef690d6e29792f2dc0b6f3c3b9df1
     public int gravaEnvioFeedback(Feedback feedback) {
         try {
             String sql = "INSERT INTO feedback_envio (idFeedback, statusSend) "
