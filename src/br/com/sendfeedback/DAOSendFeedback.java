@@ -63,15 +63,6 @@ public class DAOSendFeedback extends DAOFeedback {
 
     public List<String> carregaStatus(String list) throws SQLException {
         List<String> lista = new ArrayList();
-<<<<<<< HEAD
-=======
-        String sql = "SELECT count(*) as count FROM feedback_envio WHERE idfeedback in( " + list + ") and statusSend = 'Que Bom';";
-        Statement stm = SoftTalk.conexao.createStatement();
-        ResultSet rs = stm.executeQuery(sql);
-        while (rs.next()) {
-            lista.add(rs.getString("count"));
-        }
->>>>>>> 8c40cdfb7a7ef690d6e29792f2dc0b6f3c3b9df1
 
         if (list.length() > 0) {
             String sql = "SELECT count(*) as count FROM feedback_envio WHERE idfeedback in( " + list + ") and statusSend = 'Que Bom';";
