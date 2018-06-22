@@ -23,16 +23,24 @@ public class Feedback {
     private Date dtMovimento;
     private String status;
     private String descricao;
+    private String statusSend;
     private String emailDestinatario;
 
-    public String getEmailDestinatario() {
+    public String getStatusSend() {
+        return statusSend;
+    }
+
+    public void setStatusSend(String statusSend) {
+        this.statusSend = statusSend;
+    }
+  
+     public String getEmailDestinatario() {
         return emailDestinatario;
     }
 
     public void setEmailDestinatario(String emailDestinatario) {
-        this.emailDestinatario = emailDestinatario;
-    }
-
+        this.emailDestinatario = emailDestinatario;  
+  
     public int getIdFeedBack() {
         return idFeedBack;
     }
@@ -110,7 +118,7 @@ public class Feedback {
 
             } else {
                 return "Feedback recebido de: " + daoPessoa.listaNomePessoa(idUsuarioRemetente)
-                        + ".Envio:" + formato.format(dtMovimento) + "";
+                        + " [Envio:" + formato.format(dtMovimento) + "]";
             }
         } catch (SQLException | IOException ex) {
             Logger.getLogger(Feedback.class.getName()).log(Level.SEVERE, null, ex);

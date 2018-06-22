@@ -36,7 +36,7 @@
 }
 
 .list-cell{
-    -fx-background: darkgray;
+    -fx-background: #dddddd;
     -fx-text-size: 15;
 }
 

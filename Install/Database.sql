@@ -49,5 +49,7 @@ CREATE TABLE IF NOT EXISTS feedback_solicitacao (
 
 
 CREATE TABLE IF NOT EXISTS feedback_envio (
-  idfeedback INT NOT NULL);
+  idfeedback INT NOT NULL,
+  stausSend VARCHAR(30)
+  );
 

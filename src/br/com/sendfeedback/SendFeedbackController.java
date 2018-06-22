@@ -29,6 +29,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import org.apache.commons.mail.EmailException;
@@ -38,6 +39,9 @@ public class SendFeedbackController implements Initializable {
     //Objetos do FXML
     @FXML
     private ComboBox<Equipe> cbxEquipes;
+    
+    @FXML
+    private Button btnQueBom;
 
     @FXML
     private ComboBox<Pessoa> cbxPessoas;
@@ -80,7 +84,7 @@ public class SendFeedbackController implements Initializable {
     private void enviar() throws SQLException, IOException, EmailException {
         if (validacoes() == functions.SUCCESS) {
             DAOUtils daoUtils = new DAOUtils();
-                    
+
             feedback.setIdUsuarioRemetente(SoftTalk.getIdUsuarioLogado());
             feedback.setTipoFeedback("E");
             feedback.setStatus("P");
@@ -91,13 +95,13 @@ public class SendFeedbackController implements Initializable {
             email.enviandoEmail(feedback.getEmailDestinatario() ,2);
 
             DAOSendFeedback gravaFeedback = new DAOSendFeedback();
-            if (gravaFeedback.enviaFeedback(feedback) > 0){
+            if (gravaFeedback.enviaFeedback(feedback) > 0) {
                 inicializaComponentes();
                 functions.abrirMensagem("Gravado com sucesso.");
-            }else{
+            } else {
                 functions.abrirMensagem("Falha ao Gravar.");
             }
-               
+
         }
     }
 
@@ -172,5 +176,20 @@ public class SendFeedbackController implements Initializable {
 
         return functions.SUCCESS;
     }
+
+    @FXML
+    void statusSendQueBomAction(ActionEvent event) {
+        feedback.setStatusSend("Que Bom");
+    }
     
+    @FXML
+    void statusSendQuePenaAction(ActionEvent event) {
+        feedback.setStatusSend("Que Pena");
+    }
+
+    @FXML
+    void statusSendQueTalAction(ActionEvent event) {
+        feedback.setStatusSend("Que Tal");
+    }
+
 }
