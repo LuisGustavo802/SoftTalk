@@ -9,6 +9,8 @@ import br.com.Utils.Functions;
 import br.com.feedback.DAOFeedback;
 import br.com.feedback.Feedback;
 import br.com.pessoa.DAOPessoa;
+import br.com.sendfeedback.DAOSendFeedback;
+import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -47,6 +49,8 @@ public class TelaInicialController implements Initializable {
     @FXML
     public TextField txtNomeRemetente, txtData;
     @FXML
+    public JFXTextField txQueBom, txQueTal, txQuePena;
+    @FXML
     public TextArea txtFeedback;
 
     private List<Feedback> listFeedback = new ArrayList<>();
@@ -84,6 +88,7 @@ public class TelaInicialController implements Initializable {
             listFeedback = daoFeedback.listarFeedbacks();
             observableListFeedback = FXCollections.observableArrayList(listFeedback);
             listViewFeedbacks.setItems(observableListFeedback);
+            this.carregaStatus(listFeedback);
         } catch (SQLException ex) {
             Logger.getLogger(TelaInicialController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -107,6 +112,33 @@ public class TelaInicialController implements Initializable {
         txtData.setText(formato.format(feedbackSelecionado.getDtMovimento()));
         txtFeedback.setText(feedbackSelecionado.getDescricao());
         return Functions.SUCCESS;
+    }
+    
+    public void carregaStatus(List<Feedback> feedback){
+        try {
+            int i;
+            String listaid = "";
+            for(i = 1; i < feedback.size(); i++){
+                if (i == feedback.size() -1){
+                    listaid = listaid + feedback.get(i).getIdFeedBack() + "";
+                } else {
+                    listaid = listaid + feedback.get(i).getIdFeedBack() + ", ";
+                }
+            }
+            DAOSendFeedback send = new DAOSendFeedback();
+            List<String> lista = new ArrayList() ;
+            lista = send.carregaStatus(listaid);
+            
+            if (lista.size() > 0){
+                txQueBom.setText(lista.get(0));
+                txQuePena.setText(lista.get(1));
+                txQueTal.setText(lista.get(2));
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaInicialController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

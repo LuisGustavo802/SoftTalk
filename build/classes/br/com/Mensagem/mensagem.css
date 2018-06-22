@@ -2,24 +2,24 @@
  * Empty Stylesheet file.
  */
 
-
-
 .button{
-    -fx-background-radius: 100;
-    -fx-background-color: dimgray;
-    -fx-text-fill: white;
+    -fx-background-color: #eeeeee;
+    -fx-text-fill: dimgray;
     -fx-border-radius: 100;
-    -fx-border-color: dimgray;
+    -fx-border-color: #bbbbbb;
+    -fx-background-radius: 100;
 }
 
 .button:hover{
-    -fx-background-color: #38d7ff;
-    -fx-text-fill: dimgray;
-    -fx-border-color: dimgray;
+    -fx-background-color: gray;
+    -fx-border-color: gray;
 }
 
 .button:pressed{
-    -fx-background-color: #38d7ff;
-    -fx-text-fill: dimgray;
-    -fx-border-color: dimgray;
+    -fx-background-color: gray;
+    -fx-border-color: gray;
+}
+
+.label{
+    -fx-alignment:CENTER;
 }

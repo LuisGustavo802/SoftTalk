@@ -8,20 +8,19 @@
 .button{
    -fx-background-color: dimgray;
    -fx-text-fill: white;
-   -fx-border-color: gray;
 }
 
-.button:hover, .button:expanded, .anchorPane:expanded{
-    -fx-background-color: gray;
-    -fx-border-color: #cccccc;
-    -fx-pref-width: 180;
+.button:hover,  .button:expanded .anchorPane:expanded{
+    -fx-background-color: #606060;
+    -fx-border-color: gray;
+    -fx-pref-width: 160;
     -fx-font-size: 10;
 }
 
-.button:pressed .button:expanded, .anchorPane:expanded{
-    -fx-background-color: gray;
-    -fx-border-color: #cccccc;
-    -fx-pref-width: 180;
+.button:pressed .button:expanded .anchorPane:expanded{
+    -fx-background-color: #606060;
+    -fx-border-color: gray;
+    -fx-pref-width: 160;
     -fx-font-size: 10;
 }
 

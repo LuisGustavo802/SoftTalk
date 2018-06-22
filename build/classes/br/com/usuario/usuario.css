@@ -40,7 +40,7 @@
 }
 
 .list-cell{
-    -fx-background: darkgray;
+    -fx-background: #dddddd;
 }
 
 .list-cell:hover{

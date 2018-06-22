@@ -13,6 +13,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -34,11 +36,13 @@ public class DAOSendFeedback extends DAOFeedback {
         }
     }
 
+    
     public int gravaEnvioFeedback(Feedback feedback) {
         try {
-            String sql = "INSERT INTO feedback_envio (idFeedback) "
+            String sql = "INSERT INTO feedback_envio (idFeedback, statusSend) "
                     + "VALUES ("
-                    + feedback.getIdFeedBack() + " ) ";
+                    + feedback.getIdFeedBack() + ", '"
+                    + feedback.getStatusSend() + "') ";
 
             PreparedStatement pstm;
             pstm = SoftTalk.conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -52,5 +56,31 @@ public class DAOSendFeedback extends DAOFeedback {
             Logger.getLogger(DAOFeedback.class.getName()).log(Level.SEVERE, null, ex);
             return Functions.FAILURE;
         }
+    }
+    
+    public List<String> carregaStatus(String list) throws SQLException{ 
+        List<String> lista = new ArrayList();
+        String sql = "SELECT count(*) as count FROM feedback_envio WHERE idfeedback in( " + list + ") and statusSend = 'Que Bom';";
+        Statement stm = SoftTalk.conexao.createStatement();
+        ResultSet rs = stm.executeQuery(sql);
+        while (rs.next()) {
+            lista.add(rs.getString("count"));
+        }
+
+        sql = "SELECT count(*) as count FROM feedback_envio WHERE idfeedback in( " + list + ") and statusSend = 'Que Pena';";
+        stm = SoftTalk.conexao.createStatement();
+        rs = stm.executeQuery(sql);
+        while (rs.next()) {
+            lista.add(rs.getString("count"));
+        }
+
+        sql = "SELECT count(*) as count FROM feedback_envio WHERE idfeedback in( " + list + ") and statusSend = 'Que Tal';";
+        stm = SoftTalk.conexao.createStatement();
+        rs = stm.executeQuery(sql);
+        while (rs.next()) {
+            lista.add(rs.getString("count"));
+        }
+        return lista;
+
     }
 }
