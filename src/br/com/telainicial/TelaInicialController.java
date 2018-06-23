@@ -118,7 +118,7 @@ public class TelaInicialController implements Initializable {
         try {
             int i;
             String listaid = "";
-            for(i = 1; i < feedback.size(); i++){
+            for(i = 0; i < feedback.size(); i++){
                 if (i == feedback.size() -1){
                     listaid = listaid + feedback.get(i).getIdFeedBack() + "";
                 } else {
