@@ -27,7 +27,7 @@ public class DAOFeedback {
             pstm.setInt(2, feedback.getIdempresa());
             pstm.setInt(3, feedback.getIdUsuarioDestino());
             pstm.setString(4, feedback.getTipoFeedback());
-            pstm.setDate(5, feedback.getDtMovimento());
+            pstm.setTimestamp(5,  new java.sql.Timestamp(feedback.getDtMovimento().getTime()));
             pstm.setString(6, feedback.getStatus());
             pstm.setString(7, feedback.getDescricao());
 

@@ -5,14 +5,11 @@
  */
 package br.com.Utils;
 
-import br.com.feedback.Feedback;
 import br.com.softtalk.SoftTalk;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -24,8 +21,10 @@ public class DAOUtils {
         String sql = "SELECT now()as Data;";
         Statement stm = SoftTalk.conexao.createStatement();
         ResultSet rs = stm.executeQuery(sql);
-        while (rs.next()) {
-           return rs.getDate("Data");
+        while (rs.next()) { 
+            Date dtRetorno;
+            dtRetorno = new java.sql.Date(rs.getTimestamp("Data").getTime());
+           return dtRetorno;
         }
         return null;
     }
