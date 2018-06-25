@@ -50,10 +50,6 @@ CREATE TABLE IF NOT EXISTS feedback_solicitacao (
 
 CREATE TABLE IF NOT EXISTS feedback_envio (
   idfeedback INT NOT NULL,
-<<<<<<< HEAD
   statusSend VARCHAR(30)
-=======
-  stausSend VARCHAR(30)
->>>>>>> upstream/master
   );
 
