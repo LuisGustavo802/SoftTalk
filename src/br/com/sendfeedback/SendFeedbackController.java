@@ -8,7 +8,6 @@ package br.com.sendfeedback;
 import br.com.Utils.DAOUtils;
 import br.com.Utils.EnviarEmail;
 import br.com.feedback.Feedback;
-import br.com.sendfeedback.DAOSendFeedback;
 import br.com.Utils.Functions;
 import br.com.pessoa.DAOPessoa;
 import br.com.pessoa.Pessoa;
