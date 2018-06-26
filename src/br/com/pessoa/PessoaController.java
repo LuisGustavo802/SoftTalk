@@ -8,6 +8,7 @@ import br.com.softtalk.SoftTalk;
 import br.com.usuario.DAOUsuario;
 import br.com.usuario.Usuario;
 import br.com.usuario.UsuarioController;
+import com.jfoenix.controls.JFXTextField;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -17,6 +18,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
@@ -46,6 +49,9 @@ public class PessoaController implements Initializable {
     private ImageView ivImagem;
     
     @FXML
+    private JFXTextField txEmail;
+    
+    @FXML
     void salvarAction(ActionEvent event) {
         gravarPerfil();
     }
@@ -71,6 +77,7 @@ public class PessoaController implements Initializable {
             Incializar();
             try {
                 carregarPessoa();
+                carregarUsuario();
             } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException ex) {
                 Logger.getLogger(PessoaController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -104,6 +111,9 @@ public class PessoaController implements Initializable {
         daoUsuario = new DAOUsuario();
         usuario = daoUsuario.listarUsuario(SoftTalk.getIdUsuarioLogado());
         ivImagem.setPreserveRatio(true);
+    }
+    private void carregarUsuario() throws SQLException {
+        txEmail.setText(usuario.getEmail());
     }
 
     private void carregarPessoa() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException, IOException {
@@ -140,20 +150,32 @@ public class PessoaController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     public int gravarPerfil() {
+        
+        if (!validarEmail(txEmail.getText())){
+            //Caso de falha nas validações
+            return Functions.FAILURE;
+        }
         
         Equipe equipe = bxEquipe.getSelectionModel().getSelectedItem();
 
         pessoa.setIdpessoa(usuario.getIdpessoa());
         pessoa.setNome(String.valueOf(txNome.getText()));
         pessoa.setIdequipe(equipe.getIdequipe());
+        usuario.setEmail(txEmail.getText());
         DAOPessoa daopessoa;
+        DAOUsuario daousuario;
+        
+        daousuario = new DAOUsuario();
         daopessoa = new DAOPessoa();
 
         if (daopessoa.atualizarPessoa(pessoa) < 0) {
+            Functions.abrirMensagem("Problemas na gravação!");
+            return Functions.FAILURE;
+        }
+        if (daousuario.atualizarUsuario(usuario) < 0) {
             Functions.abrirMensagem("Problemas na gravação!");
             return Functions.FAILURE;
         }
@@ -171,5 +193,13 @@ public class PessoaController implements Initializable {
         }
 
     }
-
+    public boolean validarEmail(String email){
+        Pattern p = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,7}$"); 
+        Matcher m = p.matcher(email); 
+        if (!m.find()){
+           Functions.abrirMensagem("E-mail inválido!");
+           return false;
+        }
+        return true;
+    }
 }

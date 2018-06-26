@@ -25,7 +25,7 @@
         <URL value="@mensagem.css" />
     </stylesheets>
    <children>
-      <Button fx:id="btOk" layoutX="148.0" layoutY="139.0" mnemonicParsing="false" onAction="#OkAction" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: ;" stylesheets="@mensagem.css" text="OK" textFill="#00a5ff" />
+      <Button fx:id="btOk" layoutX="148.0" layoutY="139.0" mnemonicParsing="false" onAction="#OkAction" prefHeight="27.0" prefWidth="87.0" style="-fx-background-color: white;" stylesheets="@mensagem.css" text="OK" textFill="#00a5ff" />
       <Text layoutX="164.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SoftTalk" wrappingWidth="95.099609375">
          <fill>
             <LinearGradient endX="0.4666666666666667" endY="0.1523809523809524" startX="0.4666666666666667" startY="1.0">
