@@ -83,18 +83,19 @@ public class SendFeedbackController implements Initializable {
     private void enviar() throws SQLException, IOException, EmailException {
         if (validacoes() == functions.SUCCESS) {
             DAOUtils daoUtils = new DAOUtils();
-
+            EnviarEmail email = new EnviarEmail();
+            
             feedback.setIdUsuarioRemetente(SoftTalk.getIdUsuarioLogado());
             feedback.setTipoFeedback("E");
             feedback.setStatus("P");
             feedback.setDtMovimento(daoUtils.carregaDataServidor());
             feedback.setDescricao(txaDescricao.getText());
             
-            EnviarEmail email = new EnviarEmail();
-            //email.enviandoEmail(feedback.getEmailDestinatario() ,2);
 
             DAOSendFeedback gravaFeedback = new DAOSendFeedback();
             if (gravaFeedback.enviaFeedback(feedback) > 0) {
+                
+                email.enviandoEmail(feedback.getEmailDestinatario() ,2);
                 inicializaComponentes();
                 functions.abrirMensagem("Gravado com sucesso.");
             } else {
