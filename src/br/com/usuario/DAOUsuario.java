@@ -2,7 +2,6 @@
 package br.com.usuario;
 
 import br.com.Utils.Functions;
-import br.com.equipe.Equipe;
 import br.com.softtalk.SoftTalk;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

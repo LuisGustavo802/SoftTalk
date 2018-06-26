@@ -5,7 +5,6 @@
  */
 package br.com.Utils;
 
-import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 
