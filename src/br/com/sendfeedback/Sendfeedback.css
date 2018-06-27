@@ -6,14 +6,12 @@
     -fx-background-color: #eeeeee;
 }
 
-.button:hover{
-    -fx-background-color: darkgray;
-    -fx-text-fill: dimgray;
+.button:selected:pressed{
+   -fx-border-color: #bbbbbb;
 }
 
-.button:pressed{
-    -fx-background-color: darkgray;
-    -fx-text-fill: dimgray;
+.button:pressed:selected{
+    -fx-border-color: #bbbbbb;
 }
 
 .combo-box{

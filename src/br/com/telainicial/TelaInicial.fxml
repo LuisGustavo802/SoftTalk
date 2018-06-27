@@ -25,14 +25,14 @@
 
 <AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #eeeeee;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.telainicial.TelaInicialController">
     <children>
-        <JFXTabPane fx:id="abasVisualizacao" layoutX="64.0" prefHeight="500.0" prefWidth="829.0" style="-fx-background-color: #eeeeee;">
+        <JFXTabPane fx:id="abasVisualizacao" layoutX="64.0" prefHeight="500.0" prefWidth="835.0" style="-fx-background-color: #eeeeee;">
             <tabs>
                 <Tab fx:id="aba0" text="Feedbacks recebidos">
                     <content>
                         <AnchorPane disable="true" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="727.0">
                             <children>
                                 <ListView fx:id="listViewFeedbacks" layoutX="6.0" layoutY="57.0" prefHeight="402.0" prefWidth="509.0" style="-fx-background-color: white; -fx-border-color: #00afd7;" />
-                        <Button ellipsisString="" layoutX="586.0" layoutY="110.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="88.0" style="-fx-background-color: #eeeeee;">
+                        <Button ellipsisString="" layoutX="593.0" layoutY="110.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="88.0" style="-fx-background-color: #eeeeee;">
                            <graphic>
                               <ImageView fitHeight="96.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -59,15 +59,15 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <JFXTextField fx:id="txQueBom" editable="false" layoutX="702.0" layoutY="136.0" maxWidth="132.0" minWidth="82.0" prefHeight="37.0" prefWidth="85.0" />
+                        <JFXTextField fx:id="txQueBom" editable="false" layoutX="702.0" layoutY="136.0" maxWidth="132.0" minWidth="82.0" prefHeight="37.0" prefWidth="85.0" stylesheets="@telainicial.css" />
                         <Text fill="#a4a4a4" layoutX="615.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Meu progresso:">
                            <font>
                               <Font name="Franklin Gothic Demi Cond" size="24.0" />
                            </font>
                         </Text>
-                        <JFXTextField fx:id="txQueTal" editable="false" layoutX="702.0" layoutY="240.0" maxWidth="132.0" minWidth="80.0" prefHeight="37.0" prefWidth="85.0" />
-                        <JFXTextField fx:id="txQuePena" editable="false" layoutX="702.0" layoutY="344.0" prefHeight="37.0" prefWidth="85.0" />
-                                <Button ellipsisString="" layoutX="323.0" layoutY="14.0" mnemonicParsing="false" onAction="#detalhesAction" prefHeight="45.0" prefWidth="192.0" style="-fx-background-color: white; -fx-border-color: #00afd7; -fx-border-radius: 5;" text="  Visualizar detalhes" textFill="#00afd7">
+                        <JFXTextField fx:id="txQueTal" editable="false" layoutX="702.0" layoutY="240.0" maxWidth="132.0" minWidth="80.0" prefHeight="37.0" prefWidth="85.0" stylesheets="@telainicial.css" />
+                        <JFXTextField fx:id="txQuePena" editable="false" layoutX="702.0" layoutY="344.0" prefHeight="37.0" prefWidth="85.0" stylesheets="@telainicial.css" />
+                                <Button ellipsisString="" layoutX="323.0" layoutY="13.0" mnemonicParsing="false" onAction="#detalhesAction" prefHeight="45.0" prefWidth="192.0" style="-fx-background-color: white; -fx-border-color: #00afd7; -fx-border-radius: 5;" text="  Visualizar detalhes" textFill="#00afd7">
                            <graphic>
                               <ImageView fitHeight="33.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -76,6 +76,11 @@
                               </ImageView>
                            </graphic>
                         </Button>
+                        <Text fill="#00afd6" layoutX="6.0" layoutY="45.0" opacity="0.51" strokeType="OUTSIDE" strokeWidth="0.0" text="SoftTalk" wrappingWidth="123.935546875">
+                           <font>
+                              <Font size="35.0" />
+                           </font>
+                        </Text>
                             </children>
                         </AnchorPane>
                     </content>

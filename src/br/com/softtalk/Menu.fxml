@@ -33,7 +33,7 @@
                </effect>
                 </Button>
 
-                <Button ellipsisString="" layoutX="3.0" layoutY="425.0" mnemonicParsing="false" onAction="#equipeAction" prefHeight="68.0" prefWidth="53.0" stylesheets="@menu.css" text="     CADASTRAR EQUIPE" textFill="WHITE">
+                <Button ellipsisString="" layoutX="3.0" layoutY="425.0" mnemonicParsing="false" onAction="#equipeAction" prefHeight="52.0" prefWidth="53.0" stylesheets="@menu.css" text="     CADASTRAR EQUIPE" textFill="WHITE">
    <text>
    
                        <Button fx:id="btnEquipe" ellipsisString="" layoutX="3.0" layoutY="425.0" mnemonicParsing="false" onAction="#equipeAction" prefHeight="52.0" prefWidth="53.0" stylesheets="@menu.css" text="  CADASTRAR EQUIPE" textFill="WHITE" />

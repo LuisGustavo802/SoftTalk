@@ -17,6 +17,8 @@ import br.com.equipe.Equipe;
 import br.com.softtalk.SoftTalk;
 import br.com.usuario.DAOUsuario;
 import br.com.usuario.Usuario;
+import java.awt.Color;
+import static java.awt.Color.black;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -32,6 +34,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.layout.Border;
+import javax.swing.BorderFactory;
+import javax.swing.border.LineBorder;
 import org.apache.commons.mail.EmailException;
 
 public class SendFeedbackController implements Initializable {
@@ -42,12 +48,20 @@ public class SendFeedbackController implements Initializable {
     
     @FXML
     private Button btnQueBom;
+    
+    @FXML
+    private Button btnQueTal;
+    
+    @FXML
+    private Button btnQuePena;
 
     @FXML
     private ComboBox<Pessoa> cbxPessoas;
 
     @FXML
     private TextArea txaDescricao;
+    
+    DropShadow shadow = new DropShadow();
 
     //Objetos do controller
     private ObservableList<Equipe> observableListEquipe;
@@ -92,7 +106,7 @@ public class SendFeedbackController implements Initializable {
             feedback.setDescricao(txaDescricao.getText());
             
             EnviarEmail email = new EnviarEmail();
-            //email.enviandoEmail(feedback.getEmailDestinatario() ,2);
+            email.enviandoEmail(feedback.getEmailDestinatario() ,2);
 
             DAOSendFeedback gravaFeedback = new DAOSendFeedback();
             if (gravaFeedback.enviaFeedback(feedback) > 0) {
@@ -129,6 +143,7 @@ public class SendFeedbackController implements Initializable {
         carregaEquipes();
         carregaPessoas();
         txaDescricao.setText("");
+        feedback.setStatusSend("");
     }
 
     private void carregaEquipes() throws SQLException {
@@ -180,16 +195,25 @@ public class SendFeedbackController implements Initializable {
     @FXML
     void statusSendQueBomAction(ActionEvent event) {
         feedback.setStatusSend("Que Bom");
+        btnQueBom.setEffect(shadow);
+        btnQuePena.setEffect(null);
+        btnQueTal.setEffect(null);
     }
     
     @FXML
     void statusSendQuePenaAction(ActionEvent event) {
         feedback.setStatusSend("Que Pena");
+        btnQuePena.setEffect(shadow);
+        btnQueBom.setEffect(null);
+        btnQueTal.setEffect(null);
     }
 
     @FXML
     void statusSendQueTalAction(ActionEvent event) {
         feedback.setStatusSend("Que Tal");
+        btnQueTal.setEffect(shadow);
+        btnQuePena.setEffect(null);
+        btnQueBom.setEffect(null);
     }
 
 }
