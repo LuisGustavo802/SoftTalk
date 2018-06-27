@@ -106,10 +106,7 @@ public class SendFeedbackController implements Initializable {
             feedback.setDescricao(txaDescricao.getText());
             
 
-            EnviarEmail email = new EnviarEmail();
             email.enviandoEmail(feedback.getEmailDestinatario() ,2);
-
-
             DAOSendFeedback gravaFeedback = new DAOSendFeedback();
             if (gravaFeedback.enviaFeedback(feedback) > 0) {
                 
