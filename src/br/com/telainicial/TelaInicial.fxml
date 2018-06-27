@@ -32,9 +32,7 @@
                         <AnchorPane disable="true" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="727.0">
                             <children>
                                 <ListView fx:id="listViewFeedbacks" layoutX="6.0" layoutY="57.0" prefHeight="402.0" prefWidth="509.0" style="-fx-background-color: white; -fx-border-color: #00afd7;" />
-
-                                <Button ellipsisString="" layoutX="593.0" layoutY="110.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="88.0" style="-fx-background-color: #eeeeee;"></Button>
-                        <Button ellipsisString="" layoutX="555.0" layoutY="109.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="88.0" style="-fx-background-color: #eeeeee;">
+                        <Button ellipsisString="" layoutX="586.0" layoutY="110.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="88.0" style="-fx-background-color: #eeeeee;">
                            <graphic>
                               <ImageView fitHeight="96.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -43,7 +41,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button ellipsisString="" layoutX="555.0" layoutY="213.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="88.0" style="-fx-background-color: #eeeeee;">
+                        <Button ellipsisString="" layoutX="586.0" layoutY="213.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="88.0" style="-fx-background-color: #eeeeee;">
                            <graphic>
                               <ImageView fitHeight="96.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -52,7 +50,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button ellipsisString="" layoutX="555.0" layoutY="317.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="88.0" style="-fx-background-color: #eeeeee;">
+                        <Button ellipsisString="" layoutX="586.0" layoutY="318.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="88.0" style="-fx-background-color: #eeeeee;">
                            <graphic>
                               <ImageView fitHeight="96.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -62,7 +60,7 @@
                            </graphic>
                         </Button>
 
-                        <JFXTextField fx:id="txQueBom" editable="false" layoutX="702.0" layoutY="136.0" maxWidth="132.0" minWidth="82.0" prefHeight="37.0" prefWidth="85.0" stylesheets="@telainicial.css" />
+                        <JFXTextField fx:id="txQueBom" editable="false" layoutX="694.0" layoutY="137.0" maxWidth="132.0" minWidth="82.0" prefHeight="37.0" prefWidth="85.0" stylesheets="@telainicial.css" />
 
                
 
@@ -72,9 +70,9 @@
                            </font>
                         </Text>
 
-                        <JFXTextField fx:id="txQueTal" editable="false" layoutX="702.0" layoutY="240.0" maxWidth="132.0" minWidth="80.0" prefHeight="37.0" prefWidth="85.0" stylesheets="@telainicial.css" />
-                        <JFXTextField fx:id="txQuePena" editable="false" layoutX="702.0" layoutY="344.0" prefHeight="37.0" prefWidth="85.0" stylesheets="@telainicial.css" />
-                        <Button ellipsisString="" layoutX="323.0" layoutY="13.0" mnemonicParsing="false" onAction="#detalhesAction" prefHeight="45.0" prefWidth="192.0" style="-fx-background-color: white; -fx-border-color: #00afd7; -fx-border-radius: 5;" text="  Visualizar detalhes" textFill="#00afd7"></Button>
+                        <JFXTextField fx:id="txQueTal" editable="false" layoutX="694.0" layoutY="240.0" maxWidth="132.0" minWidth="80.0" prefHeight="37.0" prefWidth="85.0" stylesheets="@telainicial.css" />
+                        <JFXTextField fx:id="txQuePena" editable="false" layoutX="694.0" layoutY="345.0" prefHeight="37.0" prefWidth="85.0" stylesheets="@telainicial.css" />
+                        <Button ellipsisString="" layoutX="323.0" layoutY="13.0" mnemonicParsing="false" onAction="#detalhesAction" prefHeight="45.0" prefWidth="192.0" style="-fx-background-color: white; -fx-border-color: #00afd7; -fx-border-radius: 5;" text="  Visualizar detalhes" textFill="#00afd7" />
 
                         <Button ellipsisString="" layoutX="323.0" layoutY="14.0" mnemonicParsing="false" onAction="#detalhesAction" prefHeight="45.0" prefWidth="192.0" style="-fx-background-color: white; -fx-border-color: #00afd7; -fx-border-radius: 5;" text="  Visualizar detalhes" textFill="#00afd7">
 
@@ -86,11 +84,6 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Text fill="#00afd6" layoutX="6.0" layoutY="45.0" opacity="0.51" strokeType="OUTSIDE" strokeWidth="0.0" text="SoftTalk" wrappingWidth="123.935546875">
-                           <font>
-                              <Font size="35.0" />
-                           </font>
-                        </Text>
                             </children>
                         </AnchorPane>
                     </content>
@@ -137,6 +130,11 @@
                               <DropShadow color="#a8a8a8" />
                            </effect>
                         </JFXTextArea>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="520.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagens/logo.png" />
+                           </image>
+                        </ImageView>
                             </children>
                         </AnchorPane>
                     </content>

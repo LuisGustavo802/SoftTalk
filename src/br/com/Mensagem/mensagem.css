@@ -3,10 +3,10 @@
  */
 
 .button{
-    -fx-background-color: #eeeeee;
-    -fx-text-fill: dimgray;
+    -fx-background-color: #505050;
+    -fx-text-fill: white;
     -fx-border-radius: 100;
-    -fx-border-color: #bbbbbb;
+    -fx-border-color: white;
     -fx-background-radius: 100;
 }
 
@@ -22,4 +22,10 @@
 
 .label{
     -fx-alignment:CENTER;
+}
+
+
+.text-area .content{
+    -fx-background-color: dimgray;
+    -fx-border-color: dimgray;
 }

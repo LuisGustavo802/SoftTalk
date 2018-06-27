@@ -145,6 +145,10 @@ public class SendFeedbackController implements Initializable {
         carregaPessoas();
         txaDescricao.setText("");
         feedback.setStatusSend("");
+        btnQueBom.setEffect(null);
+        btnQuePena.setEffect(null);
+        btnQueTal.setEffect(null);
+        
     }
 
     private void carregaEquipes() throws SQLException {
