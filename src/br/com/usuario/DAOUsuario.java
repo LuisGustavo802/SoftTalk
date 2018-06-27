@@ -2,7 +2,6 @@
 package br.com.usuario;
 
 import br.com.Utils.Functions;
-import br.com.equipe.Equipe;
 import br.com.softtalk.SoftTalk;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -38,6 +37,36 @@ public class DAOUsuario {
         }
         
         
+    }
+        public int atualizarUsuario(Usuario usuario) {
+        try {
+
+            String sql = "UPDATE  usuario SET"
+                    + " IDPESSOA =  ?,"
+                    + " EMAIL    =  ?,"
+                    + " LOGIN    =  ?, "
+                    + " SENHA    =  ?, "
+                    + " FLAGATIVO=  ?, "
+                    + " TIPO     =  ? "
+                    + " WHERE IDPESSOA = " + usuario.getIdusuario()+ "; ";
+            PreparedStatement pstm;
+
+            pstm = SoftTalk.conexao.prepareStatement(sql, Statement.KEEP_CURRENT_RESULT);
+            pstm.setInt(1, usuario.getIdpessoa());
+            pstm.setString(2, usuario.getEmail());
+            pstm.setString(3, usuario.getLogin());
+            pstm.setString(4, usuario.getSenha());
+            pstm.setString(5, usuario.getFlagativo());
+            pstm.setString(6, usuario.getTipo());
+            pstm.execute();
+            ResultSet rs = pstm.getGeneratedKeys();
+            rs.next();
+
+            return Functions.SUCCESS;
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            return Functions.FAILURE;
+        }
     }
 
     public List<Usuario> listarUsuarios() throws SQLException {

@@ -42,6 +42,7 @@ public class Feedback {
         this.emailDestinatario = emailDestinatario;  
     }
     
+
     public int getIdFeedBack() {
         return idFeedBack;
     }

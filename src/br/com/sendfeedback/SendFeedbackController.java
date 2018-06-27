@@ -8,7 +8,6 @@ package br.com.sendfeedback;
 import br.com.Utils.DAOUtils;
 import br.com.Utils.EnviarEmail;
 import br.com.feedback.Feedback;
-import br.com.sendfeedback.DAOSendFeedback;
 import br.com.Utils.Functions;
 import br.com.pessoa.DAOPessoa;
 import br.com.pessoa.Pessoa;
@@ -98,18 +97,23 @@ public class SendFeedbackController implements Initializable {
     private void enviar() throws SQLException, IOException, EmailException {
         if (validacoes() == functions.SUCCESS) {
             DAOUtils daoUtils = new DAOUtils();
-
+            EnviarEmail email = new EnviarEmail();
+            
             feedback.setIdUsuarioRemetente(SoftTalk.getIdUsuarioLogado());
             feedback.setTipoFeedback("E");
             feedback.setStatus("P");
             feedback.setDtMovimento(daoUtils.carregaDataServidor());
             feedback.setDescricao(txaDescricao.getText());
             
+
             EnviarEmail email = new EnviarEmail();
             email.enviandoEmail(feedback.getEmailDestinatario() ,2);
 
+
             DAOSendFeedback gravaFeedback = new DAOSendFeedback();
             if (gravaFeedback.enviaFeedback(feedback) > 0) {
+                
+                email.enviandoEmail(feedback.getEmailDestinatario() ,2);
                 inicializaComponentes();
                 functions.abrirMensagem("Gravado com sucesso.");
             } else {

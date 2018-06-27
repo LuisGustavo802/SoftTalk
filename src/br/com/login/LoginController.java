@@ -23,8 +23,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXPasswordField;
-import java.awt.event.KeyEvent;
-import javafx.scene.input.KeyCode;
 
 /**
  *
@@ -112,6 +110,8 @@ public class LoginController {
             } else {
                 Functions.abrirMensagem("Atenção! Usuário inativo.");
             }
+        } else {
+            Functions.abrirMensagem("Atenção! Usuário ou senha incorreto.");
         }
     }
 }

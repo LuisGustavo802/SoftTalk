@@ -25,7 +25,6 @@
                 <TableColumn fx:id="tblQuant" prefWidth="257.0" text="Funcionários registrados:" />
               </columns>
             </TableView>
-
             <JFXTextField fx:id="txNomeEquipe" focusColor="#38d7ff" layoutX="28.0" layoutY="55.0" maxWidth="450.0" minWidth="236.0" prefHeight="37.0" prefWidth="329.0" promptText="Nome da equipe:" stylesheets="@equipe.css">
                <font>
                   <Font size="15.0" />
