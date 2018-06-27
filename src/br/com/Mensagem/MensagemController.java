@@ -39,5 +39,11 @@ public class MensagemController implements Initializable {
     protected void OkAction(ActionEvent event) {
         Functions.stage.close();
     }
+    
+    @FXML
+    protected void FechaAction(ActionEvent event) {
+        Functions.stage.close();
+    }
+
 
 }
