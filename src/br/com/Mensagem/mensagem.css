@@ -12,12 +12,12 @@
 
 .button:hover{
     -fx-background-color: gray;
-    -fx-border-color: gray;
+    -fx-border-color: dimgray;
 }
 
 .button:pressed{
     -fx-background-color: gray;
-    -fx-border-color: gray;
+    -fx-border-color: dimgray;
 }
 
 .label{
@@ -28,4 +28,10 @@
 .text-area .content{
     -fx-background-color: dimgray;
     -fx-border-color: dimgray;
+    -fx-text-alignment: center;
+    -fx-prompt-text-alignment: center; 
+}
+
+.text-area .label{
+    -fx-text-alignment: center;
 }

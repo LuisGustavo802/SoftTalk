@@ -1,3 +1,20 @@
 .text-field{
     -fx-alignment: center;
 }
+
+.button{
+    -fx-background-color: white;
+    -fx-border-color: #00afd7;
+}
+
+.button:hover{
+    -fx-background-color: gray;
+    -fx-text-fill: white;
+    transition-duration: 3s;
+}
+
+.button:pressed{
+    -fx-background-color: gray;
+    -fx-text-fill: white;
+    transition-duration: 3s;
+}

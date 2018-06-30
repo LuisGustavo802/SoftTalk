@@ -42,13 +42,13 @@
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXComboBox fx:id="bxEquipe" layoutX="86.0" layoutY="185.0" prefHeight="31.0" prefWidth="215.0" promptText="Equipe:" stylesheets="@pessoa.css" />
+            <JFXComboBox fx:id="bxEquipe" layoutX="84.0" layoutY="178.0" prefHeight="31.0" prefWidth="215.0" promptText="Equipe:" stylesheets="@pessoa.css" />
             <Text fill="DIMGRAY" layoutX="20.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <Text fill="DIMGRAY" layoutX="20.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Equipe:" wrappingWidth="50.02587890625">
+            <Text fill="DIMGRAY" layoutX="17.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Equipe:" wrappingWidth="50.02587890625">
                <font>
                   <Font size="15.0" />
                </font>
