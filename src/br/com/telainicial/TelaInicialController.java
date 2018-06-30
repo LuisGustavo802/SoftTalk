@@ -10,6 +10,9 @@ import br.com.feedback.DAOFeedback;
 import br.com.feedback.Feedback;
 import br.com.pessoa.DAOPessoa;
 import br.com.sendfeedback.DAOSendFeedback;
+import br.com.sendfeedback.SendFeedbackController;
+import br.com.softtalk.MenuController;
+import br.com.softtalk.SoftTalk;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
@@ -24,7 +27,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -138,6 +144,16 @@ public class TelaInicialController implements Initializable {
             
         } catch (SQLException ex) {
             Logger.getLogger(TelaInicialController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @FXML
+    void sendAction(ActionEvent event) {
+        try {
+            Parent fxmlLoader = FXMLLoader.load(SendFeedbackController.class.getResource("SendFeedback.fxml"));
+            SoftTalk.stage.setScene(new Scene(fxmlLoader));
+        } catch (IOException ex) {
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

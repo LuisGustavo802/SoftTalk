@@ -27,68 +27,87 @@
     <children>
         <JFXTabPane fx:id="abasVisualizacao" layoutX="64.0" prefHeight="500.0" prefWidth="835.0" style="-fx-background-color: #eeeeee;">
             <tabs>
-                <Tab fx:id="aba0" text="Feedbacks recebidos">
+                <Tab fx:id="aba0" text="FEEDBACKS RECEBIDOS">
                     <content>
                         <AnchorPane disable="true" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="727.0">
                             <children>
-                                <ListView fx:id="listViewFeedbacks" layoutX="6.0" layoutY="57.0" prefHeight="402.0" prefWidth="509.0" style="-fx-background-color: white; -fx-border-color: #00afd7;" />
-                        <Button ellipsisString="" layoutX="586.0" layoutY="110.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="88.0" style="-fx-background-color: #eeeeee;">
-                           <graphic>
-                              <ImageView fitHeight="96.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../Imagens/happy.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button ellipsisString="" layoutX="586.0" layoutY="213.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="88.0" style="-fx-background-color: #eeeeee;">
-                           <graphic>
-                              <ImageView fitHeight="96.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../Imagens/smile.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button ellipsisString="" layoutX="586.0" layoutY="318.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="88.0" style="-fx-background-color: #eeeeee;">
-                           <graphic>
-                              <ImageView fitHeight="96.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../Imagens/straight.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
+                        <Pane layoutX="551.0" layoutY="10.0" prefHeight="446.0" prefWidth="262.0" style="-fx-background-color: white; -fx-border-color: #00afd7;">
+                           <children>
+                              <Button ellipsisString="" layoutX="31.0" layoutY="86.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="88.0" style="-fx-background-color: white;">
+                                 <graphic>
+                                    <ImageView fitHeight="96.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Imagens/happy.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button ellipsisString="" layoutX="31.0" layoutY="200.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="88.0" style="-fx-background-color: white;">
+                                 <graphic>
+                                    <ImageView fitHeight="96.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Imagens/smile.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button ellipsisString="" layoutX="31.0" layoutY="310.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="88.0" style="-fx-background-color: white;">
+                                 <graphic>
+                                    <ImageView fitHeight="96.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Imagens/straight.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+      
+                              <JFXTextField fx:id="txQueBom" editable="false" layoutX="138.0" layoutY="109.0" maxWidth="132.0" minWidth="82.0" prefHeight="37.0" prefWidth="85.0" stylesheets="@telainicial.css" />
+      
+                              <JFXTextField fx:id="txQueTal" editable="false" layoutX="138.0" layoutY="224.0" maxWidth="132.0" minWidth="80.0" prefHeight="37.0" prefWidth="85.0" stylesheets="@telainicial.css" />
+                              <JFXTextField fx:id="txQuePena" editable="false" layoutX="138.0" layoutY="339.0" prefHeight="37.0" prefWidth="85.0" stylesheets="@telainicial.css" />
+                           </children>
+                        </Pane>
+                                <ListView fx:id="listViewFeedbacks" layoutX="6.0" layoutY="62.0" prefHeight="394.0" prefWidth="520.0" style="-fx-background-color: white; -fx-border-color: #00afd7;" />
 
-                        <JFXTextField fx:id="txQueBom" editable="false" layoutX="694.0" layoutY="137.0" maxWidth="132.0" minWidth="82.0" prefHeight="37.0" prefWidth="85.0" stylesheets="@telainicial.css" />
-
-               
-
-                        <Text fill="#a4a4a4" layoutX="615.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Meu progresso:">
-                           <font>
-                              <Font name="Franklin Gothic Demi Cond" size="24.0" />
-                           </font>
-                        </Text>
-
-                        <JFXTextField fx:id="txQueTal" editable="false" layoutX="694.0" layoutY="240.0" maxWidth="132.0" minWidth="80.0" prefHeight="37.0" prefWidth="85.0" stylesheets="@telainicial.css" />
-                        <JFXTextField fx:id="txQuePena" editable="false" layoutX="694.0" layoutY="345.0" prefHeight="37.0" prefWidth="85.0" stylesheets="@telainicial.css" />
-                        <Button ellipsisString="" layoutX="323.0" layoutY="13.0" mnemonicParsing="false" onAction="#detalhesAction" prefHeight="45.0" prefWidth="192.0" style="-fx-background-color: white; -fx-border-color: #00afd7; -fx-border-radius: 5;" text="  Visualizar detalhes" textFill="#00afd7" />
-
-                        <Button ellipsisString="" layoutX="323.0" layoutY="14.0" mnemonicParsing="false" onAction="#detalhesAction" prefHeight="45.0" prefWidth="192.0" style="-fx-background-color: white; -fx-border-color: #00afd7; -fx-border-radius: 5;" text="  Visualizar detalhes" textFill="#00afd7">
+                        <Button alignment="CENTER" ellipsisString="" layoutX="270.0" layoutY="10.0" mnemonicParsing="false" onAction="#detalhesAction" prefHeight="45.0" prefWidth="256.0" stylesheets="@telainicial.css" text="  VISUALIZAR DETALHES" textFill="#00afd7">
 
                            <graphic>
-                              <ImageView fitHeight="33.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Imagens/eye.png" />
                                  </image>
                               </ImageView>
                            </graphic>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
                         </Button>
+                        <Button alignment="CENTER" layoutX="6.0" layoutY="10.0" mnemonicParsing="false" onAction="#sendAction" prefHeight="45.0" prefWidth="256.0" stylesheets="@telainicial.css" text="  ENVIAR FEEDBACK" textFill="#00afd7">
+                           <graphic>
+                              <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Imagens/email.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Button>
+                        <Pane layoutX="551.0" layoutY="9.0" opacity="0.8" prefHeight="45.0" prefWidth="262.0" style="-fx-background-color: #00afd7; -fx-border-color: #00afd7;">
+                           <children>
+                              <Text fill="WHITE" layoutX="52.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MEU PROGRESSO">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Pane>
                             </children>
                         </AnchorPane>
                     </content>
                 </Tab>
-                <Tab fx:id="aba1" text="Detalhes">
+                <Tab fx:id="aba1" text="DETALHES">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
@@ -130,7 +149,7 @@
                               <DropShadow color="#a8a8a8" />
                            </effect>
                         </JFXTextArea>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="520.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="532.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Imagens/logo.png" />
                            </image>
@@ -140,9 +159,6 @@
                     </content>
                 </Tab>
             </tabs>
-         <effect>
-            <InnerShadow color="#eeeeee" />
-         </effect>
         </JFXTabPane>
         <fx:include fx:id="testePesquisa" source="../softtalk/Menu.fxml" />
     </children>
